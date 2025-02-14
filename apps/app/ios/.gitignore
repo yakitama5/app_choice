@@ -35,3 +35,6 @@ Runner/GeneratedPluginRegistrant.*
 
 # Environment file.
 Environment.xcconfig
+
+# Firebase
+GoogleService-Info.plist

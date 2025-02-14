@@ -20,4 +20,4 @@ app/src/main/res/values/colors.xml
 .cxx
 
 # Firebase (temporary)
-app/google-services.json
+google-services.json
