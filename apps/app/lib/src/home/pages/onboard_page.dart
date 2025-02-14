@@ -21,7 +21,7 @@ class OnboardPage extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                _WelcomeImage(),
+                // _WelcomeImage(),
                 Gap(16),
                 _StartButton(),
                 Gap(40),
@@ -42,7 +42,6 @@ class OnboardPage extends StatelessWidget {
 class _WelcomeImage extends StatelessWidget {
   const _WelcomeImage();
 
-  // ignore: low_readability_numeric_literals
   static const Color _rawPrimary = Color(0xff21005D);
 
   @override
@@ -73,9 +72,10 @@ class _StartButton extends ConsumerWidget with PresentationMixin {
       children: [
         WidthFillBox(
           child: FilledButton(
-            onPressed: () => execute(
-              action: () async => ref.read(userUsecaseProvider).signUp(),
-            ),
+            onPressed:
+                () => execute(
+                  action: () async => ref.read(userUsecaseProvider).signUp(),
+                ),
             child: Text(i18n.user.onboardPage.start),
           ),
         ),
@@ -94,9 +94,10 @@ class _SignInWithGoogleButton extends ConsumerWidget with PresentationMixin {
   Widget build(BuildContext context, WidgetRef ref) {
     return WidthFillBox(
       child: OutlinedButton.icon(
-        onPressed: () => execute(
-          action: () => ref.read(userUsecaseProvider).signInWithGoogle(),
-        ),
+        onPressed:
+            () => execute(
+              action: () => ref.read(userUsecaseProvider).signInWithGoogle(),
+            ),
         label: Text(i18n.user.onboardPage.signInWithGoogle),
         icon: Icon(MdiIcons.google),
       ),
@@ -112,14 +113,12 @@ class _SignInWithAppleButton extends ConsumerWidget with PresentationMixin {
 
     return WidthFillBox(
       child: OutlinedButton.icon(
-        onPressed: () => execute(
-          action: () => ref.read(userUsecaseProvider).signInWithApple(),
-        ),
+        onPressed:
+            () => execute(
+              action: () => ref.read(userUsecaseProvider).signInWithApple(),
+            ),
         label: Text(i18n.user.onboardPage.signInWithApple),
-        icon: Icon(
-          MdiIcons.apple,
-          color: cs.onSurface,
-        ),
+        icon: Icon(MdiIcons.apple, color: cs.onSurface),
       ),
     );
   }
@@ -138,12 +137,8 @@ class _Links extends HookWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Flexible(
-                child: ContactUsLink(),
-              ),
-              Flexible(
-                child: PrivacyPollicyLink(),
-              ),
+              Flexible(child: ContactUsLink()),
+              Flexible(child: PrivacyPollicyLink()),
             ],
           ),
         ),
