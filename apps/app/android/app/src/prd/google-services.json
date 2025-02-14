@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:899934807737:android:c6dfe05db4690e1715dd68",
         "android_client_info": {
-          "package_name": "com.yakuran.template"
+          "package_name": "com.yakuran.choice"
         }
       },
       "oauth_client": [
@@ -34,7 +34,7 @@
               "client_id": "899934807737-cmq7nu25qi7k4tqe4hjji0d80quj1jb9.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.yakuran.template"
+                "bundle_id": "com.yakuran.choice"
               }
             }
           ]
@@ -45,7 +45,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:899934807737:android:497de452d7ab83a015dd68",
         "android_client_info": {
-          "package_name": "com.yakuran.template.dev"
+          "package_name": "com.yakuran.choice.dev"
         }
       },
       "oauth_client": [
@@ -53,7 +53,7 @@
           "client_id": "899934807737-v5col7di0a4hngfeg7u8b2og1mcn9dis.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.yakuran.template.dev",
+            "package_name": "com.yakuran.choice.dev",
             "certificate_hash": "0b1964dfe105405d9d790553458d527cd297b392"
           }
         },
@@ -78,7 +78,7 @@
               "client_id": "899934807737-cmq7nu25qi7k4tqe4hjji0d80quj1jb9.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.yakuran.template"
+                "bundle_id": "com.yakuran.choice"
               }
             }
           ]

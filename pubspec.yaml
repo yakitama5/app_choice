@@ -1,4 +1,4 @@
-name: template_workspace
+name: choice
 
 environment:
   sdk: ^3.7.0

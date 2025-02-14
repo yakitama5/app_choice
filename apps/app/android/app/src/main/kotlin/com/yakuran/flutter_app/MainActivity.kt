@@ -1,4 +1,4 @@
-package com.yakuran.flutter_app
+package com.yakuran.choice
 
 import io.flutter.embedding.android.FlutterActivity
 

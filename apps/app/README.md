@@ -27,4 +27,4 @@ This is a template project for Android and iOS apps.
 |  | Dev | Stg | Prd |
 |:-:|:-:|:-:|:-:|
 | APP_NAME | dev-Template | stg-Template | Template |
-| APP_ID | com.yakuran.template.dev | com.yakuran.template.stg | com.yakuran.template.template |
+| APP_ID | com.yakuran.choice.dev | com.yakuran.choice.stg | com.yakuran.choice.template |
