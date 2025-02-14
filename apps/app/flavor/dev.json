@@ -1,0 +1,7 @@
+{
+  "flavor": "dev",
+  "appName": "dev-Template",
+  "appIdAndroid": "com.yakuran.template",
+  "appIdIos": "com.yakuran.template",
+  "appIdSuffix": ".dev"
+}

@@ -1,0 +1,25 @@
+name: cores_dependency_override
+description: "This package provides core features of app."
+publish_to: "none"
+version: 0.0.1
+
+environment:
+  sdk: ^3.7.0
+
+dependencies:
+  cores_domain:
+    path: ../domain
+  infrastructure_firebase:
+    path: ../../infrastructure/firebase
+  infrastructure_mock:
+    path: ../../infrastructure/mock
+  infrastructure_shared_preferences:
+    path: ../../infrastructure/shared_preferences
+  riverpod: ^2.6.1
+
+dev_dependencies:
+  custom_lint: ^0.7.0
+  nilts: any
+  pedantic_mono: null
+
+resolution: workspace

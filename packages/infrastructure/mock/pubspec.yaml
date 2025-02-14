@@ -1,0 +1,20 @@
+name: infrastructure_mock
+description: "A new Flutter package project."
+version: 0.0.1
+publish_to: "none"
+
+environment:
+  sdk: ^3.7.0
+
+dependencies:
+  clock: ^1.1.1
+  collection: any
+  cores_domain:
+    path: ../../cores/domain
+  riverpod: ^2.6.1
+
+dev_dependencies:
+  nilts: any
+  pedantic_mono: null
+
+resolution: workspace

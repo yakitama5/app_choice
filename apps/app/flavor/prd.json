@@ -1,0 +1,7 @@
+{
+  "flavor": "prd",
+  "appName": "Template",
+  "appIdAndroid": "com.yakuran.template",
+  "appIdIos": "com.yakuran.template",
+  "appIdSuffix": ""
+}

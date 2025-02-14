@@ -1,0 +1,24 @@
+fallback_strategy: base_locale
+input_directory: assets/i18n
+output_directory: lib/i18n
+translate_var: i18n
+input_file_pattern: .i18n.yaml
+namespaces: true
+lazy: false
+
+# Config
+imports:
+  - "package:cores_domain/designsystem.dart"
+  - "package:flutter/material.dart"
+  - "package:cores_domain/core.dart"
+contexts:
+  UIStyle:
+    generate_enum: false
+  ThemeColor:
+    generate_enum: false
+  ViewLayout:
+    generate_enum: false
+  ThemeMode:
+    generate_enum: false
+  SortOrder:
+    generate_enum: false
