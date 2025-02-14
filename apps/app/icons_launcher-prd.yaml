@@ -4,7 +4,7 @@ icons_launcher:
     android:
       enable: true
       image_path: "assets/launcher_icon/icon_prd.png"
-      adaptive_background_color: '#FFFFFF'
+      adaptive_background_color: '#0F131B'
       # adaptive_background_image: "assets/ic_background.png"
       adaptive_foreground_image: "assets/launcher_icon/icon_adaptive_prd.png"
       adaptive_round_image: "assets/launcher_icon/icon_adaptive_prd.png"
