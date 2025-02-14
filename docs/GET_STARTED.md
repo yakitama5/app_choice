@@ -70,10 +70,10 @@ Firebaseを利用する場合は下記の手順を実施してください。
     cd apps/app
 
     # 開発環境
-    flutterfire configure --out=../../packages/infrastructure/firebase/lib/src/common/config/firebase_options_dev.dart -p yakuran-choice-app-dev --platforms=web,android,ios -i com.yakuran.choice.dev -a com.yakuran.choice.dev
+    flutterfire configure --out=../../packages/infrastructure/firebase/lib/src/common/config/firebase_options_dev.dart -p [DevProjectID] --platforms=web,android,ios -i com.yakuran.choice.dev -a com.yakuran.choice.dev
 
     # 本番環境
-    flutterfire configure --out=../../packages/infrastructure/firebase/lib/src/common/config/firebase_options.dart -p yakuran-choice-app --platforms=web,android,ios -i com.yakuran.choice -a com.yakuran.choice
+    flutterfire configure --out=../../packages/infrastructure/firebase/lib/src/common/config/firebase_options.dart -p [ProjectID] --platforms=web,android,ios -i com.yakuran.choice -a com.yakuran.choice
     ```
   
   - 下記のファイルをそれぞれ環境別のディレクトリに配置する
