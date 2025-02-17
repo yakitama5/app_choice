@@ -2,7 +2,6 @@ import 'package:cores_designsystem/widgets.dart';
 import 'package:cores_domain/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/i18n/strings.g.dart';
-import 'package:flutter_app/src/gen/assets/assets.gen.dart';
 import 'package:flutter_app/src/settings/components/components.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
@@ -21,7 +20,6 @@ class OnboardPage extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                // _WelcomeImage(),
                 Gap(16),
                 _StartButton(),
                 Gap(40),
@@ -34,26 +32,6 @@ class OnboardPage extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class _WelcomeImage extends StatelessWidget {
-  const _WelcomeImage();
-
-  static const Color _rawPrimary = Color(0xff21005D);
-
-  @override
-  Widget build(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
-
-    return ImageAspectRatio(
-      child: SvgAssetImage(
-        path: Assets.images.welcomeCats,
-        replaceColors: [
-          SvgReplaceColors(rawColor: _rawPrimary, color: cs.primary),
-        ],
       ),
     );
   }

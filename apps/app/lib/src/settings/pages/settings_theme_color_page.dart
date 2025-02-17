@@ -12,9 +12,7 @@ import '../components/src/settings_radio_list_tile.dart';
 import '../components/src/settings_radio_scaffold.dart';
 
 class SettingsThemeColorPage extends HookConsumerWidget {
-  const SettingsThemeColorPage({
-    super.key,
-  });
+  const SettingsThemeColorPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -39,41 +37,41 @@ class SettingsThemeColorPage extends HookConsumerWidget {
 
     return SettingsRadioScaffold(
       title: i18n.settings.settingsPage.layout.colorTheme,
-      tiles: values.map((themeColor) {
-        return SettingsRadioListTile<ThemeColor>(
-          title: Text(
-            designsystemI18n.designsystem.themeColor(context: themeColor),
-          ),
-          value: themeColor,
-          groupValue: selected.value,
-          leading: switch (themeColor) {
-            ThemeColor.dynamicColor => const Icon(Icons.person),
-            ThemeColor.appColor => CommonAssets.images.logo.image(
-                height: 24,
-                width: 24,
+      tiles:
+          values.map((themeColor) {
+            return SettingsRadioListTile<ThemeColor>(
+              title: Text(
+                designsystemI18n.designsystem.themeColor(context: themeColor),
               ),
-            // 参考カラーを表示
-            ThemeColor.blue ||
-            ThemeColor.purple ||
-            ThemeColor.green ||
-            ThemeColor.red ||
-            ThemeColor.pink ||
-            ThemeColor.yellow ||
-            ThemeColor.orange =>
-              SizedBox(
-                height: 24,
-                width: 24,
-                child: ColoredBox(
-                  color: themeColor.seedColor!,
+              value: themeColor,
+              groupValue: selected.value,
+              leading: switch (themeColor) {
+                ThemeColor.dynamicColor => const Icon(Icons.person),
+                ThemeColor.appColor => CommonAssets.images.logoDark.image(
+                  height: 24,
+                  width: 24,
                 ),
-              ),
-          },
-          onChanged: (value) {
-            selected.value = themeColor;
-            ref.read(themeColorNotifierProvider.notifier).update(themeColor);
-          },
-        );
-      }).toList(),
+                // 参考カラーを表示
+                ThemeColor.blue ||
+                ThemeColor.purple ||
+                ThemeColor.green ||
+                ThemeColor.red ||
+                ThemeColor.pink ||
+                ThemeColor.yellow ||
+                ThemeColor.orange => SizedBox(
+                  height: 24,
+                  width: 24,
+                  child: ColoredBox(color: themeColor.seedColor!),
+                ),
+              },
+              onChanged: (value) {
+                selected.value = themeColor;
+                ref
+                    .read(themeColorNotifierProvider.notifier)
+                    .update(themeColor);
+              },
+            );
+          }).toList(),
     );
   }
 }

@@ -26,9 +26,7 @@ const settingShellBranch = TypedStatefulShellBranch<SettingShellBranch>(
         TypedGoRoute<SettingsThemeModePageRoute>(
           path: SettingsThemeModePageRoute.path,
         ),
-        TypedGoRoute<LicensePageRoute>(
-          path: LicensePageRoute.path,
-        ),
+        TypedGoRoute<LicensePageRoute>(path: LicensePageRoute.path),
       ],
     ),
   ],
@@ -57,7 +55,10 @@ class LicensePageRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return LicensePage(
-      applicationIcon: CommonAssets.images.logo.image(height: 120, width: 120),
+      applicationIcon: CommonAssets.images.logoDark.image(
+        height: 120,
+        width: 120,
+      ),
     );
   }
 }
