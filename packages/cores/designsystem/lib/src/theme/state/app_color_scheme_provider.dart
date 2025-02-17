@@ -64,7 +64,7 @@ ColorScheme _colorScheme(
 ColorScheme _defaultColorScheme(Brightness brightness) {
   // HACK(yakitama5): プレゼン層に依存している
   return switch (brightness) {
-    Brightness.light => MaterialTheme.lightScheme(),
-    Brightness.dark => MaterialTheme.darkScheme(),
+    Brightness.light => lightScheme,
+    Brightness.dark => darkScheme,
   };
 }

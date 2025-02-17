@@ -10,6 +10,7 @@ environment:
 dependencies:
   adaptive_dialog: ^2.4.0
   animated_to: ^0.2.0
+  auto_size_text: ^3.0.0
   cores_dependency_override:
     path: ../../packages/cores/dependency_override
   cores_designsystem:
@@ -25,6 +26,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_settings_ui: ^3.0.1
+  flutter_svg: ^2.0.17
   freezed_annotation: any
   gap: any
   go_router: any

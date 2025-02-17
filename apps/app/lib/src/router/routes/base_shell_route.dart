@@ -1,7 +1,7 @@
 import 'package:cores_designsystem/keys.dart';
 import 'package:cores_designsystem/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/src/home/pages/onboard_page.dart';
+import 'package:flutter_app/src/onboard/pages/onboard_page.dart';
 import 'package:flutter_app/src/router/routes/branches/home_shell_branch.dart';
 import 'package:flutter_app/src/router/routes/branches/search_shell_branch.dart';
 import 'package:flutter_app/src/router/routes/branches/setting_shell_branch.dart';
@@ -10,8 +10,9 @@ import 'package:go_router/go_router.dart';
 
 part 'base_shell_route.g.dart';
 
-final GlobalKey<NavigatorState> _shellNavigatorKey =
-    GlobalKey<NavigatorState>(debugLabel: 'shell');
+final GlobalKey<NavigatorState> _shellNavigatorKey = GlobalKey<NavigatorState>(
+  debugLabel: 'shell',
+);
 
 @TypedShellRoute<BaseShellSroute>(
   routes: [
@@ -19,11 +20,7 @@ final GlobalKey<NavigatorState> _shellNavigatorKey =
     TypedGoRoute<OnboardRoute>(path: OnboardRoute.path),
     TypedGoRoute<MaintenancePageRoute>(path: MaintenancePageRoute.path),
     TypedStatefulShellRoute<NavigatorPageShellRoute>(
-      branches: [
-        homeShellBranch,
-        searchShellBranch,
-        settingShellBranch,
-      ],
+      branches: [homeShellBranch, searchShellBranch, settingShellBranch],
     ),
   ],
 )
@@ -43,12 +40,8 @@ class RootRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
-      // ぐるぐる回すだけ
-      const Scaffold(
-        body: Center(
-          child: CircularProgressIndicator.adaptive(),
-        ),
-      );
+  // ぐるぐる回すだけ
+  const Scaffold(body: Center(child: CircularProgressIndicator.adaptive()));
 }
 
 class OnboardRoute extends GoRouteData {
@@ -83,8 +76,6 @@ class MaintenancePageRoute extends GoRouteData {
 
   @override
   Page<void> buildPage(BuildContext context, GoRouterState state) {
-    return const NoTransitionPage<Page<dynamic>>(
-      child: MaintenancePage(),
-    );
+    return const NoTransitionPage<Page<dynamic>>(child: MaintenancePage());
   }
 }
