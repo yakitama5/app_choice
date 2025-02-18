@@ -1,9 +1,10 @@
 import 'package:cores_designsystem/i18n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/src/onboard/components/question_message.dart';
 import 'package:flutter_app/src/onboard/components/welcome_app_logo.dart';
-import 'package:flutter_app/src/onboard/components/welcome_message.dart';
 import 'package:flutter_app/src/onboard/enum/onboard_animation_state.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:gap/gap.dart';
 
 class OnboardPage extends HookWidget {
   const OnboardPage({super.key});
@@ -12,76 +13,77 @@ class OnboardPage extends HookWidget {
   Widget build(BuildContext context) {
     final animationState = useState(OnboardAnimationState.initial);
 
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(12),
-          child: Stack(
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsetsDirectional.all(12),
+          child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(bottom: 320),
-                child: Center(
-                  child: WelcomeAppLogo(animationState: animationState.value),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.only(bottom: 32),
+                    child: WelcomeAppLogo(animationState: animationState.value),
+                  ),
                 ),
               ),
-              Center(
-                child: WelcomeMessage(
-                  onShowedMessage: () {
-                    if (animationState.value ==
-                        OnboardAnimationState.showedWelcomeMessage) {
-                      Future<void>.delayed(
-                        const Duration(milliseconds: 1000),
-                      ).then((_) {
-                        animationState.value = animationState.value.next();
-                      });
-                    }
+              QuestionMessage(
+                animationState: animationState.value,
+                onShowedMessage: () {
+                  Future<void>.delayed(const Duration(milliseconds: 1000)).then(
+                    (_) {
+                      animationState.value = animationState.value.next();
+                    },
+                  );
+                },
+                onHidMessage: () {
+                  Future<void>.delayed(const Duration(milliseconds: 1000)).then(
+                    (_) {
+                      animationState.value = animationState.value.next();
+                    },
+                  );
+                },
+              ),
+              Expanded(
+                child: SelectedButtons(
+                  onPressedYes: () {
+                    animationState.value = OnboardAnimationState.selectedYes;
+                  },
+                  onPressedNo: () {
+                    animationState.value = OnboardAnimationState.selectedNo;
                   },
                   animationState: animationState.value,
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 64),
-                  child: SelectedButtonList(
-                    onPressedYes:
-                        () =>
-                            animationState.value =
-                                OnboardAnimationState.selectedYes,
-                    onPressedNo:
-                        () =>
-                            animationState.value =
-                                OnboardAnimationState.selectedNo,
-                    animationState: animationState.value,
-                  ),
                 ),
               ),
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            animationState.value = OnboardAnimationState.initial;
-
-            Future<void>.delayed(const Duration(milliseconds: 1000)).then((_) {
-              animationState.value = animationState.value.next();
-            });
-          },
-          child: const Icon(Icons.replay),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          animationState.value = OnboardAnimationState.initial;
+
+          Future<void>.delayed(const Duration(milliseconds: 1000)).then((_) {
+            animationState.value = animationState.value.next();
+          });
+        },
+        child: const Icon(Icons.replay),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
     );
   }
 }
 
-class SelectedButtonList extends StatelessWidget {
-  const SelectedButtonList({
+class SelectedButtons extends StatelessWidget {
+  const SelectedButtons({
     super.key,
     required this.onPressedYes,
     required this.onPressedNo,
     required this.animationState,
   });
+
+  static const animationDuration = Duration(milliseconds: 500);
 
   final VoidCallback onPressedYes;
   final VoidCallback onPressedNo;
@@ -93,46 +95,92 @@ class SelectedButtonList extends StatelessWidget {
       curve: Curves.easeInQuint,
       opacity: switch (animationState) {
         OnboardAnimationState.initial ||
-        OnboardAnimationState.showedWelcomeMessage => 0,
+        OnboardAnimationState.showedQuestion => 0,
         _ => 1,
       },
-      duration: const Duration(milliseconds: 500),
+      duration: animationDuration,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          AnimatedOpacity(
-            opacity: switch (animationState) {
-              OnboardAnimationState.initial ||
-              OnboardAnimationState.showedWelcomeMessage ||
-              OnboardAnimationState.selectedNo => 0,
-              _ => 1,
-            },
-            duration: const Duration(milliseconds: 500),
-            child: SizedBox(
-              width: double.infinity,
-              child: FilledButton(
-                onPressed: onPressedYes,
-                child: Text(commonI18n.common.yes),
-              ),
-            ),
+          YesButton(
+            onPressed: onPressedYes,
+            animationState: animationState,
+            duration: animationDuration,
           ),
-          AnimatedOpacity(
-            opacity: switch (animationState) {
-              OnboardAnimationState.initial ||
-              OnboardAnimationState.showedWelcomeMessage ||
-              OnboardAnimationState.selectedYes => 0,
-              _ => 1,
-            },
-            duration: const Duration(milliseconds: 500),
-            child: SizedBox(
-              width: double.infinity,
-              child: FilledButton.tonal(
-                onPressed: onPressedYes,
-                child: Text(commonI18n.common.no),
-              ),
-            ),
+          const Gap(12),
+          NoButton(
+            onPressed: onPressedNo,
+            animationState: animationState,
+            duration: animationDuration,
           ),
+          const Gap(32),
         ],
+      ),
+    );
+  }
+}
+
+class YesButton extends StatelessWidget {
+  const YesButton({
+    super.key,
+    required this.onPressed,
+    required this.animationState,
+    required this.duration,
+  });
+
+  final VoidCallback onPressed;
+  final OnboardAnimationState animationState;
+  final Duration duration;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedOpacity(
+      opacity: switch (animationState) {
+        OnboardAnimationState.initial ||
+        OnboardAnimationState.showedQuestion ||
+        OnboardAnimationState.selectedNo => 0,
+        _ => 1,
+      },
+      duration: duration,
+      child: SizedBox(
+        width: double.infinity,
+        child: FilledButton(
+          onPressed: onPressed,
+          child: Text(commonI18n.common.yes),
+        ),
+      ),
+    );
+  }
+}
+
+class NoButton extends StatelessWidget {
+  const NoButton({
+    super.key,
+    required this.onPressed,
+    required this.animationState,
+    required this.duration,
+  });
+
+  final VoidCallback onPressed;
+  final OnboardAnimationState animationState;
+  final Duration duration;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedOpacity(
+      opacity: switch (animationState) {
+        OnboardAnimationState.initial ||
+        OnboardAnimationState.showedQuestion ||
+        OnboardAnimationState.selectedYes => 0,
+        _ => 1,
+      },
+      duration: duration,
+      child: SizedBox(
+        width: double.infinity,
+        child: FilledButton.tonal(
+          onPressed: onPressed,
+          child: Text(commonI18n.common.no),
+        ),
       ),
     );
   }

@@ -6,8 +6,10 @@ class WelcomeAppLogo extends StatelessWidget {
   const WelcomeAppLogo({
     super.key,
     required this.animationState,
-    this.size = 364,
+    this.size = 240,
   });
+
+  static const animationDuration = Duration(milliseconds: 500);
 
   final OnboardAnimationState animationState;
   final double size;
@@ -15,18 +17,19 @@ class WelcomeAppLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedOpacity(
+      // 初期状態以降は常に表示
       opacity: switch (animationState) {
         OnboardAnimationState.initial => 0,
-        OnboardAnimationState.showedWelcomeMessage => 1,
-        OnboardAnimationState.showedChoices => 1,
-        OnboardAnimationState.selectedYes => 1,
-        OnboardAnimationState.selectedNo => 1,
+        _ => 1,
       },
-      duration: const Duration(milliseconds: 500),
+      duration: animationDuration,
       child: CommonAssets.images.logoSvg.svg(
         width: size,
         height: size,
-        color: Theme.of(context).colorScheme.onSurface,
+        colorFilter: ColorFilter.mode(
+          Theme.of(context).colorScheme.onSurface,
+          BlendMode.srcIn,
+        ),
       ),
     );
   }
