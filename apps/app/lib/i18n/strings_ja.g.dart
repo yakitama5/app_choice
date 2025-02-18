@@ -51,6 +51,7 @@ class _TranslationsAppJa extends TranslationsAppEn {
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
+	@override late final _TranslationsAppOnboardPageJa onboardPage = _TranslationsAppOnboardPageJa._(_root);
 	@override late final _TranslationsAppBottomNavBarJa bottomNavBar = _TranslationsAppBottomNavBarJa._(_root);
 	@override late final _TranslationsAppHomePageJa homePage = _TranslationsAppHomePageJa._(_root);
 }
@@ -106,6 +107,16 @@ class _TranslationsUserJa extends TranslationsUserEn {
 	// Translations
 	@override late final _TranslationsUserUserPageJa userPage = _TranslationsUserUserPageJa._(_root);
 	@override late final _TranslationsUserOnboardPageJa onboardPage = _TranslationsUserOnboardPageJa._(_root);
+}
+
+// Path: app.onboardPage
+class _TranslationsAppOnboardPageJa extends TranslationsAppOnboardPageEn {
+	_TranslationsAppOnboardPageJa._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get firstQuestion => 'アプリを利用しますか？';
 }
 
 // Path: app.bottomNavBar
@@ -301,6 +312,7 @@ class _TranslationsSettingsAccountPageLeaveConfirmDialogJa extends TranslationsS
 extension on TranslationsJa {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
+			case 'app.onboardPage.firstQuestion': return 'アプリを利用しますか？';
 			case 'app.bottomNavBar.home': return 'ホーム';
 			case 'app.bottomNavBar.search': return '探す';
 			case 'app.bottomNavBar.settings': return '設定';

@@ -41,7 +41,7 @@ class SettingsThemeColorPage extends HookConsumerWidget {
           values.map((themeColor) {
             return SettingsRadioListTile<ThemeColor>(
               title: Text(
-                designsystemI18n.designsystem.themeColor(context: themeColor),
+                commonI18n.designsystem.themeColor(context: themeColor),
               ),
               value: themeColor,
               groupValue: selected.value,

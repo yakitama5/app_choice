@@ -11,9 +11,7 @@ import '../components/src/settings_radio_list_tile.dart';
 import '../components/src/settings_radio_scaffold.dart';
 
 class SettingsUiStylePage extends HookConsumerWidget {
-  const SettingsUiStylePage({
-    super.key,
-  });
+  const SettingsUiStylePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -22,18 +20,19 @@ class SettingsUiStylePage extends HookConsumerWidget {
 
     return SettingsRadioScaffold(
       title: i18n.settings.settingsPage.layout.uiStyle,
-      tiles: UIStyle.values.map((style) {
-        return SettingsRadioListTile<UIStyle>(
-          title: Text(designsystemI18n.designsystem.uiStyle(context: style)),
-          value: style,
-          groupValue: selected.value,
-          leading: Icon(style.iconData),
-          onChanged: (_) {
-            selected.value = style;
-            ref.read(uiStyleProvider.notifier).update(style);
-          },
-        );
-      }).toList(),
+      tiles:
+          UIStyle.values.map((style) {
+            return SettingsRadioListTile<UIStyle>(
+              title: Text(commonI18n.designsystem.uiStyle(context: style)),
+              value: style,
+              groupValue: selected.value,
+              leading: Icon(style.iconData),
+              onChanged: (_) {
+                selected.value = style;
+                ref.read(uiStyleProvider.notifier).update(style);
+              },
+            );
+          }).toList(),
     );
   }
 }

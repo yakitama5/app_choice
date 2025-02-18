@@ -9,7 +9,7 @@ part of 'theme_color_notifier_provider.dart';
 // **************************************************************************
 
 String _$themeColorNotifierHash() =>
-    r'2edd119cb424a9e778e9af1d98a7d643e56f7fd1';
+    r'a2fecca7060c780184a101cc65a415aee6826203';
 
 /// テーマカラーを管理するProvider
 /// SharedPreferencesの同期を待たずにUIに反映するため、Notifierを利用している

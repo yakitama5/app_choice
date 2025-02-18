@@ -37,7 +37,19 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final Translations _root = this; // ignore: unused_field
 
 	// Translations
+	late final TranslationsCommonEn common = TranslationsCommonEn.internal(_root);
 	late final TranslationsDesignsystemEn designsystem = TranslationsDesignsystemEn.internal(_root);
+}
+
+// Path: common
+class TranslationsCommonEn {
+	TranslationsCommonEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get yes => 'Yes';
+	String get no => 'No';
 }
 
 // Path: designsystem
@@ -156,6 +168,8 @@ class TranslationsDesignsystemAppUpdateForceUpdateEn {
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
+			case 'common.yes': return 'Yes';
+			case 'common.no': return 'No';
 			case 'designsystem.uiStyle': return ({required UIStyle context}) {
 				switch (context) {
 					case UIStyle.system:

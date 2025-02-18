@@ -51,6 +51,7 @@ class TranslationsAppEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+	late final TranslationsAppOnboardPageEn onboardPage = TranslationsAppOnboardPageEn.internal(_root);
 	late final TranslationsAppBottomNavBarEn bottomNavBar = TranslationsAppBottomNavBarEn.internal(_root);
 	late final TranslationsAppHomePageEn homePage = TranslationsAppHomePageEn.internal(_root);
 }
@@ -106,6 +107,16 @@ class TranslationsUserEn {
 	// Translations
 	late final TranslationsUserUserPageEn userPage = TranslationsUserUserPageEn.internal(_root);
 	late final TranslationsUserOnboardPageEn onboardPage = TranslationsUserOnboardPageEn.internal(_root);
+}
+
+// Path: app.onboardPage
+class TranslationsAppOnboardPageEn {
+	TranslationsAppOnboardPageEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get firstQuestion => 'Do you use the app?';
 }
 
 // Path: app.bottomNavBar
@@ -301,6 +312,7 @@ class TranslationsSettingsAccountPageLeaveConfirmDialogEn {
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
+			case 'app.onboardPage.firstQuestion': return 'Do you use the app?';
 			case 'app.bottomNavBar.home': return 'Home';
 			case 'app.bottomNavBar.search': return 'Search';
 			case 'app.bottomNavBar.settings': return 'Settings';

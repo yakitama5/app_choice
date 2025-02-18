@@ -1,4 +1,5 @@
 import 'package:cores_dependency_override/dependency_override.dart';
+import 'package:cores_designsystem/designsystem_initializer.dart';
 import 'package:cores_designsystem/i18n.dart';
 import 'package:cores_domain/core.dart';
 import 'package:device_preview/device_preview.dart';
@@ -16,6 +17,7 @@ void main() async {
   // アプリの初期処理
   WidgetsFlutterBinding.ensureInitialized();
   final (buildConfig: buildConfig) = await AppInitializer.initialize();
+  await DesignsystemInitializer.initialize();
   LocaleSettings.useDeviceLocaleSync();
 
   // インフラ層の初期処理
@@ -51,9 +53,7 @@ class _AppTranslationProvider extends SingleChildStatelessWidget {
 
   @override
   Widget buildWithChild(BuildContext context, Widget? child) =>
-      TranslationProvider(
-        child: child ?? const SizedBox.shrink(),
-      );
+      TranslationProvider(child: child ?? const SizedBox.shrink());
 }
 
 class _DevicePreviewWrapper extends SingleChildStatelessWidget {

@@ -21,6 +21,7 @@ dependencies:
   freezed_annotation: null
   gap: null
   gauge_indicator: null
+  google_fonts: ^6.2.1
   hooks_riverpod: ^2.6.1
   linked_scroll_controller: null
   material_color_utilities: null

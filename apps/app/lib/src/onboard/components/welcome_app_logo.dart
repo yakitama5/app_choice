@@ -6,7 +6,7 @@ class WelcomeAppLogo extends StatelessWidget {
   const WelcomeAppLogo({
     super.key,
     required this.animationState,
-    this.size = 128,
+    this.size = 364,
   });
 
   final OnboardAnimationState animationState;
@@ -23,7 +23,11 @@ class WelcomeAppLogo extends StatelessWidget {
         OnboardAnimationState.selectedNo => 1,
       },
       duration: const Duration(milliseconds: 500),
-      child: CommonAssets.images.logoSvg.svg(width: size, height: size),
+      child: CommonAssets.images.logoSvg.svg(
+        width: size,
+        height: size,
+        color: Theme.of(context).colorScheme.onSurface,
+      ),
     );
   }
 }

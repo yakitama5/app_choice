@@ -18,9 +18,10 @@ AutoDisposeNotifierProviderImpl<_ThemeMode, ThemeMode> get themeModeProvider =>
 class _ThemeMode extends _$ThemeMode {
   ThemeRepository get _repository => ref.watch(themeRepositoryProvider);
 
+  /// 初期状態はダークモード
   @override
   ThemeMode build() =>
-      _repository.fetchThemeMode()?.themeMode ?? AppThemeMode.system.themeMode;
+      _repository.fetchThemeMode()?.themeMode ?? AppThemeMode.dark.themeMode;
 
   Future<void> update(ThemeMode themeMode) async {
     final appThemeMode = switch (themeMode) {

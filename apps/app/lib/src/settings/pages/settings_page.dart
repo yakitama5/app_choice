@@ -29,9 +29,7 @@ class SettingsPage extends HookConsumerWidget {
     final themeMode = ref.watch(themeModeProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(i18n.settings.settingsPage.title),
-      ),
+      appBar: AppBar(title: Text(i18n.settings.settingsPage.title)),
       body: ThemedSettingsList(
         sections: [
           SettingsSection(
@@ -50,22 +48,18 @@ class SettingsPage extends HookConsumerWidget {
               SettingsTile.navigation(
                 leading: const Icon(Icons.style),
                 title: Text(i18n.settings.settingsPage.layout.uiStyle),
-                value: Text(
-                  designsystemI18n.designsystem.uiStyle(context: uiStyle),
-                ),
+                value: Text(commonI18n.designsystem.uiStyle(context: uiStyle)),
                 onPressed: const SettingsUiStylePageRoute().go,
               ),
               SettingsTile.navigation(
-                leading: Icon(
-                  switch (themeMode) {
-                    ThemeMode.system => Icons.settings,
-                    ThemeMode.light => Icons.light_mode,
-                    ThemeMode.dark => Icons.dark_mode,
-                  },
-                ),
+                leading: Icon(switch (themeMode) {
+                  ThemeMode.system => Icons.settings,
+                  ThemeMode.light => Icons.light_mode,
+                  ThemeMode.dark => Icons.dark_mode,
+                }),
                 title: Text(i18n.settings.settingsPage.layout.themeMode),
                 value: Text(
-                  designsystemI18n.designsystem.themeMode(context: themeMode),
+                  commonI18n.designsystem.themeMode(context: themeMode),
                 ),
                 onPressed: const SettingsThemeModePageRoute().go,
               ),
@@ -73,7 +67,7 @@ class SettingsPage extends HookConsumerWidget {
                 leading: const Icon(Icons.color_lens),
                 title: Text(i18n.settings.settingsPage.layout.colorTheme),
                 value: Text(
-                  designsystemI18n.designsystem.themeColor(context: themeColor),
+                  commonI18n.designsystem.themeColor(context: themeColor),
                 ),
                 onPressed: const SettingsThemeColorPageRoute().go,
               ),

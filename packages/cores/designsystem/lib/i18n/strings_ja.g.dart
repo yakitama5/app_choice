@@ -38,7 +38,19 @@ class TranslationsJa extends Translations {
 	late final TranslationsJa _root = this; // ignore: unused_field
 
 	// Translations
+	@override late final _TranslationsCommonJa common = _TranslationsCommonJa._(_root);
 	@override late final _TranslationsDesignsystemJa designsystem = _TranslationsDesignsystemJa._(_root);
+}
+
+// Path: common
+class _TranslationsCommonJa extends TranslationsCommonEn {
+	_TranslationsCommonJa._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get yes => 'はい';
+	@override String get no => 'いいえ';
 }
 
 // Path: designsystem
@@ -157,6 +169,8 @@ class _TranslationsDesignsystemAppUpdateForceUpdateJa extends TranslationsDesign
 extension on TranslationsJa {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
+			case 'common.yes': return 'はい';
+			case 'common.no': return 'いいえ';
 			case 'designsystem.uiStyle': return ({required UIStyle context}) {
 				switch (context) {
 					case UIStyle.system:

@@ -1,6 +1,7 @@
 import 'package:cores_designsystem/extension.dart';
 import 'package:cores_designsystem/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -14,7 +15,7 @@ ThemeData appTheme(Ref ref, {required Brightness brightness}) {
   final colorScheme = ref.watch(appColorSchemeProvider(brightness: brightness));
   final uiStyle = ref.watch(uiStyleProvider);
 
-  return ThemeData(
+  final themeData = ThemeData(
     colorScheme: colorScheme,
     brightness: brightness,
     platform: uiStyle.platform,
@@ -25,8 +26,11 @@ ThemeData appTheme(Ref ref, {required Brightness brightness}) {
         TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
       },
     ),
-    extensions: [
-      AppColors.brightness(brightness: brightness),
-    ],
+    extensions: [AppColors.brightness(brightness: brightness)],
+  );
+
+  // GoogleFonts
+  return themeData.copyWith(
+    textTheme: GoogleFonts.notoSansJpTextTheme(themeData.textTheme),
   );
 }

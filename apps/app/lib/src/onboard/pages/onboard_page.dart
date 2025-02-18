@@ -1,10 +1,11 @@
+import 'package:cores_designsystem/i18n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/src/onboard/components/welcome_app_logo.dart';
 import 'package:flutter_app/src/onboard/components/welcome_message.dart';
 import 'package:flutter_app/src/onboard/enum/onboard_animation_state.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-class OnboardPage extends StatelessWidget {
+class OnboardPage extends HookWidget {
   const OnboardPage({super.key});
 
   @override
@@ -18,7 +19,7 @@ class OnboardPage extends StatelessWidget {
           child: Stack(
             children: [
               Padding(
-                padding: const EdgeInsets.only(bottom: 240),
+                padding: const EdgeInsets.only(bottom: 320),
                 child: Center(
                   child: WelcomeAppLogo(animationState: animationState.value),
                 ),
@@ -111,7 +112,7 @@ class SelectedButtonList extends StatelessWidget {
               width: double.infinity,
               child: FilledButton(
                 onPressed: onPressedYes,
-                child: const Text('はい'),
+                child: Text(commonI18n.common.yes),
               ),
             ),
           ),
@@ -125,9 +126,9 @@ class SelectedButtonList extends StatelessWidget {
             duration: const Duration(milliseconds: 500),
             child: SizedBox(
               width: double.infinity,
-              child: FilledButton(
+              child: FilledButton.tonal(
                 onPressed: onPressedYes,
-                child: const Text('いいえ'),
+                child: Text(commonI18n.common.no),
               ),
             ),
           ),

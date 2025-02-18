@@ -1,10 +1,7 @@
 import 'dart:async';
 
-import 'package:cores_designsystem/src/theme/model/dynamic_color_support_status.dart';
 import 'package:cores_domain/designsystem.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-import 'dynamic_color_support_provider.dart';
 
 part 'theme_color_notifier_provider.g.dart';
 
@@ -17,13 +14,7 @@ class ThemeColorNotifier extends _$ThemeColorNotifier {
   @override
   ThemeColor build() {
     final themeColor = _repository.fetchThemeColor();
-
-    // 初期値は `DynamicColor`のサポート有無で変更
-    final supportStatus = ref.watch(dynamicColorSupportProviderProvider);
-    final defaultValue = switch (supportStatus) {
-      DynamicColorSupportStatus.supported => ThemeColor.dynamicColor,
-      DynamicColorSupportStatus.notSupported => ThemeColor.appColor,
-    };
+    const defaultValue = ThemeColor.appColor;
 
     return themeColor ?? defaultValue;
   }
