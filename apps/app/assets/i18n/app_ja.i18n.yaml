@@ -1,5 +1,8 @@
 onboardPage:
   firstQuestion: アプリを利用しますか？
+  welcome: ようこそ！
+  seeYou: またお会いしましょう
+  restartCaption: アプリをご利用になる場合は再起動して下さい
 bottomNavBar: 
   home: ホーム
   search: 探す

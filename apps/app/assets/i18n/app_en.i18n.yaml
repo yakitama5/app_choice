@@ -1,5 +1,8 @@
 onboardPage:
   firstQuestion: Do you use the app?
+  welcome: Welcome!
+  seeYou: See you again
+  restartCaption: Please restart the application if you wish to use it
 bottomNavBar: 
   home: Home
   search: Search

@@ -2,8 +2,8 @@ import 'package:cores_designsystem/common_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/src/onboard/enum/onboard_animation_state.dart';
 
-class WelcomeAppLogo extends StatelessWidget {
-  const WelcomeAppLogo({
+class OnboardAppLogo extends StatelessWidget {
+  const OnboardAppLogo({
     super.key,
     required this.animationState,
     this.size = 240,

@@ -1,12 +1,15 @@
 import 'package:cores_designsystem/i18n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/i18n/strings.g.dart';
+import 'package:flutter_app/src/onboard/components/onboard_app_logo.dart';
 import 'package:flutter_app/src/onboard/components/question_message.dart';
-import 'package:flutter_app/src/onboard/components/welcome_app_logo.dart';
+import 'package:flutter_app/src/onboard/components/welcome_main_text.dart';
 import 'package:flutter_app/src/onboard/enum/onboard_animation_state.dart';
+import 'package:flutter_app/src/onboard/mixin/delayed_mixin.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 
-class OnboardPage extends HookWidget {
+class OnboardPage extends HookWidget with DelayedMixin {
   const OnboardPage({super.key});
 
   @override
@@ -24,36 +27,63 @@ class OnboardPage extends HookWidget {
                   alignment: Alignment.bottomCenter,
                   child: Padding(
                     padding: const EdgeInsetsDirectional.only(bottom: 32),
-                    child: WelcomeAppLogo(animationState: animationState.value),
+                    child: OnboardAppLogo(animationState: animationState.value),
                   ),
                 ),
               ),
-              QuestionMessage(
-                animationState: animationState.value,
-                onShowedMessage: () {
-                  Future<void>.delayed(const Duration(milliseconds: 1000)).then(
-                    (_) {
-                      animationState.value = animationState.value.next();
-                    },
-                  );
-                },
-                onHidMessage: () {
-                  Future<void>.delayed(const Duration(milliseconds: 1000)).then(
-                    (_) {
-                      animationState.value = animationState.value.next();
-                    },
-                  );
+              AnimatedSwitcher(
+                duration: const Duration(milliseconds: 1000),
+                child: switch (animationState.value) {
+                  OnboardAnimationState.showedWelcomeMessage => WelcomeMainText(
+                    i18n.app.onboardPage.welcome,
+                  ),
+                  OnboardAnimationState.showedSeeYouMessage => WelcomeMainText(
+                    i18n.app.onboardPage.seeYou,
+                  ),
+                  _ => QuestionMessage(
+                    animationState: animationState.value,
+                    onShowedMessage:
+                        () => delayed(
+                          () =>
+                              animationState.value =
+                                  animationState.value.next(),
+                        ),
+                    onHidMessage:
+                        () => delayed(
+                          () =>
+                              animationState.value =
+                                  animationState.value.next(),
+                          duration: const Duration(milliseconds: 500),
+                        ),
+                  ),
                 },
               ),
               Expanded(
-                child: SelectedButtons(
-                  onPressedYes: () {
-                    animationState.value = OnboardAnimationState.selectedYes;
-                  },
-                  onPressedNo: () {
-                    animationState.value = OnboardAnimationState.selectedNo;
-                  },
-                  animationState: animationState.value,
+                child: Column(
+                  children: [
+                    const Gap(8),
+                    AnimatedOpacity(
+                      duration: const Duration(milliseconds: 1000),
+                      opacity: switch (animationState.value) {
+                        OnboardAnimationState.showedSeeYouMessage => 1,
+                        _ => 0,
+                      },
+                      child: Text(i18n.app.onboardPage.restartCaption),
+                    ),
+                    Expanded(
+                      child: SelectedButtons(
+                        onPressedYes: () {
+                          animationState.value =
+                              OnboardAnimationState.selectedYes;
+                        },
+                        onPressedNo: () {
+                          animationState.value =
+                              OnboardAnimationState.selectedNo;
+                        },
+                        animationState: animationState.value,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
@@ -63,10 +93,7 @@ class OnboardPage extends HookWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           animationState.value = OnboardAnimationState.initial;
-
-          Future<void>.delayed(const Duration(milliseconds: 1000)).then((_) {
-            animationState.value = animationState.value.next();
-          });
+          delayed(() => animationState.value = animationState.value.next());
         },
         child: const Icon(Icons.replay),
       ),
@@ -138,14 +165,30 @@ class YesButton extends StatelessWidget {
       opacity: switch (animationState) {
         OnboardAnimationState.initial ||
         OnboardAnimationState.showedQuestion ||
-        OnboardAnimationState.selectedNo => 0,
+        OnboardAnimationState.selectedNo ||
+        OnboardAnimationState.showedSeeYouMessage => 0,
         _ => 1,
       },
       duration: duration,
       child: SizedBox(
         width: double.infinity,
         child: FilledButton(
-          onPressed: onPressed,
+          onPressed: () {
+            // 一度選択したら、選択できないようにする
+            switch (animationState) {
+              case OnboardAnimationState.showedChoices:
+                onPressed();
+                return;
+
+              case OnboardAnimationState.initial:
+              case OnboardAnimationState.showedQuestion:
+              case OnboardAnimationState.selectedYes:
+              case OnboardAnimationState.showedWelcomeMessage:
+              case OnboardAnimationState.selectedNo:
+              case OnboardAnimationState.showedSeeYouMessage:
+              // do nothing
+            }
+          },
           child: Text(commonI18n.common.yes),
         ),
       ),
@@ -171,14 +214,30 @@ class NoButton extends StatelessWidget {
       opacity: switch (animationState) {
         OnboardAnimationState.initial ||
         OnboardAnimationState.showedQuestion ||
-        OnboardAnimationState.selectedYes => 0,
+        OnboardAnimationState.selectedYes ||
+        OnboardAnimationState.showedWelcomeMessage => 0,
         _ => 1,
       },
       duration: duration,
       child: SizedBox(
         width: double.infinity,
         child: FilledButton.tonal(
-          onPressed: onPressed,
+          onPressed: () {
+            // 一度選択したら、選択できないようにする
+            switch (animationState) {
+              case OnboardAnimationState.showedChoices:
+                onPressed();
+                return;
+
+              case OnboardAnimationState.initial:
+              case OnboardAnimationState.showedQuestion:
+              case OnboardAnimationState.selectedYes:
+              case OnboardAnimationState.showedWelcomeMessage:
+              case OnboardAnimationState.selectedNo:
+              case OnboardAnimationState.showedSeeYouMessage:
+              // do nothing
+            }
+          },
           child: Text(commonI18n.common.no),
         ),
       ),

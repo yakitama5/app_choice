@@ -117,6 +117,9 @@ class TranslationsAppOnboardPageEn {
 
 	// Translations
 	String get firstQuestion => 'Do you use the app?';
+	String get welcome => 'Welcome!';
+	String get seeYou => 'See you again';
+	String get restartCaption => 'Please restart the application if you wish to use it';
 }
 
 // Path: app.bottomNavBar
@@ -313,6 +316,9 @@ extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'app.onboardPage.firstQuestion': return 'Do you use the app?';
+			case 'app.onboardPage.welcome': return 'Welcome!';
+			case 'app.onboardPage.seeYou': return 'See you again';
+			case 'app.onboardPage.restartCaption': return 'Please restart the application if you wish to use it';
 			case 'app.bottomNavBar.home': return 'Home';
 			case 'app.bottomNavBar.search': return 'Search';
 			case 'app.bottomNavBar.settings': return 'Settings';

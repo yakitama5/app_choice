@@ -117,6 +117,9 @@ class _TranslationsAppOnboardPageJa extends TranslationsAppOnboardPageEn {
 
 	// Translations
 	@override String get firstQuestion => 'アプリを利用しますか？';
+	@override String get welcome => 'ようこそ！';
+	@override String get seeYou => 'またお会いしましょう';
+	@override String get restartCaption => 'アプリをご利用になる場合は再起動して下さい';
 }
 
 // Path: app.bottomNavBar
@@ -313,6 +316,9 @@ extension on TranslationsJa {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'app.onboardPage.firstQuestion': return 'アプリを利用しますか？';
+			case 'app.onboardPage.welcome': return 'ようこそ！';
+			case 'app.onboardPage.seeYou': return 'またお会いしましょう';
+			case 'app.onboardPage.restartCaption': return 'アプリをご利用になる場合は再起動して下さい';
 			case 'app.bottomNavBar.home': return 'ホーム';
 			case 'app.bottomNavBar.search': return '探す';
 			case 'app.bottomNavBar.settings': return '設定';

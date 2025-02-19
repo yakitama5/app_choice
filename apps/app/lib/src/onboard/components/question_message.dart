@@ -1,6 +1,6 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/i18n/strings.g.dart';
+import 'package:flutter_app/src/onboard/components/welcome_main_text.dart';
 import 'package:flutter_app/src/onboard/enum/onboard_animation_state.dart';
 
 class QuestionMessage extends StatelessWidget {
@@ -45,11 +45,7 @@ class QuestionMessage extends StatelessWidget {
         _ => 1,
       },
       duration: animationDuration,
-      child: AutoSizeText(
-        i18n.app.onboardPage.firstQuestion,
-        style: Theme.of(context).textTheme.displayMedium,
-        maxLines: 1,
-      ),
+      child: WelcomeMainText(i18n.app.onboardPage.firstQuestion),
     );
   }
 }
