@@ -1,4 +1,6 @@
 import 'package:cores_designsystem/i18n.dart';
+import 'package:cores_designsystem/widgets.dart';
+import 'package:cores_domain/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/i18n/strings.g.dart';
 import 'package:flutter_app/src/onboard/components/onboard_app_logo.dart';
@@ -8,12 +10,14 @@ import 'package:flutter_app/src/onboard/enum/onboard_animation_state.dart';
 import 'package:flutter_app/src/onboard/mixin/delayed_mixin.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class OnboardPage extends HookWidget with DelayedMixin {
+class OnboardPage extends HookConsumerWidget
+    with DelayedMixin, PresentationMixin {
   const OnboardPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final animationState = useState(OnboardAnimationState.initial);
 
     return Scaffold(
@@ -75,6 +79,13 @@ class OnboardPage extends HookWidget with DelayedMixin {
                         onPressedYes: () {
                           animationState.value =
                               OnboardAnimationState.selectedYes;
+                          // TODO(yakitama5): 遅延実行 or 状態の監視のどちらかで対応
+                          delayed(
+                            () => execute(
+                              action:
+                                  () => ref.read(userUsecaseProvider).signUp(),
+                            ),
+                          );
                         },
                         onPressedNo: () {
                           animationState.value =
