@@ -14,7 +14,7 @@ class ThemeColorNotifier extends _$ThemeColorNotifier {
   @override
   ThemeColor build() {
     final themeColor = _repository.fetchThemeColor();
-    const defaultValue = ThemeColor.appColor;
+    const defaultValue = ThemeColor.monochrome;
 
     return themeColor ?? defaultValue;
   }

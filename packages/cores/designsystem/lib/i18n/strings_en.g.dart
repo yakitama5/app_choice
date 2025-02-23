@@ -73,8 +73,8 @@ class TranslationsDesignsystemEn {
 		switch (context) {
 			case ThemeColor.dynamicColor:
 				return 'DynamicColor';
-			case ThemeColor.appColor:
-				return 'SystemColor';
+			case ThemeColor.monochrome:
+				return 'Monochrome';
 			case ThemeColor.blue:
 				return 'Blue';
 			case ThemeColor.purple:
@@ -184,8 +184,8 @@ extension on Translations {
 				switch (context) {
 					case ThemeColor.dynamicColor:
 						return 'DynamicColor';
-					case ThemeColor.appColor:
-						return 'SystemColor';
+					case ThemeColor.monochrome:
+						return 'Monochrome';
 					case ThemeColor.blue:
 						return 'Blue';
 					case ThemeColor.purple:

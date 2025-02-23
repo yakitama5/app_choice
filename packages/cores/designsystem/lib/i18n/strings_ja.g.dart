@@ -74,8 +74,8 @@ class _TranslationsDesignsystemJa extends TranslationsDesignsystemEn {
 		switch (context) {
 			case ThemeColor.dynamicColor:
 				return 'ダイナミックカラー';
-			case ThemeColor.appColor:
-				return 'システムカラー';
+			case ThemeColor.monochrome:
+				return 'モノクロ';
 			case ThemeColor.blue:
 				return 'ブルー';
 			case ThemeColor.purple:
@@ -185,8 +185,8 @@ extension on TranslationsJa {
 				switch (context) {
 					case ThemeColor.dynamicColor:
 						return 'ダイナミックカラー';
-					case ThemeColor.appColor:
-						return 'システムカラー';
+					case ThemeColor.monochrome:
+						return 'モノクロ';
 					case ThemeColor.blue:
 						return 'ブルー';
 					case ThemeColor.purple:

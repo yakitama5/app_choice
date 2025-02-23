@@ -47,7 +47,7 @@ class SettingsThemeColorPage extends HookConsumerWidget {
               groupValue: selected.value,
               leading: switch (themeColor) {
                 ThemeColor.dynamicColor => const Icon(Icons.person),
-                ThemeColor.appColor => CommonAssets.images.logoDark.image(
+                ThemeColor.monochrome => CommonAssets.images.logoDark.image(
                   height: 24,
                   width: 24,
                 ),

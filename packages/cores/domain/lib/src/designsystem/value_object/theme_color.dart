@@ -1,5 +1,5 @@
 enum ThemeColor {
-  appColor,
+  monochrome,
   dynamicColor,
   blue,
   purple,
@@ -7,5 +7,5 @@ enum ThemeColor {
   red,
   orange,
   yellow,
-  green;
+  green,
 }

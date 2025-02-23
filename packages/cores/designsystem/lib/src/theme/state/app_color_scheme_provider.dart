@@ -8,7 +8,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_color_utilities/material_color_utilities.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../color_schemes.dart';
 import 'core_palette_provider.dart';
 
 part 'app_color_scheme_provider.g.dart';
@@ -34,7 +33,7 @@ ColorScheme _colorScheme(
   CorePalette? dynamicCorePalette,
 ) {
   switch (themeColor) {
-    case ThemeColor.appColor:
+    case ThemeColor.monochrome:
       return _defaultColorScheme(brightness);
     case ThemeColor.dynamicColor:
       // DynamicColorに対応していない場合は、アプリのテーマカラーを設定
@@ -62,9 +61,9 @@ ColorScheme _colorScheme(
 }
 
 ColorScheme _defaultColorScheme(Brightness brightness) {
-  // HACK(yakitama5): プレゼン層に依存している
-  return switch (brightness) {
-    Brightness.light => lightScheme,
-    Brightness.dark => darkScheme,
-  };
+  return ColorScheme.fromSeed(
+    seedColor: Colors.white,
+    brightness: brightness,
+    dynamicSchemeVariant: DynamicSchemeVariant.monochrome,
+  );
 }
