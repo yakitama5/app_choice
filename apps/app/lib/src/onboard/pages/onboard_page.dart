@@ -85,6 +85,7 @@ class OnboardPage extends HookConsumerWidget
                               action:
                                   () => ref.read(userUsecaseProvider).signUp(),
                             ),
+                            duration: const Duration(milliseconds: 2500),
                           );
                         },
                         onPressedNo: () {
