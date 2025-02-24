@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/src/home/components/home_bottom_app_bar.dart';
+import 'package:flutter_app/src/router/routes/base_shell_route.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class HomePage extends ConsumerWidget {
@@ -13,15 +15,10 @@ class HomePage extends ConsumerWidget {
         child: const Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endContained,
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          spacing: 8,
-          children: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.notifications)),
-          ],
-        ),
+      bottomNavigationBar: HomeBottomAppBar(
+        onSettingsPressed: () => const SettingPageRoute().go(context),
+        onSearchPressed: () {},
+        onNotificationsPressed: () {},
       ),
     );
   }
