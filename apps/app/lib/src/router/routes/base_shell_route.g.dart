@@ -28,52 +28,33 @@ RouteBase get $baseShellSroute => ShellRouteData.$route(
           path: '/maintenance',
           factory: $MaintenancePageRouteExtension._fromState,
         ),
-        StatefulShellRouteData.$route(
-          factory: $NavigatorPageShellRouteExtension._fromState,
-          branches: [
-            StatefulShellBranchData.$branch(
+        GoRouteData.$route(
+          path: '/home',
+          factory: $HomePageRouteExtension._fromState,
+          routes: [
+            GoRouteData.$route(
+              path: 'setting',
+              factory: $SettingPageRouteExtension._fromState,
               routes: [
                 GoRouteData.$route(
-                  path: '/home',
-                  factory: $HomePageRouteExtension._fromState,
+                  path: 'account',
+                  factory: $SettingsAccountPageRouteExtension._fromState,
                 ),
-              ],
-            ),
-            StatefulShellBranchData.$branch(
-              routes: [
                 GoRouteData.$route(
-                  path: '/goods',
-                  factory: $GoodsPageRouteExtension._fromState,
+                  path: 'ui_style',
+                  factory: $SettingsUiStylePageRouteExtension._fromState,
                 ),
-              ],
-            ),
-            StatefulShellBranchData.$branch(
-              routes: [
                 GoRouteData.$route(
-                  path: '/setting',
-                  factory: $SettingPageRouteExtension._fromState,
-                  routes: [
-                    GoRouteData.$route(
-                      path: 'account',
-                      factory: $SettingsAccountPageRouteExtension._fromState,
-                    ),
-                    GoRouteData.$route(
-                      path: 'ui_style',
-                      factory: $SettingsUiStylePageRouteExtension._fromState,
-                    ),
-                    GoRouteData.$route(
-                      path: 'color_style',
-                      factory: $SettingsThemeColorPageRouteExtension._fromState,
-                    ),
-                    GoRouteData.$route(
-                      path: 'theme_mode',
-                      factory: $SettingsThemeModePageRouteExtension._fromState,
-                    ),
-                    GoRouteData.$route(
-                      path: 'license',
-                      factory: $LicensePageRouteExtension._fromState,
-                    ),
-                  ],
+                  path: 'color_style',
+                  factory: $SettingsThemeColorPageRouteExtension._fromState,
+                ),
+                GoRouteData.$route(
+                  path: 'theme_mode',
+                  factory: $SettingsThemeModePageRouteExtension._fromState,
+                ),
+                GoRouteData.$route(
+                  path: 'license',
+                  factory: $LicensePageRouteExtension._fromState,
                 ),
               ],
             ),
@@ -138,11 +119,6 @@ extension $MaintenancePageRouteExtension on MaintenancePageRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $NavigatorPageShellRouteExtension on NavigatorPageShellRoute {
-  static NavigatorPageShellRoute _fromState(GoRouterState state) =>
-      const NavigatorPageShellRoute();
-}
-
 extension $HomePageRouteExtension on HomePageRoute {
   static HomePageRoute _fromState(GoRouterState state) => const HomePageRoute();
 
@@ -160,30 +136,12 @@ extension $HomePageRouteExtension on HomePageRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $GoodsPageRouteExtension on GoodsPageRoute {
-  static GoodsPageRoute _fromState(GoRouterState state) =>
-      const GoodsPageRoute();
-
-  String get location => GoRouteData.$location(
-        '/goods',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
 extension $SettingPageRouteExtension on SettingPageRoute {
   static SettingPageRoute _fromState(GoRouterState state) =>
       const SettingPageRoute();
 
   String get location => GoRouteData.$location(
-        '/setting',
+        '/home/setting',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -201,7 +159,7 @@ extension $SettingsAccountPageRouteExtension on SettingsAccountPageRoute {
       const SettingsAccountPageRoute();
 
   String get location => GoRouteData.$location(
-        '/setting/account',
+        '/home/setting/account',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -219,7 +177,7 @@ extension $SettingsUiStylePageRouteExtension on SettingsUiStylePageRoute {
       const SettingsUiStylePageRoute();
 
   String get location => GoRouteData.$location(
-        '/setting/ui_style',
+        '/home/setting/ui_style',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -237,7 +195,7 @@ extension $SettingsThemeColorPageRouteExtension on SettingsThemeColorPageRoute {
       const SettingsThemeColorPageRoute();
 
   String get location => GoRouteData.$location(
-        '/setting/color_style',
+        '/home/setting/color_style',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -255,7 +213,7 @@ extension $SettingsThemeModePageRouteExtension on SettingsThemeModePageRoute {
       const SettingsThemeModePageRoute();
 
   String get location => GoRouteData.$location(
-        '/setting/theme_mode',
+        '/home/setting/theme_mode',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -273,7 +231,7 @@ extension $LicensePageRouteExtension on LicensePageRoute {
       const LicensePageRoute();
 
   String get location => GoRouteData.$location(
-        '/setting/license',
+        '/home/setting/license',
       );
 
   void go(BuildContext context) => context.go(location);

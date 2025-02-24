@@ -1,26 +1,45 @@
+import 'package:cores_designsystem/common_assets.dart';
 import 'package:cores_designsystem/keys.dart';
 import 'package:cores_designsystem/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/src/home/pages/home_page.dart';
 import 'package:flutter_app/src/onboard/pages/onboard_page.dart';
-import 'package:flutter_app/src/router/routes/branches/home_shell_branch.dart';
-import 'package:flutter_app/src/router/routes/branches/search_shell_branch.dart';
-import 'package:flutter_app/src/router/routes/branches/setting_shell_branch.dart';
-import 'package:flutter_app/src/router/routes/navigator_page.dart';
+import 'package:flutter_app/src/settings/pages/settings_account_page.dart';
+import 'package:flutter_app/src/settings/pages/settings_page.dart';
+import 'package:flutter_app/src/settings/pages/settings_theme_color_page.dart';
+import 'package:flutter_app/src/settings/pages/settings_theme_mode_page.dart';
+import 'package:flutter_app/src/settings/pages/settings_ui_style_page.dart';
 import 'package:go_router/go_router.dart';
 
 part 'base_shell_route.g.dart';
-
-final GlobalKey<NavigatorState> _shellNavigatorKey = GlobalKey<NavigatorState>(
-  debugLabel: 'shell',
-);
 
 @TypedShellRoute<BaseShellSroute>(
   routes: [
     TypedGoRoute<RootRoute>(path: RootRoute.path),
     TypedGoRoute<OnboardRoute>(path: OnboardRoute.path),
     TypedGoRoute<MaintenancePageRoute>(path: MaintenancePageRoute.path),
-    TypedStatefulShellRoute<NavigatorPageShellRoute>(
-      branches: [homeShellBranch, searchShellBranch, settingShellBranch],
+    TypedGoRoute<HomePageRoute>(
+      path: HomePageRoute.path,
+      routes: [
+        TypedGoRoute<SettingPageRoute>(
+          path: SettingPageRoute.path,
+          routes: [
+            TypedGoRoute<SettingsAccountPageRoute>(
+              path: SettingsAccountPageRoute.path,
+            ),
+            TypedGoRoute<SettingsUiStylePageRoute>(
+              path: SettingsUiStylePageRoute.path,
+            ),
+            TypedGoRoute<SettingsThemeColorPageRoute>(
+              path: SettingsThemeColorPageRoute.path,
+            ),
+            TypedGoRoute<SettingsThemeModePageRoute>(
+              path: SettingsThemeModePageRoute.path,
+            ),
+            TypedGoRoute<LicensePageRoute>(path: LicensePageRoute.path),
+          ],
+        ),
+      ],
     ),
   ],
 )
@@ -54,19 +73,13 @@ class OnboardRoute extends GoRouteData {
       const OnboardPage();
 }
 
-class NavigatorPageShellRoute extends StatefulShellRouteData {
-  const NavigatorPageShellRoute();
+class HomePageRoute extends GoRouteData {
+  const HomePageRoute();
 
-  static final GlobalKey<NavigatorState> $navigatorKey = _shellNavigatorKey;
+  static const path = '/home';
 
   @override
-  Widget builder(
-    BuildContext context,
-    GoRouterState state,
-    StatefulNavigationShell navigationShell,
-  ) {
-    return NavigatorPage(navigationShell: navigationShell);
-  }
+  Widget build(BuildContext context, GoRouterState state) => const HomePage();
 }
 
 class MaintenancePageRoute extends GoRouteData {
@@ -78,4 +91,70 @@ class MaintenancePageRoute extends GoRouteData {
   Page<void> buildPage(BuildContext context, GoRouterState state) {
     return const NoTransitionPage<Page<dynamic>>(child: MaintenancePage());
   }
+}
+
+class SettingPageRoute extends GoRouteData {
+  const SettingPageRoute();
+
+  static const path = 'setting';
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const SettingsPage();
+}
+
+class LicensePageRoute extends GoRouteData {
+  const LicensePageRoute();
+
+  static const path = 'license';
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return LicensePage(
+      applicationIcon: CommonAssets.images.logoDark.image(
+        height: 120,
+        width: 120,
+      ),
+    );
+  }
+}
+
+class SettingsAccountPageRoute extends GoRouteData {
+  const SettingsAccountPageRoute();
+
+  static const path = 'account';
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const SettingsAccountPage();
+}
+
+class SettingsUiStylePageRoute extends GoRouteData {
+  const SettingsUiStylePageRoute();
+
+  static const path = 'ui_style';
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const SettingsUiStylePage();
+}
+
+class SettingsThemeColorPageRoute extends GoRouteData {
+  const SettingsThemeColorPageRoute();
+
+  static const path = 'color_style';
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const SettingsThemeColorPage();
+}
+
+class SettingsThemeModePageRoute extends GoRouteData {
+  const SettingsThemeModePageRoute();
+
+  static const path = 'theme_mode';
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const SettingsThemeModePage();
 }
