@@ -99,8 +99,8 @@ class SettingPageRoute extends GoRouteData {
   static const path = 'setting';
 
   @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      const SettingsPage();
+  Page<void> buildPage(BuildContext context, GoRouterState state) =>
+      const MaterialPage(child: SettingsPage(), fullscreenDialog: true);
 }
 
 class LicensePageRoute extends GoRouteData {
