@@ -1,0 +1,1 @@
+const postPageSize = 20;
