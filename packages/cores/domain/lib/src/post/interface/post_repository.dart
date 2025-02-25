@@ -17,6 +17,7 @@ abstract class PostRepository {
   Future<PageInfo<Post>> selectMyPosts({
     int page = 1,
     int pageSize = postPageSize,
+    required String userId,
   });
 
   /// トレンドの投稿一覧を検索する
