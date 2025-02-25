@@ -23,17 +23,14 @@ class GoodsPage extends HookConsumerWidget {
 
     return Scaffold(
       body: RefreshIndicator(
-        onRefresh: () =>
-            ref.read(goodsUsecaseProvider).refreshGoods(query: query.value),
+        onRefresh:
+            () =>
+                ref.read(goodsUsecaseProvider).refreshGoods(query: query.value),
         // HACK(yakitama5): SliverAppBar付きのこの構成を共通定義化する
         child: CustomScrollView(
           slivers: [
             const PinnedHeaderSliver(
-              child: Material(
-                child: SafeArea(
-                  child: SizedBox.shrink(),
-                ),
-              ),
+              child: Material(child: SafeArea(child: SizedBox.shrink())),
             ),
             SliverAppBar(
               primary: false,
@@ -49,11 +46,12 @@ class GoodsPage extends HookConsumerWidget {
                         onChanged: (sortKey) {
                           // 再選択の場合は順序を入れ替える
                           final isReselect = sortKey == query.value.sortKey;
-                          query.value = isReselect
-                              ? query.value.copyWith(
-                                  sortOrder: query.value.sortOrder.reverse,
-                                )
-                              : GoodsFetchQuery(sortKey: sortKey);
+                          query.value =
+                              isReselect
+                                  ? query.value.copyWith(
+                                    sortOrder: query.value.sortOrder.reverse,
+                                  )
+                                  : GoodsFetchQuery(sortKey: sortKey);
                         },
                         sortKey: query.value.sortKey,
                         sortOrder: query.value.sortOrder,
@@ -61,19 +59,17 @@ class GoodsPage extends HookConsumerWidget {
                       const Gap(12),
                       ViewLayoutChip(
                         viewLayout: viewLayout,
-                        onChanged: (v) => ref
-                            .read(goodsViewLayoutNotifierProvider.notifier)
-                            .updateViewLayout(viewLayout: v),
+                        onChanged:
+                            (v) => ref
+                                .read(goodsViewLayoutNotifierProvider.notifier)
+                                .updateViewLayout(viewLayout: v),
                       ),
                     ],
                   ),
                 ),
               ),
             ),
-            _SliverBody(
-              query: query.value,
-              viewLayout: viewLayout,
-            ),
+            _SliverBody(query: query.value, viewLayout: viewLayout),
           ],
         ),
       ),
@@ -103,35 +99,38 @@ class _SliverBody extends HookConsumerWidget {
         final response = ref.watch(goodsListProvider(page: page, query: query));
 
         return response.when(
-          data: (data) => OpenContainerCardWrapper(
-            openBuilder: (context, action) =>
-                GoodsDetailPage(goods: data.items[indexInPage]),
-            closedBuilder: (context, action) {
-              final item = data.items[indexInPage];
-              return switch (viewLayout) {
-                ViewLayout.grid => GoodsCard(
-                    key: ValueKey(item),
-                    item: item,
-                    onTap: action,
-                  ),
-                ViewLayout.list => GoodsListTile(
-                    key: ValueKey(item),
-                    item: item,
-                    onTap: action,
-                  ),
-              };
-            },
-          ),
+          data:
+              (data) => OpenContainerCardWrapper(
+                openBuilder:
+                    (context, action) =>
+                        GoodsDetailPage(goods: data.items[indexInPage]),
+                closedBuilder: (context, action) {
+                  final item = data.items[indexInPage];
+                  return switch (viewLayout) {
+                    ViewLayout.grid => GoodsCard(
+                      key: ValueKey(item),
+                      item: item,
+                      onTap: action,
+                    ),
+                    ViewLayout.list => GoodsListTile(
+                      key: ValueKey(item),
+                      item: item,
+                      onTap: action,
+                    ),
+                  };
+                },
+              ),
           loading: () => _ShimmerTile(viewLayout: viewLayout),
           // TODO(yakitama5): エラー表示を分けて記載
-          error: (error, __) => ErrorListTile(
-            indexInPage: indexInPage,
-            isLoading: response.isLoading,
-            error: error.toString(),
-            onRetry: () {
-              ref.invalidate(goodsListProvider(page: page, query: query));
-            },
-          ),
+          error:
+              (error, __) => ErrorListTile(
+                indexInPage: indexInPage,
+                isLoading: response.isLoading,
+                error: error.toString(),
+                onRetry: () {
+                  ref.invalidate(goodsListProvider(page: page, query: query));
+                },
+              ),
         );
       },
     );
@@ -158,12 +157,8 @@ class _ShimmerListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     // プライベートWidgetのためマジックナンバーを許容
     return const ListTile(
-      title: ShimmerWidget.rectangular(
-        height: 24,
-      ),
-      subtitle: ShimmerWidget.rectangular(
-        height: 16,
-      ),
+      title: ShimmerWidget.rectangular(height: 24),
+      subtitle: ShimmerWidget.rectangular(height: 16),
       leading: GoodsShimmerListTileLeading(),
     );
   }
