@@ -1,8 +1,10 @@
 import 'package:cores_domain/core.dart';
 import 'package:cores_domain/designsystem.dart';
 import 'package:cores_domain/goods.dart';
+import 'package:cores_domain/post.dart';
 import 'package:cores_domain/user.dart';
 import 'package:infrastructure_firebase/core.dart';
+import 'package:infrastructure_firebase/post.dart';
 import 'package:infrastructure_firebase/user.dart';
 import 'package:infrastructure_mock/goods.dart';
 import 'package:infrastructure_shared_preferences/designsystem.dart';
@@ -15,15 +17,19 @@ Future<List<Override>> initializeInfrastructureProviders() async {
     // SharedPreferences
     ...await initializeSharedPreferencesProviders(),
     themeRepositoryProvider.overrideWith(SharedPreferencesThemeRepository.new),
-    goodsConfigRepositoryProvider
-        .overrideWith(SharedPreferencesGoodsConfigRepository.new),
+    goodsConfigRepositoryProvider.overrideWith(
+      SharedPreferencesGoodsConfigRepository.new,
+    ),
 
     // Firebase
     userRepositoryProvider.overrideWith(FirebaseUserRepository.new),
-    appMaintenanceRepositoryProvider
-        .overrideWith(RemoteConfigAppMaintenanceRepository.new),
-    appVersionRepositoryProvider
-        .overrideWith(RemoteConfigAppVersionRepository.new),
+    postRepositoryProvider.overrideWith(FirebasePostRepository.new),
+    appMaintenanceRepositoryProvider.overrideWith(
+      RemoteConfigAppMaintenanceRepository.new,
+    ),
+    appVersionRepositoryProvider.overrideWith(
+      RemoteConfigAppVersionRepository.new,
+    ),
 
     // Mock
     goodsRepositoryProvider.overrideWith(MockGoodsRepository.new),
