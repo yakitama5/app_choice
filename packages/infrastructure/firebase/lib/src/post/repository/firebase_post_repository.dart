@@ -23,7 +23,7 @@ class FirebasePostRepository implements PostRepository {
     );
 
     // TODO(yakitama5): 検索条件やOrderByはここで指定
-    final postsQuery = collectionRef;
+    final postsQuery = collectionRef.orderBy('createdAt');
 
     final pageFrom = (page - 1) * pageSize;
     final postsSnapshot =
