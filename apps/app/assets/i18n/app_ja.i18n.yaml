@@ -3,9 +3,12 @@ onboardPage:
   welcome: ようこそ！
   seeYou: またお会いしましょう
   restartCaption: アプリをご利用になる場合は再起動して下さい
+homePage:
+  tabs:
+    myPosts: わたしの投稿
+    trends: トレンド
+    newPost: 最新
 bottomNavBar: 
   home: ホーム
   search: 探す
   settings: 設定
-homePage:
-  title: ホーム

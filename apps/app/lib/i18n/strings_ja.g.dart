@@ -52,8 +52,8 @@ class _TranslationsAppJa extends TranslationsAppEn {
 
 	// Translations
 	@override late final _TranslationsAppOnboardPageJa onboardPage = _TranslationsAppOnboardPageJa._(_root);
-	@override late final _TranslationsAppBottomNavBarJa bottomNavBar = _TranslationsAppBottomNavBarJa._(_root);
 	@override late final _TranslationsAppHomePageJa homePage = _TranslationsAppHomePageJa._(_root);
+	@override late final _TranslationsAppBottomNavBarJa bottomNavBar = _TranslationsAppBottomNavBarJa._(_root);
 }
 
 // Path: error
@@ -122,6 +122,16 @@ class _TranslationsAppOnboardPageJa extends TranslationsAppOnboardPageEn {
 	@override String get restartCaption => 'アプリをご利用になる場合は再起動して下さい';
 }
 
+// Path: app.homePage
+class _TranslationsAppHomePageJa extends TranslationsAppHomePageEn {
+	_TranslationsAppHomePageJa._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsAppHomePageTabsJa tabs = _TranslationsAppHomePageTabsJa._(_root);
+}
+
 // Path: app.bottomNavBar
 class _TranslationsAppBottomNavBarJa extends TranslationsAppBottomNavBarEn {
 	_TranslationsAppBottomNavBarJa._(TranslationsJa root) : this._root = root, super.internal(root);
@@ -132,16 +142,6 @@ class _TranslationsAppBottomNavBarJa extends TranslationsAppBottomNavBarEn {
 	@override String get home => 'ホーム';
 	@override String get search => '探す';
 	@override String get settings => '設定';
-}
-
-// Path: app.homePage
-class _TranslationsAppHomePageJa extends TranslationsAppHomePageEn {
-	_TranslationsAppHomePageJa._(TranslationsJa root) : this._root = root, super.internal(root);
-
-	final TranslationsJa _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'ホーム';
 }
 
 // Path: error.errorPage
@@ -223,6 +223,18 @@ class _TranslationsUserOnboardPageJa extends TranslationsUserOnboardPageEn {
 	@override String get startCaption => 'はじめての方はこちら';
 	@override String get signInWithGoogle => 'Googleアカウントでログイン';
 	@override String get signInWithApple => 'Appleアカウントでログイン';
+}
+
+// Path: app.homePage.tabs
+class _TranslationsAppHomePageTabsJa extends TranslationsAppHomePageTabsEn {
+	_TranslationsAppHomePageTabsJa._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get myPosts => 'わたしの投稿';
+	@override String get trends => 'トレンド';
+	@override String get newPost => '最新';
 }
 
 // Path: error.message.impossibleOperation
@@ -319,10 +331,12 @@ extension on TranslationsJa {
 			case 'app.onboardPage.welcome': return 'ようこそ！';
 			case 'app.onboardPage.seeYou': return 'またお会いしましょう';
 			case 'app.onboardPage.restartCaption': return 'アプリをご利用になる場合は再起動して下さい';
+			case 'app.homePage.tabs.myPosts': return 'わたしの投稿';
+			case 'app.homePage.tabs.trends': return 'トレンド';
+			case 'app.homePage.tabs.newPost': return '最新';
 			case 'app.bottomNavBar.home': return 'ホーム';
 			case 'app.bottomNavBar.search': return '探す';
 			case 'app.bottomNavBar.settings': return '設定';
-			case 'app.homePage.title': return 'ホーム';
 			case 'error.errorPage.title': return 'エラー';
 			case 'error.message.impossibleOperation.notAuth': return '認証済でないため操作が許可されていません';
 			case 'error.message.impossibleOperation.notLinked': return 'アカウントが連携されていないため解除出来ません';

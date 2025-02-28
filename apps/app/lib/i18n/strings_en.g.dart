@@ -52,8 +52,8 @@ class TranslationsAppEn {
 
 	// Translations
 	late final TranslationsAppOnboardPageEn onboardPage = TranslationsAppOnboardPageEn.internal(_root);
-	late final TranslationsAppBottomNavBarEn bottomNavBar = TranslationsAppBottomNavBarEn.internal(_root);
 	late final TranslationsAppHomePageEn homePage = TranslationsAppHomePageEn.internal(_root);
+	late final TranslationsAppBottomNavBarEn bottomNavBar = TranslationsAppBottomNavBarEn.internal(_root);
 }
 
 // Path: error
@@ -122,6 +122,16 @@ class TranslationsAppOnboardPageEn {
 	String get restartCaption => 'Please restart the application if you wish to use it';
 }
 
+// Path: app.homePage
+class TranslationsAppHomePageEn {
+	TranslationsAppHomePageEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsAppHomePageTabsEn tabs = TranslationsAppHomePageTabsEn.internal(_root);
+}
+
 // Path: app.bottomNavBar
 class TranslationsAppBottomNavBarEn {
 	TranslationsAppBottomNavBarEn.internal(this._root);
@@ -132,16 +142,6 @@ class TranslationsAppBottomNavBarEn {
 	String get home => 'Home';
 	String get search => 'Search';
 	String get settings => 'Settings';
-}
-
-// Path: app.homePage
-class TranslationsAppHomePageEn {
-	TranslationsAppHomePageEn.internal(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get title => 'Home';
 }
 
 // Path: error.errorPage
@@ -223,6 +223,18 @@ class TranslationsUserOnboardPageEn {
 	String get startCaption => 'For first-time users, click here';
 	String get signInWithGoogle => 'Sign in with Google';
 	String get signInWithApple => 'Sign in with Apple';
+}
+
+// Path: app.homePage.tabs
+class TranslationsAppHomePageTabsEn {
+	TranslationsAppHomePageTabsEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get myPosts => 'My posts';
+	String get trends => 'Trends';
+	String get newPost => 'New post';
 }
 
 // Path: error.message.impossibleOperation
@@ -319,10 +331,12 @@ extension on Translations {
 			case 'app.onboardPage.welcome': return 'Welcome!';
 			case 'app.onboardPage.seeYou': return 'See you again';
 			case 'app.onboardPage.restartCaption': return 'Please restart the application if you wish to use it';
+			case 'app.homePage.tabs.myPosts': return 'My posts';
+			case 'app.homePage.tabs.trends': return 'Trends';
+			case 'app.homePage.tabs.newPost': return 'New post';
 			case 'app.bottomNavBar.home': return 'Home';
 			case 'app.bottomNavBar.search': return 'Search';
 			case 'app.bottomNavBar.settings': return 'Settings';
-			case 'app.homePage.title': return 'Home';
 			case 'error.errorPage.title': return 'Error';
 			case 'error.message.impossibleOperation.notAuth': return 'Not auth';
 			case 'error.message.impossibleOperation.notLinked': return 'Not linked';
