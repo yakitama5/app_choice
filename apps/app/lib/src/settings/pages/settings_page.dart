@@ -2,7 +2,7 @@ import 'package:cores_designsystem/i18n.dart';
 import 'package:cores_designsystem/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/i18n/strings.g.dart';
-import 'package:flutter_app/src/router/routes/base_shell_route.dart';
+import 'package:flutter_app/src/router/routes/routes.dart';
 import 'package:flutter_settings_ui/flutter_settings_ui.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';

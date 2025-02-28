@@ -4,6 +4,7 @@ import 'package:cores_designsystem/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/src/home/pages/home_page.dart';
 import 'package:flutter_app/src/onboard/pages/onboard_page.dart';
+import 'package:flutter_app/src/post/pages/post_edit_page.dart';
 import 'package:flutter_app/src/settings/pages/settings_account_page.dart';
 import 'package:flutter_app/src/settings/pages/settings_page.dart';
 import 'package:flutter_app/src/settings/pages/settings_theme_color_page.dart';
@@ -11,7 +12,7 @@ import 'package:flutter_app/src/settings/pages/settings_theme_mode_page.dart';
 import 'package:flutter_app/src/settings/pages/settings_ui_style_page.dart';
 import 'package:go_router/go_router.dart';
 
-part 'base_shell_route.g.dart';
+part 'routes.g.dart';
 
 @TypedShellRoute<BaseShellSroute>(
   routes: [
@@ -21,6 +22,7 @@ part 'base_shell_route.g.dart';
     TypedGoRoute<HomePageRoute>(
       path: HomePageRoute.path,
       routes: [
+        TypedGoRoute<PostCreatePageRoute>(path: PostCreatePageRoute.path),
         TypedGoRoute<SettingPageRoute>(
           path: SettingPageRoute.path,
           routes: [
@@ -80,6 +82,17 @@ class HomePageRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) => const HomePage();
+}
+
+class PostCreatePageRoute extends GoRouteData {
+  const PostCreatePageRoute();
+
+  static const path = 'create';
+
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) {
+    return const MaterialPage(child: PostEditPage(), fullscreenDialog: true);
+  }
 }
 
 class MaintenancePageRoute extends GoRouteData {

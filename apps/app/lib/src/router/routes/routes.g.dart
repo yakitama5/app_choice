@@ -2,7 +2,7 @@
 
 // ignore_for_file: type=lint, duplicate_ignore
 
-part of 'base_shell_route.dart';
+part of 'routes.dart';
 
 // **************************************************************************
 // GoRouterGenerator
@@ -32,6 +32,10 @@ RouteBase get $baseShellSroute => ShellRouteData.$route(
           path: '/home',
           factory: $HomePageRouteExtension._fromState,
           routes: [
+            GoRouteData.$route(
+              path: 'create',
+              factory: $PostCreatePageRouteExtension._fromState,
+            ),
             GoRouteData.$route(
               path: 'setting',
               factory: $SettingPageRouteExtension._fromState,
@@ -124,6 +128,24 @@ extension $HomePageRouteExtension on HomePageRoute {
 
   String get location => GoRouteData.$location(
         '/home',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $PostCreatePageRouteExtension on PostCreatePageRoute {
+  static PostCreatePageRoute _fromState(GoRouterState state) =>
+      const PostCreatePageRoute();
+
+  String get location => GoRouteData.$location(
+        '/home/create',
       );
 
   void go(BuildContext context) => context.go(location);

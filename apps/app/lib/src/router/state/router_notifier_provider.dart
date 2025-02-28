@@ -1,7 +1,7 @@
 import 'package:cores_domain/core.dart';
 import 'package:cores_domain/user.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/src/router/routes/base_shell_route.dart';
+import 'package:flutter_app/src/router/routes/routes.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

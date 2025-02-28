@@ -4,7 +4,7 @@ import 'package:cores_designsystem/i18n.dart';
 import 'package:cores_domain/core.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/src/router/routes/base_shell_route.dart';
+import 'package:flutter_app/src/router/routes/routes.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:nested/nested.dart';
 
