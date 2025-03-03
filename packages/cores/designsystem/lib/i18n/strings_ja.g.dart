@@ -51,6 +51,7 @@ class _TranslationsCommonJa extends TranslationsCommonEn {
 	// Translations
 	@override String get yes => 'はい';
 	@override String get no => 'いいえ';
+	@override late final _TranslationsCommonConfirmDiscardChangesJa confirmDiscardChanges = _TranslationsCommonConfirmDiscardChangesJa._(_root);
 }
 
 // Path: designsystem
@@ -114,6 +115,19 @@ class _TranslationsDesignsystemJa extends TranslationsDesignsystemEn {
 	@override late final _TranslationsDesignsystemAppUpdateJa appUpdate = _TranslationsDesignsystemAppUpdateJa._(_root);
 }
 
+// Path: common.confirmDiscardChanges
+class _TranslationsCommonConfirmDiscardChangesJa extends TranslationsCommonConfirmDiscardChangesEn {
+	_TranslationsCommonConfirmDiscardChangesJa._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '変更を破棄しますか？';
+	@override String get message => 'すべての変更は失われます';
+	@override String get discard => '破棄';
+	@override String get notDiscard => '破棄しない';
+}
+
 // Path: designsystem.viewLayout
 class _TranslationsDesignsystemViewLayoutJa extends TranslationsDesignsystemViewLayoutEn {
 	_TranslationsDesignsystemViewLayoutJa._(TranslationsJa root) : this._root = root, super.internal(root);
@@ -171,6 +185,10 @@ extension on TranslationsJa {
 		switch (path) {
 			case 'common.yes': return 'はい';
 			case 'common.no': return 'いいえ';
+			case 'common.confirmDiscardChanges.title': return '変更を破棄しますか？';
+			case 'common.confirmDiscardChanges.message': return 'すべての変更は失われます';
+			case 'common.confirmDiscardChanges.discard': return '破棄';
+			case 'common.confirmDiscardChanges.notDiscard': return '破棄しない';
 			case 'designsystem.uiStyle': return ({required UIStyle context}) {
 				switch (context) {
 					case UIStyle.system:

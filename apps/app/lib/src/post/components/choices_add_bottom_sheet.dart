@@ -1,3 +1,4 @@
+import 'package:cores_designsystem/widgets.dart';
 import 'package:cores_domain/util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/i18n/strings.g.dart';
@@ -43,37 +44,40 @@ class _Form extends StatelessWidget {
     return ChoicesFormModelFormBuilder(
       model: const ChoicesFormModel(),
       builder:
-          (_, _, _) => Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ReactiveTextField<String>(
-                formControlName: ChoicesFormModelForm.choicesControlName,
-                autofocus: true,
-                onSubmitted: (control) => submit(context, control),
-              ),
-              const Gap(8),
-              Align(
-                alignment: AlignmentDirectional.centerEnd,
-                child: ReactiveValueListenableBuilder<String>(
+          (context, _, _) => PopScopeDirtyConfirm(
+            dirty: ReactiveChoicesFormModelForm.of(context)?.form.dirty,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ReactiveTextField<String>(
                   formControlName: ChoicesFormModelForm.choicesControlName,
-                  builder: (_, control, _) {
-                    final disabled = control.invalid;
-
-                    return IgnorePointer(
-                      ignoring: disabled,
-                      child: FilledButton(
-                        // バリデーションエラーの場合はボタンを非活性化する
-                        onPressed:
-                            disabled ? null : () => submit(context, control),
-                        child: Text(
-                          i18n.app.postEditPage.choicesAddBottomSheet.add,
-                        ),
-                      ),
-                    );
-                  },
+                  autofocus: true,
+                  onSubmitted: (control) => submit(context, control),
                 ),
-              ),
-            ],
+                const Gap(8),
+                Align(
+                  alignment: AlignmentDirectional.centerEnd,
+                  child: ReactiveValueListenableBuilder<String>(
+                    formControlName: ChoicesFormModelForm.choicesControlName,
+                    builder: (_, control, _) {
+                      final disabled = control.invalid;
+
+                      return IgnorePointer(
+                        ignoring: disabled,
+                        child: FilledButton(
+                          // バリデーションエラーの場合はボタンを非活性化する
+                          onPressed:
+                              disabled ? null : () => submit(context, control),
+                          child: Text(
+                            i18n.app.postEditPage.choicesAddBottomSheet.add,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
     );
   }

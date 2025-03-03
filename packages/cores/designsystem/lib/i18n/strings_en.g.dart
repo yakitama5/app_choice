@@ -50,6 +50,7 @@ class TranslationsCommonEn {
 	// Translations
 	String get yes => 'Yes';
 	String get no => 'No';
+	late final TranslationsCommonConfirmDiscardChangesEn confirmDiscardChanges = TranslationsCommonConfirmDiscardChangesEn.internal(_root);
 }
 
 // Path: designsystem
@@ -113,6 +114,19 @@ class TranslationsDesignsystemEn {
 	late final TranslationsDesignsystemAppUpdateEn appUpdate = TranslationsDesignsystemAppUpdateEn.internal(_root);
 }
 
+// Path: common.confirmDiscardChanges
+class TranslationsCommonConfirmDiscardChangesEn {
+	TranslationsCommonConfirmDiscardChangesEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Discard changes?';
+	String get message => 'All changes will be lost';
+	String get discard => 'discard';
+	String get notDiscard => 'not to be discarded';
+}
+
 // Path: designsystem.viewLayout
 class TranslationsDesignsystemViewLayoutEn {
 	TranslationsDesignsystemViewLayoutEn.internal(this._root);
@@ -170,6 +184,10 @@ extension on Translations {
 		switch (path) {
 			case 'common.yes': return 'Yes';
 			case 'common.no': return 'No';
+			case 'common.confirmDiscardChanges.title': return 'Discard changes?';
+			case 'common.confirmDiscardChanges.message': return 'All changes will be lost';
+			case 'common.confirmDiscardChanges.discard': return 'discard';
+			case 'common.confirmDiscardChanges.notDiscard': return 'not to be discarded';
 			case 'designsystem.uiStyle': return ({required UIStyle context}) {
 				switch (context) {
 					case UIStyle.system:
