@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/src/post/model/choices_form_model.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:reactive_forms_annotations/reactive_forms_annotations.dart';
 
 /// 選択肢を追加するBottomSheet
@@ -47,6 +48,7 @@ class _Form extends StatelessWidget {
               ReactiveTextField<String>(
                 formControlName: ChoicesFormModelForm.choicesControlName,
                 autofocus: true,
+                onSubmitted: (control) => submit(context, control),
               ),
               const Gap(8),
               Align(
@@ -61,12 +63,7 @@ class _Form extends StatelessWidget {
                       child: FilledButton(
                         // バリデーションエラーの場合はボタンを非活性化する
                         onPressed:
-                            disabled
-                                ? null
-                                : () {
-                                  onChoiceAdded(control.value!);
-                                  Navigator.pop(context);
-                                },
+                            disabled ? null : () => submit(context, control),
                         child: const Text('追加'),
                       ),
                     );
@@ -76,5 +73,12 @@ class _Form extends StatelessWidget {
             ],
           ),
     );
+  }
+
+  void submit(BuildContext context, AbstractControl<String> control) {
+    if (control.valid) {
+      onChoiceAdded(control.value!);
+      context.pop();
+    }
   }
 }
