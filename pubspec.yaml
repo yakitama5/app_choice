@@ -33,9 +33,9 @@ melos:
         flutter: ^3.29.0
       dependencies:
         collection: any
-        flutter_hooks: any
-        freezed_annotation: any
-        go_router: any
+        flutter_hooks: ^0.21.2
+        freezed_annotation: ^3.0.0
+        go_router: ^14.8.1
         hooks_riverpod: ^2.6.1
         intl: any
         json_annotation: any
@@ -49,7 +49,7 @@ melos:
         build_runner: ^2.4.14
         custom_lint: ^0.7.0
         flutter_gen_runner: any
-        freezed: any
+        freezed: ^3.0.3
         json_serializable: any
         nilts: any
         pedantic_mono: any
