@@ -1,9 +1,11 @@
 import 'package:cores_designsystem/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/i18n/strings.g.dart';
 import 'package:flutter_app/src/post/components/choices_add_bottom_sheet.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:mono_kit/widgets/widgets.dart';
 
 class PostEditPage extends HookConsumerWidget {
   const PostEditPage({super.key});
@@ -55,15 +57,17 @@ class WarningDescription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const FilledCard(
-      child: Text('''
-「公開して意見を募集する」を選択した場合、投稿内容が他のユーザーにも公開されます。
-
-下記に当てはまる内容を投稿することはお控え下さい。
-個人情報を含む投稿
-センシティブな内容を含む投稿
-匿名の個人/団体を批判する投稿
-誹謗中傷にあたる投稿'''),
+    return FilledCard(
+      child: Column(
+        children: [
+          Text(i18n.app.postEditPage.sensitiveWarnMessage.message),
+          ItemizedText(
+            i18n.app.postEditPage.sensitiveWarnMessage.clauseItems
+                .map(Text.new)
+                .toList(),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -102,12 +106,18 @@ class PostForm extends HookWidget {
 class PostTitleTextField extends HookConsumerWidget {
   const PostTitleTextField({super.key});
 
+  static const int _kMinLines = 3;
+  static const int _kMaxLines = 5;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const TextField(
-      minLines: 3,
-      maxLines: 5,
-      decoration: InputDecoration(hintText: '何に対して迷っていますか？', filled: true),
+    return TextField(
+      minLines: _kMinLines,
+      maxLines: _kMaxLines,
+      decoration: InputDecoration(
+        hintText: i18n.app.postEditPage.title.hintText,
+        filled: true,
+      ),
     );
   }
 }

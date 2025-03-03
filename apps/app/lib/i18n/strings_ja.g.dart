@@ -53,6 +53,7 @@ class _TranslationsAppJa extends TranslationsAppEn {
 	// Translations
 	@override late final _TranslationsAppOnboardPageJa onboardPage = _TranslationsAppOnboardPageJa._(_root);
 	@override late final _TranslationsAppHomePageJa homePage = _TranslationsAppHomePageJa._(_root);
+	@override late final _TranslationsAppPostEditPageJa postEditPage = _TranslationsAppPostEditPageJa._(_root);
 	@override late final _TranslationsAppBottomNavBarJa bottomNavBar = _TranslationsAppBottomNavBarJa._(_root);
 }
 
@@ -130,6 +131,18 @@ class _TranslationsAppHomePageJa extends TranslationsAppHomePageEn {
 
 	// Translations
 	@override late final _TranslationsAppHomePageTabsJa tabs = _TranslationsAppHomePageTabsJa._(_root);
+}
+
+// Path: app.postEditPage
+class _TranslationsAppPostEditPageJa extends TranslationsAppPostEditPageEn {
+	_TranslationsAppPostEditPageJa._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsAppPostEditPageSensitiveWarnMessageJa sensitiveWarnMessage = _TranslationsAppPostEditPageSensitiveWarnMessageJa._(_root);
+	@override late final _TranslationsAppPostEditPageTitleJa title = _TranslationsAppPostEditPageTitleJa._(_root);
+	@override late final _TranslationsAppPostEditPageChoicesAddBottomSheetJa choicesAddBottomSheet = _TranslationsAppPostEditPageChoicesAddBottomSheetJa._(_root);
 }
 
 // Path: app.bottomNavBar
@@ -237,6 +250,42 @@ class _TranslationsAppHomePageTabsJa extends TranslationsAppHomePageTabsEn {
 	@override String get newPost => '最新';
 }
 
+// Path: app.postEditPage.sensitiveWarnMessage
+class _TranslationsAppPostEditPageSensitiveWarnMessageJa extends TranslationsAppPostEditPageSensitiveWarnMessageEn {
+	_TranslationsAppPostEditPageSensitiveWarnMessageJa._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get message => '「公開して意見を募集する」を選択した場合、投稿内容が他のユーザーにも公開されます。\n\n下記に当てはまる内容を投稿することはお控え下さい。';
+	@override List<String> get clauseItems => [
+		'個人情報を含む投稿',
+		'センシティブな内容を含む投稿',
+		'匿名の個人/団体を批判する投稿',
+		'誹謗中傷にあたる投稿',
+	];
+}
+
+// Path: app.postEditPage.title
+class _TranslationsAppPostEditPageTitleJa extends TranslationsAppPostEditPageTitleEn {
+	_TranslationsAppPostEditPageTitleJa._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get hintText => '何に対して迷っていますか？';
+}
+
+// Path: app.postEditPage.choicesAddBottomSheet
+class _TranslationsAppPostEditPageChoicesAddBottomSheetJa extends TranslationsAppPostEditPageChoicesAddBottomSheetEn {
+	_TranslationsAppPostEditPageChoicesAddBottomSheetJa._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get add => '追加';
+}
+
 // Path: error.message.impossibleOperation
 class _TranslationsErrorMessageImpossibleOperationJa extends TranslationsErrorMessageImpossibleOperationEn {
 	_TranslationsErrorMessageImpossibleOperationJa._(TranslationsJa root) : this._root = root, super.internal(root);
@@ -334,6 +383,13 @@ extension on TranslationsJa {
 			case 'app.homePage.tabs.myPosts': return 'わたしの投稿';
 			case 'app.homePage.tabs.trends': return 'トレンド';
 			case 'app.homePage.tabs.newPost': return '最新';
+			case 'app.postEditPage.sensitiveWarnMessage.message': return '「公開して意見を募集する」を選択した場合、投稿内容が他のユーザーにも公開されます。\n\n下記に当てはまる内容を投稿することはお控え下さい。';
+			case 'app.postEditPage.sensitiveWarnMessage.clauseItems.0': return '個人情報を含む投稿';
+			case 'app.postEditPage.sensitiveWarnMessage.clauseItems.1': return 'センシティブな内容を含む投稿';
+			case 'app.postEditPage.sensitiveWarnMessage.clauseItems.2': return '匿名の個人/団体を批判する投稿';
+			case 'app.postEditPage.sensitiveWarnMessage.clauseItems.3': return '誹謗中傷にあたる投稿';
+			case 'app.postEditPage.title.hintText': return '何に対して迷っていますか？';
+			case 'app.postEditPage.choicesAddBottomSheet.add': return '追加';
 			case 'app.bottomNavBar.home': return 'ホーム';
 			case 'app.bottomNavBar.search': return '探す';
 			case 'app.bottomNavBar.settings': return '設定';

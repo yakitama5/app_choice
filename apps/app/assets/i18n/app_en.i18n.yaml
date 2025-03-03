@@ -8,6 +8,19 @@ homePage:
     myPosts: My posts
     trends: Trends
     newPost: New post
+postEditPage:
+  sensitiveWarnMessage:
+    message: 'If you select "Make public and solicit comments," your post will be made public to other users.\n\nPlease refrain from posting content that falls under the following categories:'
+    clauseItems: [
+      Posts that include personal information,
+      Posts that include sensitive content,
+      Posts that criticize anonymous individuals/groups,
+      Posts that are defamatory
+    ]
+  title:
+    hintText: What are you unsure about?
+  choicesAddBottomSheet:
+    add: Add
 bottomNavBar: 
   home: Home
   search: Search

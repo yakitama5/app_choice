@@ -53,6 +53,7 @@ class TranslationsAppEn {
 	// Translations
 	late final TranslationsAppOnboardPageEn onboardPage = TranslationsAppOnboardPageEn.internal(_root);
 	late final TranslationsAppHomePageEn homePage = TranslationsAppHomePageEn.internal(_root);
+	late final TranslationsAppPostEditPageEn postEditPage = TranslationsAppPostEditPageEn.internal(_root);
 	late final TranslationsAppBottomNavBarEn bottomNavBar = TranslationsAppBottomNavBarEn.internal(_root);
 }
 
@@ -130,6 +131,18 @@ class TranslationsAppHomePageEn {
 
 	// Translations
 	late final TranslationsAppHomePageTabsEn tabs = TranslationsAppHomePageTabsEn.internal(_root);
+}
+
+// Path: app.postEditPage
+class TranslationsAppPostEditPageEn {
+	TranslationsAppPostEditPageEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsAppPostEditPageSensitiveWarnMessageEn sensitiveWarnMessage = TranslationsAppPostEditPageSensitiveWarnMessageEn.internal(_root);
+	late final TranslationsAppPostEditPageTitleEn title = TranslationsAppPostEditPageTitleEn.internal(_root);
+	late final TranslationsAppPostEditPageChoicesAddBottomSheetEn choicesAddBottomSheet = TranslationsAppPostEditPageChoicesAddBottomSheetEn.internal(_root);
 }
 
 // Path: app.bottomNavBar
@@ -237,6 +250,42 @@ class TranslationsAppHomePageTabsEn {
 	String get newPost => 'New post';
 }
 
+// Path: app.postEditPage.sensitiveWarnMessage
+class TranslationsAppPostEditPageSensitiveWarnMessageEn {
+	TranslationsAppPostEditPageSensitiveWarnMessageEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get message => 'If you select "Make public and solicit comments," your post will be made public to other users.\n\nPlease refrain from posting content that falls under the following categories:';
+	List<String> get clauseItems => [
+		'Posts that include personal information',
+		'Posts that include sensitive content',
+		'Posts that criticize anonymous individuals/groups',
+		'Posts that are defamatory',
+	];
+}
+
+// Path: app.postEditPage.title
+class TranslationsAppPostEditPageTitleEn {
+	TranslationsAppPostEditPageTitleEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get hintText => 'What are you unsure about?';
+}
+
+// Path: app.postEditPage.choicesAddBottomSheet
+class TranslationsAppPostEditPageChoicesAddBottomSheetEn {
+	TranslationsAppPostEditPageChoicesAddBottomSheetEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get add => 'Add';
+}
+
 // Path: error.message.impossibleOperation
 class TranslationsErrorMessageImpossibleOperationEn {
 	TranslationsErrorMessageImpossibleOperationEn.internal(this._root);
@@ -334,6 +383,13 @@ extension on Translations {
 			case 'app.homePage.tabs.myPosts': return 'My posts';
 			case 'app.homePage.tabs.trends': return 'Trends';
 			case 'app.homePage.tabs.newPost': return 'New post';
+			case 'app.postEditPage.sensitiveWarnMessage.message': return 'If you select "Make public and solicit comments," your post will be made public to other users.\n\nPlease refrain from posting content that falls under the following categories:';
+			case 'app.postEditPage.sensitiveWarnMessage.clauseItems.0': return 'Posts that include personal information';
+			case 'app.postEditPage.sensitiveWarnMessage.clauseItems.1': return 'Posts that include sensitive content';
+			case 'app.postEditPage.sensitiveWarnMessage.clauseItems.2': return 'Posts that criticize anonymous individuals/groups';
+			case 'app.postEditPage.sensitiveWarnMessage.clauseItems.3': return 'Posts that are defamatory';
+			case 'app.postEditPage.title.hintText': return 'What are you unsure about?';
+			case 'app.postEditPage.choicesAddBottomSheet.add': return 'Add';
 			case 'app.bottomNavBar.home': return 'Home';
 			case 'app.bottomNavBar.search': return 'Search';
 			case 'app.bottomNavBar.settings': return 'Settings';

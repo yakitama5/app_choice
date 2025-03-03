@@ -8,6 +8,19 @@ homePage:
     myPosts: わたしの投稿
     trends: トレンド
     newPost: 最新
+postEditPage:
+  sensitiveWarnMessage:
+    message: '「公開して意見を募集する」を選択した場合、投稿内容が他のユーザーにも公開されます。\n\n下記に当てはまる内容を投稿することはお控え下さい。'
+    clauseItems: [
+      個人情報を含む投稿,
+      センシティブな内容を含む投稿,
+      匿名の個人/団体を批判する投稿,
+      誹謗中傷にあたる投稿
+    ]
+  title:
+    hintText: 何に対して迷っていますか？
+  choicesAddBottomSheet:
+    add: 追加
 bottomNavBar: 
   home: ホーム
   search: 探す
