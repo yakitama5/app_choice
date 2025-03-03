@@ -26,7 +26,6 @@ ThemeData appTheme(Ref ref, {required Brightness brightness}) {
         TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
       },
     ),
-    extensions: [AppColors.brightness(brightness: brightness)],
   );
 
   // GoogleFonts

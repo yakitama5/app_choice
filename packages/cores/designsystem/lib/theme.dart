@@ -5,4 +5,3 @@ export 'src/theme/state/dynamic_color_support_provider.dart';
 export 'src/theme/state/theme_color_notifier_provider.dart';
 export 'src/theme/state/theme_mode_notifier_provider.dart';
 export 'src/theme/state/ui_style_notifier_provider.dart';
-export 'src/theme/theme_extensions/theme_extensions.dart';
