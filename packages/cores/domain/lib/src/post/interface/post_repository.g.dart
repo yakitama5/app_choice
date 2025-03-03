@@ -18,9 +18,10 @@ String _$postRepositoryHash() => r'4d14b615615d98373d7c092e7a7e91f1be973a9d';
 final postRepositoryProvider = Provider<PostRepository>.internal(
   postRepository,
   name: r'postRepositoryProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$postRepositoryHash,
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$postRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

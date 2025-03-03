@@ -12,7 +12,8 @@ part of 'app_build_config.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$AppBuildConfig {
@@ -34,17 +35,19 @@ mixin _$AppBuildConfig {
 /// @nodoc
 abstract class $AppBuildConfigCopyWith<$Res> {
   factory $AppBuildConfigCopyWith(
-          AppBuildConfig value, $Res Function(AppBuildConfig) then) =
-      _$AppBuildConfigCopyWithImpl<$Res, AppBuildConfig>;
+    AppBuildConfig value,
+    $Res Function(AppBuildConfig) then,
+  ) = _$AppBuildConfigCopyWithImpl<$Res, AppBuildConfig>;
   @useResult
-  $Res call(
-      {Flavor flavor,
-      String appName,
-      String packageName,
-      Version version,
-      String buildNumber,
-      String buildSignature,
-      String? installerStore});
+  $Res call({
+    Flavor flavor,
+    String appName,
+    String packageName,
+    Version version,
+    String buildNumber,
+    String buildSignature,
+    String? installerStore,
+  });
 }
 
 /// @nodoc
@@ -70,55 +73,67 @@ class _$AppBuildConfigCopyWithImpl<$Res, $Val extends AppBuildConfig>
     Object? buildSignature = null,
     Object? installerStore = freezed,
   }) {
-    return _then(_value.copyWith(
-      flavor: null == flavor
-          ? _value.flavor
-          : flavor // ignore: cast_nullable_to_non_nullable
-              as Flavor,
-      appName: null == appName
-          ? _value.appName
-          : appName // ignore: cast_nullable_to_non_nullable
-              as String,
-      packageName: null == packageName
-          ? _value.packageName
-          : packageName // ignore: cast_nullable_to_non_nullable
-              as String,
-      version: null == version
-          ? _value.version
-          : version // ignore: cast_nullable_to_non_nullable
-              as Version,
-      buildNumber: null == buildNumber
-          ? _value.buildNumber
-          : buildNumber // ignore: cast_nullable_to_non_nullable
-              as String,
-      buildSignature: null == buildSignature
-          ? _value.buildSignature
-          : buildSignature // ignore: cast_nullable_to_non_nullable
-              as String,
-      installerStore: freezed == installerStore
-          ? _value.installerStore
-          : installerStore // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            flavor:
+                null == flavor
+                    ? _value.flavor
+                    : flavor // ignore: cast_nullable_to_non_nullable
+                        as Flavor,
+            appName:
+                null == appName
+                    ? _value.appName
+                    : appName // ignore: cast_nullable_to_non_nullable
+                        as String,
+            packageName:
+                null == packageName
+                    ? _value.packageName
+                    : packageName // ignore: cast_nullable_to_non_nullable
+                        as String,
+            version:
+                null == version
+                    ? _value.version
+                    : version // ignore: cast_nullable_to_non_nullable
+                        as Version,
+            buildNumber:
+                null == buildNumber
+                    ? _value.buildNumber
+                    : buildNumber // ignore: cast_nullable_to_non_nullable
+                        as String,
+            buildSignature:
+                null == buildSignature
+                    ? _value.buildSignature
+                    : buildSignature // ignore: cast_nullable_to_non_nullable
+                        as String,
+            installerStore:
+                freezed == installerStore
+                    ? _value.installerStore
+                    : installerStore // ignore: cast_nullable_to_non_nullable
+                        as String?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$AppBuildConfigImplCopyWith<$Res>
     implements $AppBuildConfigCopyWith<$Res> {
-  factory _$$AppBuildConfigImplCopyWith(_$AppBuildConfigImpl value,
-          $Res Function(_$AppBuildConfigImpl) then) =
-      __$$AppBuildConfigImplCopyWithImpl<$Res>;
+  factory _$$AppBuildConfigImplCopyWith(
+    _$AppBuildConfigImpl value,
+    $Res Function(_$AppBuildConfigImpl) then,
+  ) = __$$AppBuildConfigImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {Flavor flavor,
-      String appName,
-      String packageName,
-      Version version,
-      String buildNumber,
-      String buildSignature,
-      String? installerStore});
+  $Res call({
+    Flavor flavor,
+    String appName,
+    String packageName,
+    Version version,
+    String buildNumber,
+    String buildSignature,
+    String? installerStore,
+  });
 }
 
 /// @nodoc
@@ -126,8 +141,9 @@ class __$$AppBuildConfigImplCopyWithImpl<$Res>
     extends _$AppBuildConfigCopyWithImpl<$Res, _$AppBuildConfigImpl>
     implements _$$AppBuildConfigImplCopyWith<$Res> {
   __$$AppBuildConfigImplCopyWithImpl(
-      _$AppBuildConfigImpl _value, $Res Function(_$AppBuildConfigImpl) _then)
-      : super(_value, _then);
+    _$AppBuildConfigImpl _value,
+    $Res Function(_$AppBuildConfigImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AppBuildConfig
   /// with the given fields replaced by the non-null parameter values.
@@ -142,50 +158,60 @@ class __$$AppBuildConfigImplCopyWithImpl<$Res>
     Object? buildSignature = null,
     Object? installerStore = freezed,
   }) {
-    return _then(_$AppBuildConfigImpl(
-      flavor: null == flavor
-          ? _value.flavor
-          : flavor // ignore: cast_nullable_to_non_nullable
-              as Flavor,
-      appName: null == appName
-          ? _value.appName
-          : appName // ignore: cast_nullable_to_non_nullable
-              as String,
-      packageName: null == packageName
-          ? _value.packageName
-          : packageName // ignore: cast_nullable_to_non_nullable
-              as String,
-      version: null == version
-          ? _value.version
-          : version // ignore: cast_nullable_to_non_nullable
-              as Version,
-      buildNumber: null == buildNumber
-          ? _value.buildNumber
-          : buildNumber // ignore: cast_nullable_to_non_nullable
-              as String,
-      buildSignature: null == buildSignature
-          ? _value.buildSignature
-          : buildSignature // ignore: cast_nullable_to_non_nullable
-              as String,
-      installerStore: freezed == installerStore
-          ? _value.installerStore
-          : installerStore // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _$AppBuildConfigImpl(
+        flavor:
+            null == flavor
+                ? _value.flavor
+                : flavor // ignore: cast_nullable_to_non_nullable
+                    as Flavor,
+        appName:
+            null == appName
+                ? _value.appName
+                : appName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        packageName:
+            null == packageName
+                ? _value.packageName
+                : packageName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        version:
+            null == version
+                ? _value.version
+                : version // ignore: cast_nullable_to_non_nullable
+                    as Version,
+        buildNumber:
+            null == buildNumber
+                ? _value.buildNumber
+                : buildNumber // ignore: cast_nullable_to_non_nullable
+                    as String,
+        buildSignature:
+            null == buildSignature
+                ? _value.buildSignature
+                : buildSignature // ignore: cast_nullable_to_non_nullable
+                    as String,
+        installerStore:
+            freezed == installerStore
+                ? _value.installerStore
+                : installerStore // ignore: cast_nullable_to_non_nullable
+                    as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$AppBuildConfigImpl implements _AppBuildConfig {
-  const _$AppBuildConfigImpl(
-      {required this.flavor,
-      required this.appName,
-      required this.packageName,
-      required this.version,
-      required this.buildNumber,
-      required this.buildSignature,
-      this.installerStore});
+  const _$AppBuildConfigImpl({
+    required this.flavor,
+    required this.appName,
+    required this.packageName,
+    required this.version,
+    required this.buildNumber,
+    required this.buildSignature,
+    this.installerStore,
+  });
 
   @override
   final Flavor flavor;
@@ -226,8 +252,16 @@ class _$AppBuildConfigImpl implements _AppBuildConfig {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, flavor, appName, packageName,
-      version, buildNumber, buildSignature, installerStore);
+  int get hashCode => Object.hash(
+    runtimeType,
+    flavor,
+    appName,
+    packageName,
+    version,
+    buildNumber,
+    buildSignature,
+    installerStore,
+  );
 
   /// Create a copy of AppBuildConfig
   /// with the given fields replaced by the non-null parameter values.
@@ -236,18 +270,21 @@ class _$AppBuildConfigImpl implements _AppBuildConfig {
   @pragma('vm:prefer-inline')
   _$$AppBuildConfigImplCopyWith<_$AppBuildConfigImpl> get copyWith =>
       __$$AppBuildConfigImplCopyWithImpl<_$AppBuildConfigImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _AppBuildConfig implements AppBuildConfig {
-  const factory _AppBuildConfig(
-      {required final Flavor flavor,
-      required final String appName,
-      required final String packageName,
-      required final Version version,
-      required final String buildNumber,
-      required final String buildSignature,
-      final String? installerStore}) = _$AppBuildConfigImpl;
+  const factory _AppBuildConfig({
+    required final Flavor flavor,
+    required final String appName,
+    required final String packageName,
+    required final Version version,
+    required final String buildNumber,
+    required final String buildSignature,
+    final String? installerStore,
+  }) = _$AppBuildConfigImpl;
 
   @override
   Flavor get flavor;

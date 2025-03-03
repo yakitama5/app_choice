@@ -12,7 +12,8 @@ part of 'post.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$Post {
@@ -33,12 +34,13 @@ abstract class $PostCopyWith<$Res> {
   factory $PostCopyWith(Post value, $Res Function(Post) then) =
       _$PostCopyWithImpl<$Res, Post>;
   @useResult
-  $Res call(
-      {String id,
-      String title,
-      List<Choices> choicesList,
-      DateTime createdAt,
-      DateTime updatedAt});
+  $Res call({
+    String id,
+    String title,
+    List<Choices> choicesList,
+    DateTime createdAt,
+    DateTime updatedAt,
+  });
 }
 
 /// @nodoc
@@ -62,44 +64,54 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      choicesList: null == choicesList
-          ? _value.choicesList
-          : choicesList // ignore: cast_nullable_to_non_nullable
-              as List<Choices>,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as String,
+            title:
+                null == title
+                    ? _value.title
+                    : title // ignore: cast_nullable_to_non_nullable
+                        as String,
+            choicesList:
+                null == choicesList
+                    ? _value.choicesList
+                    : choicesList // ignore: cast_nullable_to_non_nullable
+                        as List<Choices>,
+            createdAt:
+                null == createdAt
+                    ? _value.createdAt
+                    : createdAt // ignore: cast_nullable_to_non_nullable
+                        as DateTime,
+            updatedAt:
+                null == updatedAt
+                    ? _value.updatedAt
+                    : updatedAt // ignore: cast_nullable_to_non_nullable
+                        as DateTime,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
   factory _$$PostImplCopyWith(
-          _$PostImpl value, $Res Function(_$PostImpl) then) =
-      __$$PostImplCopyWithImpl<$Res>;
+    _$PostImpl value,
+    $Res Function(_$PostImpl) then,
+  ) = __$$PostImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String id,
-      String title,
-      List<Choices> choicesList,
-      DateTime createdAt,
-      DateTime updatedAt});
+  $Res call({
+    String id,
+    String title,
+    List<Choices> choicesList,
+    DateTime createdAt,
+    DateTime updatedAt,
+  });
 }
 
 /// @nodoc
@@ -107,7 +119,7 @@ class __$$PostImplCopyWithImpl<$Res>
     extends _$PostCopyWithImpl<$Res, _$PostImpl>
     implements _$$PostImplCopyWith<$Res> {
   __$$PostImplCopyWithImpl(_$PostImpl _value, $Res Function(_$PostImpl) _then)
-      : super(_value, _then);
+    : super(_value, _then);
 
   /// Create a copy of Post
   /// with the given fields replaced by the non-null parameter values.
@@ -120,41 +132,48 @@ class __$$PostImplCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
-    return _then(_$PostImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      choicesList: null == choicesList
-          ? _value._choicesList
-          : choicesList // ignore: cast_nullable_to_non_nullable
-              as List<Choices>,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
+    return _then(
+      _$PostImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as String,
+        title:
+            null == title
+                ? _value.title
+                : title // ignore: cast_nullable_to_non_nullable
+                    as String,
+        choicesList:
+            null == choicesList
+                ? _value._choicesList
+                : choicesList // ignore: cast_nullable_to_non_nullable
+                    as List<Choices>,
+        createdAt:
+            null == createdAt
+                ? _value.createdAt
+                : createdAt // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+        updatedAt:
+            null == updatedAt
+                ? _value.updatedAt
+                : updatedAt // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$PostImpl implements _Post {
-  const _$PostImpl(
-      {required this.id,
-      required this.title,
-      required final List<Choices> choicesList,
-      required this.createdAt,
-      required this.updatedAt})
-      : _choicesList = choicesList;
+  const _$PostImpl({
+    required this.id,
+    required this.title,
+    required final List<Choices> choicesList,
+    required this.createdAt,
+    required this.updatedAt,
+  }) : _choicesList = choicesList;
 
   @override
   final String id;
@@ -185,8 +204,10 @@ class _$PostImpl implements _Post {
             other is _$PostImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
-            const DeepCollectionEquality()
-                .equals(other._choicesList, _choicesList) &&
+            const DeepCollectionEquality().equals(
+              other._choicesList,
+              _choicesList,
+            ) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -194,8 +215,14 @@ class _$PostImpl implements _Post {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, title,
-      const DeepCollectionEquality().hash(_choicesList), createdAt, updatedAt);
+  int get hashCode => Object.hash(
+    runtimeType,
+    id,
+    title,
+    const DeepCollectionEquality().hash(_choicesList),
+    createdAt,
+    updatedAt,
+  );
 
   /// Create a copy of Post
   /// with the given fields replaced by the non-null parameter values.
@@ -207,12 +234,13 @@ class _$PostImpl implements _Post {
 }
 
 abstract class _Post implements Post {
-  const factory _Post(
-      {required final String id,
-      required final String title,
-      required final List<Choices> choicesList,
-      required final DateTime createdAt,
-      required final DateTime updatedAt}) = _$PostImpl;
+  const factory _Post({
+    required final String id,
+    required final String title,
+    required final List<Choices> choicesList,
+    required final DateTime createdAt,
+    required final DateTime updatedAt,
+  }) = _$PostImpl;
 
   @override
   String get id;

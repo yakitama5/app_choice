@@ -12,7 +12,8 @@ part of 'choices.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$Choices {
@@ -35,14 +36,15 @@ abstract class $ChoicesCopyWith<$Res> {
   factory $ChoicesCopyWith(Choices value, $Res Function(Choices) then) =
       _$ChoicesCopyWithImpl<$Res, Choices>;
   @useResult
-  $Res call(
-      {String id,
-      String title,
-      int voteCount,
-      bool selected,
-      int sortOrder,
-      DateTime createdAt,
-      DateTime updatedAt});
+  $Res call({
+    String id,
+    String title,
+    int voteCount,
+    bool selected,
+    int sortOrder,
+    DateTime createdAt,
+    DateTime updatedAt,
+  });
 }
 
 /// @nodoc
@@ -68,54 +70,66 @@ class _$ChoicesCopyWithImpl<$Res, $Val extends Choices>
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      voteCount: null == voteCount
-          ? _value.voteCount
-          : voteCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      selected: null == selected
-          ? _value.selected
-          : selected // ignore: cast_nullable_to_non_nullable
-              as bool,
-      sortOrder: null == sortOrder
-          ? _value.sortOrder
-          : sortOrder // ignore: cast_nullable_to_non_nullable
-              as int,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as String,
+            title:
+                null == title
+                    ? _value.title
+                    : title // ignore: cast_nullable_to_non_nullable
+                        as String,
+            voteCount:
+                null == voteCount
+                    ? _value.voteCount
+                    : voteCount // ignore: cast_nullable_to_non_nullable
+                        as int,
+            selected:
+                null == selected
+                    ? _value.selected
+                    : selected // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            sortOrder:
+                null == sortOrder
+                    ? _value.sortOrder
+                    : sortOrder // ignore: cast_nullable_to_non_nullable
+                        as int,
+            createdAt:
+                null == createdAt
+                    ? _value.createdAt
+                    : createdAt // ignore: cast_nullable_to_non_nullable
+                        as DateTime,
+            updatedAt:
+                null == updatedAt
+                    ? _value.updatedAt
+                    : updatedAt // ignore: cast_nullable_to_non_nullable
+                        as DateTime,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$ChoicesImplCopyWith<$Res> implements $ChoicesCopyWith<$Res> {
   factory _$$ChoicesImplCopyWith(
-          _$ChoicesImpl value, $Res Function(_$ChoicesImpl) then) =
-      __$$ChoicesImplCopyWithImpl<$Res>;
+    _$ChoicesImpl value,
+    $Res Function(_$ChoicesImpl) then,
+  ) = __$$ChoicesImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String id,
-      String title,
-      int voteCount,
-      bool selected,
-      int sortOrder,
-      DateTime createdAt,
-      DateTime updatedAt});
+  $Res call({
+    String id,
+    String title,
+    int voteCount,
+    bool selected,
+    int sortOrder,
+    DateTime createdAt,
+    DateTime updatedAt,
+  });
 }
 
 /// @nodoc
@@ -123,8 +137,9 @@ class __$$ChoicesImplCopyWithImpl<$Res>
     extends _$ChoicesCopyWithImpl<$Res, _$ChoicesImpl>
     implements _$$ChoicesImplCopyWith<$Res> {
   __$$ChoicesImplCopyWithImpl(
-      _$ChoicesImpl _value, $Res Function(_$ChoicesImpl) _then)
-      : super(_value, _then);
+    _$ChoicesImpl _value,
+    $Res Function(_$ChoicesImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of Choices
   /// with the given fields replaced by the non-null parameter values.
@@ -139,50 +154,60 @@ class __$$ChoicesImplCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
-    return _then(_$ChoicesImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      voteCount: null == voteCount
-          ? _value.voteCount
-          : voteCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      selected: null == selected
-          ? _value.selected
-          : selected // ignore: cast_nullable_to_non_nullable
-              as bool,
-      sortOrder: null == sortOrder
-          ? _value.sortOrder
-          : sortOrder // ignore: cast_nullable_to_non_nullable
-              as int,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
+    return _then(
+      _$ChoicesImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as String,
+        title:
+            null == title
+                ? _value.title
+                : title // ignore: cast_nullable_to_non_nullable
+                    as String,
+        voteCount:
+            null == voteCount
+                ? _value.voteCount
+                : voteCount // ignore: cast_nullable_to_non_nullable
+                    as int,
+        selected:
+            null == selected
+                ? _value.selected
+                : selected // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        sortOrder:
+            null == sortOrder
+                ? _value.sortOrder
+                : sortOrder // ignore: cast_nullable_to_non_nullable
+                    as int,
+        createdAt:
+            null == createdAt
+                ? _value.createdAt
+                : createdAt // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+        updatedAt:
+            null == updatedAt
+                ? _value.updatedAt
+                : updatedAt // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$ChoicesImpl implements _Choices {
-  const _$ChoicesImpl(
-      {required this.id,
-      required this.title,
-      this.voteCount = 0,
-      this.selected = false,
-      required this.sortOrder,
-      required this.createdAt,
-      required this.updatedAt});
+  const _$ChoicesImpl({
+    required this.id,
+    required this.title,
+    this.voteCount = 0,
+    this.selected = false,
+    required this.sortOrder,
+    required this.createdAt,
+    required this.updatedAt,
+  });
 
   @override
   final String id;
@@ -226,8 +251,16 @@ class _$ChoicesImpl implements _Choices {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, voteCount, selected,
-      sortOrder, createdAt, updatedAt);
+  int get hashCode => Object.hash(
+    runtimeType,
+    id,
+    title,
+    voteCount,
+    selected,
+    sortOrder,
+    createdAt,
+    updatedAt,
+  );
 
   /// Create a copy of Choices
   /// with the given fields replaced by the non-null parameter values.
@@ -239,14 +272,15 @@ class _$ChoicesImpl implements _Choices {
 }
 
 abstract class _Choices implements Choices {
-  const factory _Choices(
-      {required final String id,
-      required final String title,
-      final int voteCount,
-      final bool selected,
-      required final int sortOrder,
-      required final DateTime createdAt,
-      required final DateTime updatedAt}) = _$ChoicesImpl;
+  const factory _Choices({
+    required final String id,
+    required final String title,
+    final int voteCount,
+    final bool selected,
+    required final int sortOrder,
+    required final DateTime createdAt,
+    required final DateTime updatedAt,
+  }) = _$ChoicesImpl;
 
   @override
   String get id;

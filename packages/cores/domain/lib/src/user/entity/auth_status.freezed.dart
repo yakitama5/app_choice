@@ -12,7 +12,8 @@ part of 'auth_status.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 AuthStatus _$AuthStatusFromJson(Map<String, dynamic> json) {
   return _AuthStatus.fromJson(json);
@@ -38,11 +39,16 @@ mixin _$AuthStatus {
 /// @nodoc
 abstract class $AuthStatusCopyWith<$Res> {
   factory $AuthStatusCopyWith(
-          AuthStatus value, $Res Function(AuthStatus) then) =
-      _$AuthStatusCopyWithImpl<$Res, AuthStatus>;
+    AuthStatus value,
+    $Res Function(AuthStatus) then,
+  ) = _$AuthStatusCopyWithImpl<$Res, AuthStatus>;
   @useResult
-  $Res call(
-      {String uid, bool isAnonymous, bool linkedGoogle, bool linkedApple});
+  $Res call({
+    String uid,
+    bool isAnonymous,
+    bool linkedGoogle,
+    bool linkedApple,
+  });
 }
 
 /// @nodoc
@@ -65,24 +71,31 @@ class _$AuthStatusCopyWithImpl<$Res, $Val extends AuthStatus>
     Object? linkedGoogle = null,
     Object? linkedApple = null,
   }) {
-    return _then(_value.copyWith(
-      uid: null == uid
-          ? _value.uid
-          : uid // ignore: cast_nullable_to_non_nullable
-              as String,
-      isAnonymous: null == isAnonymous
-          ? _value.isAnonymous
-          : isAnonymous // ignore: cast_nullable_to_non_nullable
-              as bool,
-      linkedGoogle: null == linkedGoogle
-          ? _value.linkedGoogle
-          : linkedGoogle // ignore: cast_nullable_to_non_nullable
-              as bool,
-      linkedApple: null == linkedApple
-          ? _value.linkedApple
-          : linkedApple // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            uid:
+                null == uid
+                    ? _value.uid
+                    : uid // ignore: cast_nullable_to_non_nullable
+                        as String,
+            isAnonymous:
+                null == isAnonymous
+                    ? _value.isAnonymous
+                    : isAnonymous // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            linkedGoogle:
+                null == linkedGoogle
+                    ? _value.linkedGoogle
+                    : linkedGoogle // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            linkedApple:
+                null == linkedApple
+                    ? _value.linkedApple
+                    : linkedApple // ignore: cast_nullable_to_non_nullable
+                        as bool,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -90,12 +103,17 @@ class _$AuthStatusCopyWithImpl<$Res, $Val extends AuthStatus>
 abstract class _$$AuthStatusImplCopyWith<$Res>
     implements $AuthStatusCopyWith<$Res> {
   factory _$$AuthStatusImplCopyWith(
-          _$AuthStatusImpl value, $Res Function(_$AuthStatusImpl) then) =
-      __$$AuthStatusImplCopyWithImpl<$Res>;
+    _$AuthStatusImpl value,
+    $Res Function(_$AuthStatusImpl) then,
+  ) = __$$AuthStatusImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String uid, bool isAnonymous, bool linkedGoogle, bool linkedApple});
+  $Res call({
+    String uid,
+    bool isAnonymous,
+    bool linkedGoogle,
+    bool linkedApple,
+  });
 }
 
 /// @nodoc
@@ -103,8 +121,9 @@ class __$$AuthStatusImplCopyWithImpl<$Res>
     extends _$AuthStatusCopyWithImpl<$Res, _$AuthStatusImpl>
     implements _$$AuthStatusImplCopyWith<$Res> {
   __$$AuthStatusImplCopyWithImpl(
-      _$AuthStatusImpl _value, $Res Function(_$AuthStatusImpl) _then)
-      : super(_value, _then);
+    _$AuthStatusImpl _value,
+    $Res Function(_$AuthStatusImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AuthStatus
   /// with the given fields replaced by the non-null parameter values.
@@ -116,35 +135,42 @@ class __$$AuthStatusImplCopyWithImpl<$Res>
     Object? linkedGoogle = null,
     Object? linkedApple = null,
   }) {
-    return _then(_$AuthStatusImpl(
-      uid: null == uid
-          ? _value.uid
-          : uid // ignore: cast_nullable_to_non_nullable
-              as String,
-      isAnonymous: null == isAnonymous
-          ? _value.isAnonymous
-          : isAnonymous // ignore: cast_nullable_to_non_nullable
-              as bool,
-      linkedGoogle: null == linkedGoogle
-          ? _value.linkedGoogle
-          : linkedGoogle // ignore: cast_nullable_to_non_nullable
-              as bool,
-      linkedApple: null == linkedApple
-          ? _value.linkedApple
-          : linkedApple // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+    return _then(
+      _$AuthStatusImpl(
+        uid:
+            null == uid
+                ? _value.uid
+                : uid // ignore: cast_nullable_to_non_nullable
+                    as String,
+        isAnonymous:
+            null == isAnonymous
+                ? _value.isAnonymous
+                : isAnonymous // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        linkedGoogle:
+            null == linkedGoogle
+                ? _value.linkedGoogle
+                : linkedGoogle // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        linkedApple:
+            null == linkedApple
+                ? _value.linkedApple
+                : linkedApple // ignore: cast_nullable_to_non_nullable
+                    as bool,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$AuthStatusImpl implements _AuthStatus {
-  const _$AuthStatusImpl(
-      {required this.uid,
-      required this.isAnonymous,
-      required this.linkedGoogle,
-      required this.linkedApple});
+  const _$AuthStatusImpl({
+    required this.uid,
+    required this.isAnonymous,
+    required this.linkedGoogle,
+    required this.linkedApple,
+  });
 
   factory _$AuthStatusImpl.fromJson(Map<String, dynamic> json) =>
       _$$AuthStatusImplFromJson(json);
@@ -192,18 +218,17 @@ class _$AuthStatusImpl implements _AuthStatus {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AuthStatusImplToJson(
-      this,
-    );
+    return _$$AuthStatusImplToJson(this);
   }
 }
 
 abstract class _AuthStatus implements AuthStatus {
-  const factory _AuthStatus(
-      {required final String uid,
-      required final bool isAnonymous,
-      required final bool linkedGoogle,
-      required final bool linkedApple}) = _$AuthStatusImpl;
+  const factory _AuthStatus({
+    required final String uid,
+    required final bool isAnonymous,
+    required final bool linkedGoogle,
+    required final bool linkedApple,
+  }) = _$AuthStatusImpl;
 
   factory _AuthStatus.fromJson(Map<String, dynamic> json) =
       _$AuthStatusImpl.fromJson;

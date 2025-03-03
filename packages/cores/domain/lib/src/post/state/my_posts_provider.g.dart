@@ -41,21 +41,13 @@ class MyPostsFamily extends Family<AsyncValue<PageInfo<Post>>> {
   const MyPostsFamily();
 
   /// See also [myPosts].
-  MyPostsProvider call({
-    required int page,
-  }) {
-    return MyPostsProvider(
-      page: page,
-    );
+  MyPostsProvider call({required int page}) {
+    return MyPostsProvider(page: page);
   }
 
   @override
-  MyPostsProvider getProviderOverride(
-    covariant MyPostsProvider provider,
-  ) {
-    return call(
-      page: provider.page,
-    );
+  MyPostsProvider getProviderOverride(covariant MyPostsProvider provider) {
+    return call(page: provider.page);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -76,23 +68,19 @@ class MyPostsFamily extends Family<AsyncValue<PageInfo<Post>>> {
 /// See also [myPosts].
 class MyPostsProvider extends AutoDisposeFutureProvider<PageInfo<Post>> {
   /// See also [myPosts].
-  MyPostsProvider({
-    required int page,
-  }) : this._internal(
-          (ref) => myPosts(
-            ref as MyPostsRef,
-            page: page,
-          ),
-          from: myPostsProvider,
-          name: r'myPostsProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$myPostsHash,
-          dependencies: MyPostsFamily._dependencies,
-          allTransitiveDependencies: MyPostsFamily._allTransitiveDependencies,
-          page: page,
-        );
+  MyPostsProvider({required int page})
+    : this._internal(
+        (ref) => myPosts(ref as MyPostsRef, page: page),
+        from: myPostsProvider,
+        name: r'myPostsProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$myPostsHash,
+        dependencies: MyPostsFamily._dependencies,
+        allTransitiveDependencies: MyPostsFamily._allTransitiveDependencies,
+        page: page,
+      );
 
   MyPostsProvider._internal(
     super._createNotifier, {
@@ -151,11 +139,13 @@ mixin MyPostsRef on AutoDisposeFutureProviderRef<PageInfo<Post>> {
 }
 
 class _MyPostsProviderElement
-    extends AutoDisposeFutureProviderElement<PageInfo<Post>> with MyPostsRef {
+    extends AutoDisposeFutureProviderElement<PageInfo<Post>>
+    with MyPostsRef {
   _MyPostsProviderElement(super.provider);
 
   @override
   int get page => (origin as MyPostsProvider).page;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

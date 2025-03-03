@@ -16,9 +16,10 @@ String _$appVersionRepositoryHash() =>
 final appVersionRepositoryProvider = Provider<AppVersionRepository>.internal(
   appVersionRepository,
   name: r'appVersionRepositoryProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$appVersionRepositoryHash,
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$appVersionRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

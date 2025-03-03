@@ -8,64 +8,69 @@ part of 'routes.dart';
 // GoRouterGenerator
 // **************************************************************************
 
-List<RouteBase> get $appRoutes => [
-      $baseShellSroute,
-    ];
+List<RouteBase> get $appRoutes => [$baseShellSroute];
 
 RouteBase get $baseShellSroute => ShellRouteData.$route(
-      navigatorKey: BaseShellSroute.$navigatorKey,
-      factory: $BaseShellSrouteExtension._fromState,
+  navigatorKey: BaseShellSroute.$navigatorKey,
+  factory: $BaseShellSrouteExtension._fromState,
+  routes: [
+    GoRouteData.$route(path: '/', factory: $RootRouteExtension._fromState),
+    GoRouteData.$route(
+      path: '/onboard',
+
+      factory: $OnboardRouteExtension._fromState,
+    ),
+    GoRouteData.$route(
+      path: '/maintenance',
+
+      factory: $MaintenancePageRouteExtension._fromState,
+    ),
+    GoRouteData.$route(
+      path: '/home',
+
+      factory: $HomePageRouteExtension._fromState,
       routes: [
         GoRouteData.$route(
-          path: '/',
-          factory: $RootRouteExtension._fromState,
+          path: 'create',
+
+          factory: $PostCreatePageRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: '/onboard',
-          factory: $OnboardRouteExtension._fromState,
-        ),
-        GoRouteData.$route(
-          path: '/maintenance',
-          factory: $MaintenancePageRouteExtension._fromState,
-        ),
-        GoRouteData.$route(
-          path: '/home',
-          factory: $HomePageRouteExtension._fromState,
+          path: 'setting',
+
+          factory: $SettingPageRouteExtension._fromState,
           routes: [
             GoRouteData.$route(
-              path: 'create',
-              factory: $PostCreatePageRouteExtension._fromState,
+              path: 'account',
+
+              factory: $SettingsAccountPageRouteExtension._fromState,
             ),
             GoRouteData.$route(
-              path: 'setting',
-              factory: $SettingPageRouteExtension._fromState,
-              routes: [
-                GoRouteData.$route(
-                  path: 'account',
-                  factory: $SettingsAccountPageRouteExtension._fromState,
-                ),
-                GoRouteData.$route(
-                  path: 'ui_style',
-                  factory: $SettingsUiStylePageRouteExtension._fromState,
-                ),
-                GoRouteData.$route(
-                  path: 'color_style',
-                  factory: $SettingsThemeColorPageRouteExtension._fromState,
-                ),
-                GoRouteData.$route(
-                  path: 'theme_mode',
-                  factory: $SettingsThemeModePageRouteExtension._fromState,
-                ),
-                GoRouteData.$route(
-                  path: 'license',
-                  factory: $LicensePageRouteExtension._fromState,
-                ),
-              ],
+              path: 'ui_style',
+
+              factory: $SettingsUiStylePageRouteExtension._fromState,
+            ),
+            GoRouteData.$route(
+              path: 'color_style',
+
+              factory: $SettingsThemeColorPageRouteExtension._fromState,
+            ),
+            GoRouteData.$route(
+              path: 'theme_mode',
+
+              factory: $SettingsThemeModePageRouteExtension._fromState,
+            ),
+            GoRouteData.$route(
+              path: 'license',
+
+              factory: $LicensePageRouteExtension._fromState,
             ),
           ],
         ),
       ],
-    );
+    ),
+  ],
+);
 
 extension $BaseShellSrouteExtension on BaseShellSroute {
   static BaseShellSroute _fromState(GoRouterState state) => BaseShellSroute();
@@ -74,9 +79,7 @@ extension $BaseShellSrouteExtension on BaseShellSroute {
 extension $RootRouteExtension on RootRoute {
   static RootRoute _fromState(GoRouterState state) => const RootRoute();
 
-  String get location => GoRouteData.$location(
-        '/',
-      );
+  String get location => GoRouteData.$location('/');
 
   void go(BuildContext context) => context.go(location);
 
@@ -91,9 +94,7 @@ extension $RootRouteExtension on RootRoute {
 extension $OnboardRouteExtension on OnboardRoute {
   static OnboardRoute _fromState(GoRouterState state) => const OnboardRoute();
 
-  String get location => GoRouteData.$location(
-        '/onboard',
-      );
+  String get location => GoRouteData.$location('/onboard');
 
   void go(BuildContext context) => context.go(location);
 
@@ -109,9 +110,7 @@ extension $MaintenancePageRouteExtension on MaintenancePageRoute {
   static MaintenancePageRoute _fromState(GoRouterState state) =>
       const MaintenancePageRoute();
 
-  String get location => GoRouteData.$location(
-        '/maintenance',
-      );
+  String get location => GoRouteData.$location('/maintenance');
 
   void go(BuildContext context) => context.go(location);
 
@@ -126,9 +125,7 @@ extension $MaintenancePageRouteExtension on MaintenancePageRoute {
 extension $HomePageRouteExtension on HomePageRoute {
   static HomePageRoute _fromState(GoRouterState state) => const HomePageRoute();
 
-  String get location => GoRouteData.$location(
-        '/home',
-      );
+  String get location => GoRouteData.$location('/home');
 
   void go(BuildContext context) => context.go(location);
 
@@ -144,9 +141,7 @@ extension $PostCreatePageRouteExtension on PostCreatePageRoute {
   static PostCreatePageRoute _fromState(GoRouterState state) =>
       const PostCreatePageRoute();
 
-  String get location => GoRouteData.$location(
-        '/home/create',
-      );
+  String get location => GoRouteData.$location('/home/create');
 
   void go(BuildContext context) => context.go(location);
 
@@ -162,9 +157,7 @@ extension $SettingPageRouteExtension on SettingPageRoute {
   static SettingPageRoute _fromState(GoRouterState state) =>
       const SettingPageRoute();
 
-  String get location => GoRouteData.$location(
-        '/home/setting',
-      );
+  String get location => GoRouteData.$location('/home/setting');
 
   void go(BuildContext context) => context.go(location);
 
@@ -180,9 +173,7 @@ extension $SettingsAccountPageRouteExtension on SettingsAccountPageRoute {
   static SettingsAccountPageRoute _fromState(GoRouterState state) =>
       const SettingsAccountPageRoute();
 
-  String get location => GoRouteData.$location(
-        '/home/setting/account',
-      );
+  String get location => GoRouteData.$location('/home/setting/account');
 
   void go(BuildContext context) => context.go(location);
 
@@ -198,9 +189,7 @@ extension $SettingsUiStylePageRouteExtension on SettingsUiStylePageRoute {
   static SettingsUiStylePageRoute _fromState(GoRouterState state) =>
       const SettingsUiStylePageRoute();
 
-  String get location => GoRouteData.$location(
-        '/home/setting/ui_style',
-      );
+  String get location => GoRouteData.$location('/home/setting/ui_style');
 
   void go(BuildContext context) => context.go(location);
 
@@ -216,9 +205,7 @@ extension $SettingsThemeColorPageRouteExtension on SettingsThemeColorPageRoute {
   static SettingsThemeColorPageRoute _fromState(GoRouterState state) =>
       const SettingsThemeColorPageRoute();
 
-  String get location => GoRouteData.$location(
-        '/home/setting/color_style',
-      );
+  String get location => GoRouteData.$location('/home/setting/color_style');
 
   void go(BuildContext context) => context.go(location);
 
@@ -234,9 +221,7 @@ extension $SettingsThemeModePageRouteExtension on SettingsThemeModePageRoute {
   static SettingsThemeModePageRoute _fromState(GoRouterState state) =>
       const SettingsThemeModePageRoute();
 
-  String get location => GoRouteData.$location(
-        '/home/setting/theme_mode',
-      );
+  String get location => GoRouteData.$location('/home/setting/theme_mode');
 
   void go(BuildContext context) => context.go(location);
 
@@ -252,9 +237,7 @@ extension $LicensePageRouteExtension on LicensePageRoute {
   static LicensePageRoute _fromState(GoRouterState state) =>
       const LicensePageRoute();
 
-  String get location => GoRouteData.$location(
-        '/home/setting/license',
-      );
+  String get location => GoRouteData.$location('/home/setting/license');
 
   void go(BuildContext context) => context.go(location);
 

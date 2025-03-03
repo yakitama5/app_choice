@@ -9,20 +9,24 @@ part of 'user.dart';
 // **************************************************************************
 
 _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$UserImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$UserImpl(
-          id: $checkedConvert('id', (v) => v as String),
-          createdAt:
-              $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
-          updatedAt:
-              $checkedConvert('updated_at', (v) => DateTime.parse(v as String)),
-        );
-        return val;
-      },
-      fieldKeyMap: const {'createdAt': 'created_at', 'updatedAt': 'updated_at'},
+  r'_$UserImpl',
+  json,
+  ($checkedConvert) {
+    final val = _$UserImpl(
+      id: $checkedConvert('id', (v) => v as String),
+      createdAt: $checkedConvert(
+        'created_at',
+        (v) => DateTime.parse(v as String),
+      ),
+      updatedAt: $checkedConvert(
+        'updated_at',
+        (v) => DateTime.parse(v as String),
+      ),
     );
+    return val;
+  },
+  fieldKeyMap: const {'createdAt': 'created_at', 'updatedAt': 'updated_at'},
+);
 
 Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
     <String, dynamic>{

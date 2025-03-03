@@ -41,24 +41,13 @@ class GoodsListFamily extends Family<AsyncValue<PageInfo<Goods>>> {
   const GoodsListFamily();
 
   /// See also [goodsList].
-  GoodsListProvider call({
-    required int page,
-    required GoodsFetchQuery query,
-  }) {
-    return GoodsListProvider(
-      page: page,
-      query: query,
-    );
+  GoodsListProvider call({required int page, required GoodsFetchQuery query}) {
+    return GoodsListProvider(page: page, query: query);
   }
 
   @override
-  GoodsListProvider getProviderOverride(
-    covariant GoodsListProvider provider,
-  ) {
-    return call(
-      page: provider.page,
-      query: provider.query,
-    );
+  GoodsListProvider getProviderOverride(covariant GoodsListProvider provider) {
+    return call(page: provider.page, query: provider.query);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -79,26 +68,20 @@ class GoodsListFamily extends Family<AsyncValue<PageInfo<Goods>>> {
 /// See also [goodsList].
 class GoodsListProvider extends AutoDisposeStreamProvider<PageInfo<Goods>> {
   /// See also [goodsList].
-  GoodsListProvider({
-    required int page,
-    required GoodsFetchQuery query,
-  }) : this._internal(
-          (ref) => goodsList(
-            ref as GoodsListRef,
-            page: page,
-            query: query,
-          ),
-          from: goodsListProvider,
-          name: r'goodsListProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$goodsListHash,
-          dependencies: GoodsListFamily._dependencies,
-          allTransitiveDependencies: GoodsListFamily._allTransitiveDependencies,
-          page: page,
-          query: query,
-        );
+  GoodsListProvider({required int page, required GoodsFetchQuery query})
+    : this._internal(
+        (ref) => goodsList(ref as GoodsListRef, page: page, query: query),
+        from: goodsListProvider,
+        name: r'goodsListProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$goodsListHash,
+        dependencies: GoodsListFamily._dependencies,
+        allTransitiveDependencies: GoodsListFamily._allTransitiveDependencies,
+        page: page,
+        query: query,
+      );
 
   GoodsListProvider._internal(
     super._createNotifier, {
@@ -175,5 +158,6 @@ class _GoodsListProviderElement
   @override
   GoodsFetchQuery get query => (origin as GoodsListProvider).query;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

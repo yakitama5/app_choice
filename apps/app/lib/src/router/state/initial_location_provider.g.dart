@@ -15,9 +15,10 @@ String _$initialLocationHash() => r'ca0023b63cb88d0b40ed39b412fa2d0272e751bb';
 final initialLocationProvider = AutoDisposeProvider<String?>.internal(
   initialLocation,
   name: r'initialLocationProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$initialLocationHash,
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$initialLocationHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

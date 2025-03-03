@@ -12,7 +12,8 @@ part of 'goods_fetch_query.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$GoodsFetchQuery {
@@ -29,8 +30,9 @@ mixin _$GoodsFetchQuery {
 /// @nodoc
 abstract class $GoodsFetchQueryCopyWith<$Res> {
   factory $GoodsFetchQueryCopyWith(
-          GoodsFetchQuery value, $Res Function(GoodsFetchQuery) then) =
-      _$GoodsFetchQueryCopyWithImpl<$Res, GoodsFetchQuery>;
+    GoodsFetchQuery value,
+    $Res Function(GoodsFetchQuery) then,
+  ) = _$GoodsFetchQueryCopyWithImpl<$Res, GoodsFetchQuery>;
   @useResult
   $Res call({GoodsSortKey sortKey, SortOrder sortOrder});
 }
@@ -49,29 +51,32 @@ class _$GoodsFetchQueryCopyWithImpl<$Res, $Val extends GoodsFetchQuery>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? sortKey = null,
-    Object? sortOrder = null,
-  }) {
-    return _then(_value.copyWith(
-      sortKey: null == sortKey
-          ? _value.sortKey
-          : sortKey // ignore: cast_nullable_to_non_nullable
-              as GoodsSortKey,
-      sortOrder: null == sortOrder
-          ? _value.sortOrder
-          : sortOrder // ignore: cast_nullable_to_non_nullable
-              as SortOrder,
-    ) as $Val);
+  $Res call({Object? sortKey = null, Object? sortOrder = null}) {
+    return _then(
+      _value.copyWith(
+            sortKey:
+                null == sortKey
+                    ? _value.sortKey
+                    : sortKey // ignore: cast_nullable_to_non_nullable
+                        as GoodsSortKey,
+            sortOrder:
+                null == sortOrder
+                    ? _value.sortOrder
+                    : sortOrder // ignore: cast_nullable_to_non_nullable
+                        as SortOrder,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$GoodsFetchQueryImplCopyWith<$Res>
     implements $GoodsFetchQueryCopyWith<$Res> {
-  factory _$$GoodsFetchQueryImplCopyWith(_$GoodsFetchQueryImpl value,
-          $Res Function(_$GoodsFetchQueryImpl) then) =
-      __$$GoodsFetchQueryImplCopyWithImpl<$Res>;
+  factory _$$GoodsFetchQueryImplCopyWith(
+    _$GoodsFetchQueryImpl value,
+    $Res Function(_$GoodsFetchQueryImpl) then,
+  ) = __$$GoodsFetchQueryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({GoodsSortKey sortKey, SortOrder sortOrder});
@@ -82,35 +87,39 @@ class __$$GoodsFetchQueryImplCopyWithImpl<$Res>
     extends _$GoodsFetchQueryCopyWithImpl<$Res, _$GoodsFetchQueryImpl>
     implements _$$GoodsFetchQueryImplCopyWith<$Res> {
   __$$GoodsFetchQueryImplCopyWithImpl(
-      _$GoodsFetchQueryImpl _value, $Res Function(_$GoodsFetchQueryImpl) _then)
-      : super(_value, _then);
+    _$GoodsFetchQueryImpl _value,
+    $Res Function(_$GoodsFetchQueryImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of GoodsFetchQuery
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? sortKey = null,
-    Object? sortOrder = null,
-  }) {
-    return _then(_$GoodsFetchQueryImpl(
-      sortKey: null == sortKey
-          ? _value.sortKey
-          : sortKey // ignore: cast_nullable_to_non_nullable
-              as GoodsSortKey,
-      sortOrder: null == sortOrder
-          ? _value.sortOrder
-          : sortOrder // ignore: cast_nullable_to_non_nullable
-              as SortOrder,
-    ));
+  $Res call({Object? sortKey = null, Object? sortOrder = null}) {
+    return _then(
+      _$GoodsFetchQueryImpl(
+        sortKey:
+            null == sortKey
+                ? _value.sortKey
+                : sortKey // ignore: cast_nullable_to_non_nullable
+                    as GoodsSortKey,
+        sortOrder:
+            null == sortOrder
+                ? _value.sortOrder
+                : sortOrder // ignore: cast_nullable_to_non_nullable
+                    as SortOrder,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$GoodsFetchQueryImpl implements _GoodsFetchQuery {
-  const _$GoodsFetchQueryImpl(
-      {this.sortKey = GoodsSortKey.price, this.sortOrder = SortOrder.asc});
+  const _$GoodsFetchQueryImpl({
+    this.sortKey = GoodsSortKey.price,
+    this.sortOrder = SortOrder.asc,
+  });
 
   @override
   @JsonKey()
@@ -144,13 +153,16 @@ class _$GoodsFetchQueryImpl implements _GoodsFetchQuery {
   @pragma('vm:prefer-inline')
   _$$GoodsFetchQueryImplCopyWith<_$GoodsFetchQueryImpl> get copyWith =>
       __$$GoodsFetchQueryImplCopyWithImpl<_$GoodsFetchQueryImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _GoodsFetchQuery implements GoodsFetchQuery {
-  const factory _GoodsFetchQuery(
-      {final GoodsSortKey sortKey,
-      final SortOrder sortOrder}) = _$GoodsFetchQueryImpl;
+  const factory _GoodsFetchQuery({
+    final GoodsSortKey sortKey,
+    final SortOrder sortOrder,
+  }) = _$GoodsFetchQueryImpl;
 
   @override
   GoodsSortKey get sortKey;

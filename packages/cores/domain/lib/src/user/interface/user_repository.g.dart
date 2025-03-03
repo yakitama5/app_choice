@@ -17,9 +17,10 @@ String _$userRepositoryHash() => r'e0c89d132654583a33838ee0c91b40a43b93f89f';
 final userRepositoryProvider = Provider<UserRepository>.internal(
   userRepository,
   name: r'userRepositoryProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$userRepositoryHash,
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$userRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

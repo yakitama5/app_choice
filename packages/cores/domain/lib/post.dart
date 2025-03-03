@@ -1,3 +1,4 @@
+export 'src/post/config/post_config.dart';
 export 'src/post/constants/post_constants.dart';
 export 'src/post/entity/choices.dart';
 export 'src/post/entity/post.dart';

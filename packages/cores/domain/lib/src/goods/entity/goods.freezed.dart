@@ -12,7 +12,8 @@ part of 'goods.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$Goods {
@@ -35,14 +36,15 @@ abstract class $GoodsCopyWith<$Res> {
   factory $GoodsCopyWith(Goods value, $Res Function(Goods) then) =
       _$GoodsCopyWithImpl<$Res, Goods>;
   @useResult
-  $Res call(
-      {String id,
-      String name,
-      int? price,
-      String? imageUrl,
-      String description,
-      DateTime createdAt,
-      DateTime updatedAt});
+  $Res call({
+    String id,
+    String name,
+    int? price,
+    String? imageUrl,
+    String description,
+    DateTime createdAt,
+    DateTime updatedAt,
+  });
 }
 
 /// @nodoc
@@ -68,54 +70,66 @@ class _$GoodsCopyWithImpl<$Res, $Val extends Goods>
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      price: freezed == price
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as int?,
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as String,
+            name:
+                null == name
+                    ? _value.name
+                    : name // ignore: cast_nullable_to_non_nullable
+                        as String,
+            price:
+                freezed == price
+                    ? _value.price
+                    : price // ignore: cast_nullable_to_non_nullable
+                        as int?,
+            imageUrl:
+                freezed == imageUrl
+                    ? _value.imageUrl
+                    : imageUrl // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            description:
+                null == description
+                    ? _value.description
+                    : description // ignore: cast_nullable_to_non_nullable
+                        as String,
+            createdAt:
+                null == createdAt
+                    ? _value.createdAt
+                    : createdAt // ignore: cast_nullable_to_non_nullable
+                        as DateTime,
+            updatedAt:
+                null == updatedAt
+                    ? _value.updatedAt
+                    : updatedAt // ignore: cast_nullable_to_non_nullable
+                        as DateTime,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$GoodsImplCopyWith<$Res> implements $GoodsCopyWith<$Res> {
   factory _$$GoodsImplCopyWith(
-          _$GoodsImpl value, $Res Function(_$GoodsImpl) then) =
-      __$$GoodsImplCopyWithImpl<$Res>;
+    _$GoodsImpl value,
+    $Res Function(_$GoodsImpl) then,
+  ) = __$$GoodsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String id,
-      String name,
-      int? price,
-      String? imageUrl,
-      String description,
-      DateTime createdAt,
-      DateTime updatedAt});
+  $Res call({
+    String id,
+    String name,
+    int? price,
+    String? imageUrl,
+    String description,
+    DateTime createdAt,
+    DateTime updatedAt,
+  });
 }
 
 /// @nodoc
@@ -123,8 +137,9 @@ class __$$GoodsImplCopyWithImpl<$Res>
     extends _$GoodsCopyWithImpl<$Res, _$GoodsImpl>
     implements _$$GoodsImplCopyWith<$Res> {
   __$$GoodsImplCopyWithImpl(
-      _$GoodsImpl _value, $Res Function(_$GoodsImpl) _then)
-      : super(_value, _then);
+    _$GoodsImpl _value,
+    $Res Function(_$GoodsImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of Goods
   /// with the given fields replaced by the non-null parameter values.
@@ -139,50 +154,60 @@ class __$$GoodsImplCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
-    return _then(_$GoodsImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      price: freezed == price
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as int?,
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
+    return _then(
+      _$GoodsImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as String,
+        name:
+            null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String,
+        price:
+            freezed == price
+                ? _value.price
+                : price // ignore: cast_nullable_to_non_nullable
+                    as int?,
+        imageUrl:
+            freezed == imageUrl
+                ? _value.imageUrl
+                : imageUrl // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        description:
+            null == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                    as String,
+        createdAt:
+            null == createdAt
+                ? _value.createdAt
+                : createdAt // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+        updatedAt:
+            null == updatedAt
+                ? _value.updatedAt
+                : updatedAt // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$GoodsImpl implements _Goods {
-  const _$GoodsImpl(
-      {required this.id,
-      required this.name,
-      this.price,
-      this.imageUrl,
-      required this.description,
-      required this.createdAt,
-      required this.updatedAt});
+  const _$GoodsImpl({
+    required this.id,
+    required this.name,
+    this.price,
+    this.imageUrl,
+    required this.description,
+    required this.createdAt,
+    required this.updatedAt,
+  });
 
   @override
   final String id;
@@ -223,8 +248,16 @@ class _$GoodsImpl implements _Goods {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, price, imageUrl,
-      description, createdAt, updatedAt);
+  int get hashCode => Object.hash(
+    runtimeType,
+    id,
+    name,
+    price,
+    imageUrl,
+    description,
+    createdAt,
+    updatedAt,
+  );
 
   /// Create a copy of Goods
   /// with the given fields replaced by the non-null parameter values.
@@ -236,14 +269,15 @@ class _$GoodsImpl implements _Goods {
 }
 
 abstract class _Goods implements Goods {
-  const factory _Goods(
-      {required final String id,
-      required final String name,
-      final int? price,
-      final String? imageUrl,
-      required final String description,
-      required final DateTime createdAt,
-      required final DateTime updatedAt}) = _$GoodsImpl;
+  const factory _Goods({
+    required final String id,
+    required final String name,
+    final int? price,
+    final String? imageUrl,
+    required final String description,
+    required final DateTime createdAt,
+    required final DateTime updatedAt,
+  }) = _$GoodsImpl;
 
   @override
   String get id;

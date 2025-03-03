@@ -15,14 +15,15 @@ String _$appMaintenanceStatusHash() =>
 @ProviderFor(appMaintenanceStatus)
 final appMaintenanceStatusProvider =
     StreamProvider<AppMaintenanceStatus>.internal(
-  appMaintenanceStatus,
-  name: r'appMaintenanceStatusProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$appMaintenanceStatusHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      appMaintenanceStatus,
+      name: r'appMaintenanceStatusProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$appMaintenanceStatusHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element

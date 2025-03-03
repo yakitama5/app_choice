@@ -15,14 +15,15 @@ String _$goodsViewLayoutNotifierHash() =>
 @ProviderFor(GoodsViewLayoutNotifier)
 final goodsViewLayoutNotifierProvider =
     AutoDisposeNotifierProvider<GoodsViewLayoutNotifier, ViewLayout>.internal(
-  GoodsViewLayoutNotifier.new,
-  name: r'goodsViewLayoutNotifierProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$goodsViewLayoutNotifierHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      GoodsViewLayoutNotifier.new,
+      name: r'goodsViewLayoutNotifierProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$goodsViewLayoutNotifierHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$GoodsViewLayoutNotifier = AutoDisposeNotifier<ViewLayout>;
 // ignore_for_file: type=lint

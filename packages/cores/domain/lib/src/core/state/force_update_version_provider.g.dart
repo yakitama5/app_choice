@@ -16,9 +16,10 @@ String _$forceUpdateVersionHash() =>
 final forceUpdateVersionProvider = AutoDisposeStreamProvider<Version>.internal(
   forceUpdateVersion,
   name: r'forceUpdateVersionProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$forceUpdateVersionHash,
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$forceUpdateVersionHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

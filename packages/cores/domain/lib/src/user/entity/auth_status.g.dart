@@ -24,7 +24,7 @@ _$AuthStatusImpl _$$AuthStatusImplFromJson(Map<String, dynamic> json) =>
       fieldKeyMap: const {
         'isAnonymous': 'is_anonymous',
         'linkedGoogle': 'linked_google',
-        'linkedApple': 'linked_apple'
+        'linkedApple': 'linked_apple',
       },
     );
 

@@ -17,9 +17,10 @@ String _$themeRepositoryHash() => r'92b1f4091bdaecc4eab8c092fe4218d478eb16df';
 final themeRepositoryProvider = Provider<ThemeRepository>.internal(
   themeRepository,
   name: r'themeRepositoryProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$themeRepositoryHash,
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$themeRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
