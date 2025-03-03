@@ -141,6 +141,8 @@ class TranslationsAppPostEditPageEn {
 
 	// Translations
 	late final TranslationsAppPostEditPageSensitiveWarnMessageEn sensitiveWarnMessage = TranslationsAppPostEditPageSensitiveWarnMessageEn.internal(_root);
+	String get choices => 'Choices';
+	String get submit => 'Submit';
 	late final TranslationsAppPostEditPageTitleEn title = TranslationsAppPostEditPageTitleEn.internal(_root);
 	late final TranslationsAppPostEditPageChoicesAddBottomSheetEn choicesAddBottomSheet = TranslationsAppPostEditPageChoicesAddBottomSheetEn.internal(_root);
 }
@@ -388,6 +390,8 @@ extension on Translations {
 			case 'app.postEditPage.sensitiveWarnMessage.clauseItems.1': return 'Posts that include sensitive content';
 			case 'app.postEditPage.sensitiveWarnMessage.clauseItems.2': return 'Posts that criticize anonymous individuals/groups';
 			case 'app.postEditPage.sensitiveWarnMessage.clauseItems.3': return 'Posts that are defamatory';
+			case 'app.postEditPage.choices': return 'Choices';
+			case 'app.postEditPage.submit': return 'Submit';
 			case 'app.postEditPage.title.hintText': return 'What are you unsure about?';
 			case 'app.postEditPage.choicesAddBottomSheet.add': return 'Add';
 			case 'app.bottomNavBar.home': return 'Home';

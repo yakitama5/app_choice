@@ -141,6 +141,8 @@ class _TranslationsAppPostEditPageJa extends TranslationsAppPostEditPageEn {
 
 	// Translations
 	@override late final _TranslationsAppPostEditPageSensitiveWarnMessageJa sensitiveWarnMessage = _TranslationsAppPostEditPageSensitiveWarnMessageJa._(_root);
+	@override String get choices => '選択肢';
+	@override String get submit => '選択する';
 	@override late final _TranslationsAppPostEditPageTitleJa title = _TranslationsAppPostEditPageTitleJa._(_root);
 	@override late final _TranslationsAppPostEditPageChoicesAddBottomSheetJa choicesAddBottomSheet = _TranslationsAppPostEditPageChoicesAddBottomSheetJa._(_root);
 }
@@ -388,6 +390,8 @@ extension on TranslationsJa {
 			case 'app.postEditPage.sensitiveWarnMessage.clauseItems.1': return 'センシティブな内容を含む投稿';
 			case 'app.postEditPage.sensitiveWarnMessage.clauseItems.2': return '匿名の個人/団体を批判する投稿';
 			case 'app.postEditPage.sensitiveWarnMessage.clauseItems.3': return '誹謗中傷にあたる投稿';
+			case 'app.postEditPage.choices': return '選択肢';
+			case 'app.postEditPage.submit': return '選択する';
 			case 'app.postEditPage.title.hintText': return '何に対して迷っていますか？';
 			case 'app.postEditPage.choicesAddBottomSheet.add': return '追加';
 			case 'app.bottomNavBar.home': return 'ホーム';

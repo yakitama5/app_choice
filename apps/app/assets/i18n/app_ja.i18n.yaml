@@ -17,6 +17,8 @@ postEditPage:
       匿名の個人/団体を批判する投稿,
       誹謗中傷にあたる投稿
     ]
+  choices: 選択肢
+  submit: 選択する
   title:
     hintText: 何に対して迷っていますか？
   choicesAddBottomSheet:

@@ -2,6 +2,7 @@ import 'package:cores_designsystem/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/i18n/strings.g.dart';
 import 'package:flutter_app/src/post/components/choices_add_bottom_sheet.dart';
+import 'package:flutter_app/src/post/components/post_warning_description.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -25,7 +26,7 @@ class PostEditPage extends HookConsumerWidget {
                   onPressed: () {
                     // TODO(yakitama5): 登録処理
                   },
-                  child: const Text('選択する'),
+                  child: Text(i18n.app.postEditPage.submit),
                 ),
               ),
             ],
@@ -34,7 +35,7 @@ class PostEditPage extends HookConsumerWidget {
             padding: const EdgeInsets.all(16),
             child: Column(
               children: [
-                const WarningDescription(),
+                const PostWarningDescription(),
                 const Gap(32),
                 Flexible(
                   child: PostForm(
@@ -47,26 +48,6 @@ class PostEditPage extends HookConsumerWidget {
             ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class WarningDescription extends StatelessWidget {
-  const WarningDescription({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return FilledCard(
-      child: Column(
-        children: [
-          Text(i18n.app.postEditPage.sensitiveWarnMessage.message),
-          ItemizedText(
-            i18n.app.postEditPage.sensitiveWarnMessage.clauseItems
-                .map(Text.new)
-                .toList(),
-          ),
-        ],
       ),
     );
   }
@@ -175,7 +156,10 @@ class ChoicesFieldHeader extends HookConsumerWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text('選択肢', style: Theme.of(context).textTheme.titleMedium),
+        Text(
+          i18n.app.postEditPage.choices,
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
         IconButton.filled(
           onPressed: () {
             showModalBottomSheet<void>(

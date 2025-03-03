@@ -17,6 +17,8 @@ postEditPage:
       Posts that criticize anonymous individuals/groups,
       Posts that are defamatory
     ]
+  choices: Choices
+  submit: Submit
   title:
     hintText: What are you unsure about?
   choicesAddBottomSheet:
