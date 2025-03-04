@@ -52,7 +52,7 @@ class _TranslationsAppJa extends TranslationsAppEn {
 
 	// Translations
 	@override late final _TranslationsAppOnboardPageJa onboardPage = _TranslationsAppOnboardPageJa._(_root);
-	@override late final _TranslationsAppHomePageJa homePage = _TranslationsAppHomePageJa._(_root);
+	@override late final _TranslationsAppPostsPageJa postsPage = _TranslationsAppPostsPageJa._(_root);
 	@override late final _TranslationsAppPostEditPageJa postEditPage = _TranslationsAppPostEditPageJa._(_root);
 	@override late final _TranslationsAppBottomNavBarJa bottomNavBar = _TranslationsAppBottomNavBarJa._(_root);
 }
@@ -123,14 +123,14 @@ class _TranslationsAppOnboardPageJa extends TranslationsAppOnboardPageEn {
 	@override String get restartCaption => 'アプリをご利用になる場合は再起動して下さい';
 }
 
-// Path: app.homePage
-class _TranslationsAppHomePageJa extends TranslationsAppHomePageEn {
-	_TranslationsAppHomePageJa._(TranslationsJa root) : this._root = root, super.internal(root);
+// Path: app.postsPage
+class _TranslationsAppPostsPageJa extends TranslationsAppPostsPageEn {
+	_TranslationsAppPostsPageJa._(TranslationsJa root) : this._root = root, super.internal(root);
 
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsAppHomePageTabsJa tabs = _TranslationsAppHomePageTabsJa._(_root);
+	@override late final _TranslationsAppPostsPageTabsJa tabs = _TranslationsAppPostsPageTabsJa._(_root);
 }
 
 // Path: app.postEditPage
@@ -240,9 +240,9 @@ class _TranslationsUserOnboardPageJa extends TranslationsUserOnboardPageEn {
 	@override String get signInWithApple => 'Appleアカウントでログイン';
 }
 
-// Path: app.homePage.tabs
-class _TranslationsAppHomePageTabsJa extends TranslationsAppHomePageTabsEn {
-	_TranslationsAppHomePageTabsJa._(TranslationsJa root) : this._root = root, super.internal(root);
+// Path: app.postsPage.tabs
+class _TranslationsAppPostsPageTabsJa extends TranslationsAppPostsPageTabsEn {
+	_TranslationsAppPostsPageTabsJa._(TranslationsJa root) : this._root = root, super.internal(root);
 
 	final TranslationsJa _root; // ignore: unused_field
 
@@ -382,9 +382,9 @@ extension on TranslationsJa {
 			case 'app.onboardPage.welcome': return 'ようこそ！';
 			case 'app.onboardPage.seeYou': return 'またお会いしましょう';
 			case 'app.onboardPage.restartCaption': return 'アプリをご利用になる場合は再起動して下さい';
-			case 'app.homePage.tabs.myPosts': return 'わたしの投稿';
-			case 'app.homePage.tabs.trends': return 'トレンド';
-			case 'app.homePage.tabs.newPost': return '最新';
+			case 'app.postsPage.tabs.myPosts': return 'わたしの投稿';
+			case 'app.postsPage.tabs.trends': return 'トレンド';
+			case 'app.postsPage.tabs.newPost': return '最新';
 			case 'app.postEditPage.sensitiveWarnMessage.message': return '「公開して意見を募集する」を選択した場合、投稿内容が他のユーザーにも公開されます。\n\n下記に当てはまる内容を投稿することはお控え下さい。';
 			case 'app.postEditPage.sensitiveWarnMessage.clauseItems.0': return '個人情報を含む投稿';
 			case 'app.postEditPage.sensitiveWarnMessage.clauseItems.1': return 'センシティブな内容を含む投稿';

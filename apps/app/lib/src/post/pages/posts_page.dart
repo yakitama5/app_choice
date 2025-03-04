@@ -13,15 +13,15 @@ class PostsPage extends ConsumerWidget {
     final tabs = [
       Tab(
         icon: const Icon(Icons.person),
-        child: Text(i18n.app.homePage.tabs.myPosts),
+        child: Text(i18n.app.postsPage.tabs.myPosts),
       ),
       Tab(
         icon: const Icon(Icons.trending_up),
-        child: Text(i18n.app.homePage.tabs.trends),
+        child: Text(i18n.app.postsPage.tabs.trends),
       ),
       Tab(
         icon: const Icon(Icons.access_time_filled),
-        child: Text(i18n.app.homePage.tabs.newPost),
+        child: Text(i18n.app.postsPage.tabs.newPost),
       ),
     ];
 

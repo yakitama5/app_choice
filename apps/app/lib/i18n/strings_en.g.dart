@@ -52,7 +52,7 @@ class TranslationsAppEn {
 
 	// Translations
 	late final TranslationsAppOnboardPageEn onboardPage = TranslationsAppOnboardPageEn.internal(_root);
-	late final TranslationsAppHomePageEn homePage = TranslationsAppHomePageEn.internal(_root);
+	late final TranslationsAppPostsPageEn postsPage = TranslationsAppPostsPageEn.internal(_root);
 	late final TranslationsAppPostEditPageEn postEditPage = TranslationsAppPostEditPageEn.internal(_root);
 	late final TranslationsAppBottomNavBarEn bottomNavBar = TranslationsAppBottomNavBarEn.internal(_root);
 }
@@ -123,14 +123,14 @@ class TranslationsAppOnboardPageEn {
 	String get restartCaption => 'Please restart the application if you wish to use it';
 }
 
-// Path: app.homePage
-class TranslationsAppHomePageEn {
-	TranslationsAppHomePageEn.internal(this._root);
+// Path: app.postsPage
+class TranslationsAppPostsPageEn {
+	TranslationsAppPostsPageEn.internal(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	late final TranslationsAppHomePageTabsEn tabs = TranslationsAppHomePageTabsEn.internal(_root);
+	late final TranslationsAppPostsPageTabsEn tabs = TranslationsAppPostsPageTabsEn.internal(_root);
 }
 
 // Path: app.postEditPage
@@ -240,9 +240,9 @@ class TranslationsUserOnboardPageEn {
 	String get signInWithApple => 'Sign in with Apple';
 }
 
-// Path: app.homePage.tabs
-class TranslationsAppHomePageTabsEn {
-	TranslationsAppHomePageTabsEn.internal(this._root);
+// Path: app.postsPage.tabs
+class TranslationsAppPostsPageTabsEn {
+	TranslationsAppPostsPageTabsEn.internal(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -382,9 +382,9 @@ extension on Translations {
 			case 'app.onboardPage.welcome': return 'Welcome!';
 			case 'app.onboardPage.seeYou': return 'See you again';
 			case 'app.onboardPage.restartCaption': return 'Please restart the application if you wish to use it';
-			case 'app.homePage.tabs.myPosts': return 'My posts';
-			case 'app.homePage.tabs.trends': return 'Trends';
-			case 'app.homePage.tabs.newPost': return 'New post';
+			case 'app.postsPage.tabs.myPosts': return 'My posts';
+			case 'app.postsPage.tabs.trends': return 'Trends';
+			case 'app.postsPage.tabs.newPost': return 'New post';
 			case 'app.postEditPage.sensitiveWarnMessage.message': return 'If you select "Make public and solicit comments," your post will be made public to other users.\n\nPlease refrain from posting content that falls under the following categories:';
 			case 'app.postEditPage.sensitiveWarnMessage.clauseItems.0': return 'Posts that include personal information';
 			case 'app.postEditPage.sensitiveWarnMessage.clauseItems.1': return 'Posts that include sensitive content';

@@ -3,7 +3,7 @@ onboardPage:
   welcome: ようこそ！
   seeYou: またお会いしましょう
   restartCaption: アプリをご利用になる場合は再起動して下さい
-homePage:
+postsPage:
   tabs:
     myPosts: わたしの投稿
     trends: トレンド

@@ -3,7 +3,7 @@ onboardPage:
   welcome: Welcome!
   seeYou: See you again
   restartCaption: Please restart the application if you wish to use it
-homePage:
+postsPage:
   tabs:
     myPosts: My posts
     trends: Trends
