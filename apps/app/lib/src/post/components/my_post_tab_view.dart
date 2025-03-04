@@ -1,8 +1,8 @@
 import 'package:cores_designsystem/widgets.dart';
 import 'package:cores_domain/post.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/src/post/components/loading_post_card.dart';
 import 'package:flutter_app/src/post/components/post_card.dart';
-import 'package:flutter_app/src/post/components/shimmer_card.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class MyPostTabView extends ConsumerWidget {
@@ -35,7 +35,7 @@ class MyPostTabView extends ConsumerWidget {
 
           return response.when(
             data: (data) => PostCard(post: data.items[indexInPage]),
-            loading: () => const ShimmerCard(),
+            loading: () => const LoadingPostCard(),
             // TODO(yakitama5): エラー表示を分けて記載
             error:
                 (error, __) => ErrorListTile(
