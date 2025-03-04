@@ -14,6 +14,7 @@ class FirestorePostModel with _$FirestorePostModel {
     required HowToDecide howToDecide,
     @Default(0) int viewCount,
     @Default(0) int voteCount,
+    required String author,
     @timestampKey DateTime? createdAt,
     @timestampKey DateTime? updatedAt,
   }) = _FirestorePostModel;
@@ -31,6 +32,7 @@ extension FirestorePostModelX on FirestorePostModel {
     viewCount: viewCount,
     voteCount: voteCount,
     choicesList: choicesList,
+    author: author,
     createdAt: createdAt!,
     updatedAt: updatedAt!,
   );

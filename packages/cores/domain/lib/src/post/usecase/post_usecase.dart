@@ -36,6 +36,8 @@ class PostUsecase with RunUsecaseMixin {
             choicesList: choicesList,
           ),
     );
+
+    ref.invalidate(myPostsProvider);
     // TODO(yakitama5): Repositoryクラスを整備した後に作る
   }
 }

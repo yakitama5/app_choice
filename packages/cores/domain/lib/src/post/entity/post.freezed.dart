@@ -23,6 +23,7 @@ mixin _$Post {
   int get viewCount => throw _privateConstructorUsedError;
   int get voteCount => throw _privateConstructorUsedError;
   List<Choices> get choicesList => throw _privateConstructorUsedError;
+  String get author => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
 
@@ -44,6 +45,7 @@ abstract class $PostCopyWith<$Res> {
     int viewCount,
     int voteCount,
     List<Choices> choicesList,
+    String author,
     DateTime createdAt,
     DateTime updatedAt,
   });
@@ -70,6 +72,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? viewCount = null,
     Object? voteCount = null,
     Object? choicesList = null,
+    Object? author = null,
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
@@ -105,6 +108,11 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
                     ? _value.choicesList
                     : choicesList // ignore: cast_nullable_to_non_nullable
                         as List<Choices>,
+            author:
+                null == author
+                    ? _value.author
+                    : author // ignore: cast_nullable_to_non_nullable
+                        as String,
             createdAt:
                 null == createdAt
                     ? _value.createdAt
@@ -136,6 +144,7 @@ abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
     int viewCount,
     int voteCount,
     List<Choices> choicesList,
+    String author,
     DateTime createdAt,
     DateTime updatedAt,
   });
@@ -159,6 +168,7 @@ class __$$PostImplCopyWithImpl<$Res>
     Object? viewCount = null,
     Object? voteCount = null,
     Object? choicesList = null,
+    Object? author = null,
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
@@ -194,6 +204,11 @@ class __$$PostImplCopyWithImpl<$Res>
                 ? _value._choicesList
                 : choicesList // ignore: cast_nullable_to_non_nullable
                     as List<Choices>,
+        author:
+            null == author
+                ? _value.author
+                : author // ignore: cast_nullable_to_non_nullable
+                    as String,
         createdAt:
             null == createdAt
                 ? _value.createdAt
@@ -219,6 +234,7 @@ class _$PostImpl implements _Post {
     required this.viewCount,
     required this.voteCount,
     required final List<Choices> choicesList,
+    required this.author,
     required this.createdAt,
     required this.updatedAt,
   }) : _choicesList = choicesList;
@@ -242,13 +258,15 @@ class _$PostImpl implements _Post {
   }
 
   @override
+  final String author;
+  @override
   final DateTime createdAt;
   @override
   final DateTime updatedAt;
 
   @override
   String toString() {
-    return 'Post(id: $id, title: $title, howToDecide: $howToDecide, viewCount: $viewCount, voteCount: $voteCount, choicesList: $choicesList, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Post(id: $id, title: $title, howToDecide: $howToDecide, viewCount: $viewCount, voteCount: $voteCount, choicesList: $choicesList, author: $author, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -268,6 +286,7 @@ class _$PostImpl implements _Post {
               other._choicesList,
               _choicesList,
             ) &&
+            (identical(other.author, author) || other.author == author) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -283,6 +302,7 @@ class _$PostImpl implements _Post {
     viewCount,
     voteCount,
     const DeepCollectionEquality().hash(_choicesList),
+    author,
     createdAt,
     updatedAt,
   );
@@ -304,6 +324,7 @@ abstract class _Post implements Post {
     required final int viewCount,
     required final int voteCount,
     required final List<Choices> choicesList,
+    required final String author,
     required final DateTime createdAt,
     required final DateTime updatedAt,
   }) = _$PostImpl;
@@ -320,6 +341,8 @@ abstract class _Post implements Post {
   int get voteCount;
   @override
   List<Choices> get choicesList;
+  @override
+  String get author;
   @override
   DateTime get createdAt;
   @override

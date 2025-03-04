@@ -14,6 +14,7 @@ class Post with _$Post {
     required int viewCount,
     required int voteCount,
     required List<Choices> choicesList,
+    required String author,
     required DateTime createdAt,
     required DateTime updatedAt,
   }) = _Post;

@@ -123,6 +123,7 @@ class FirebasePostRepository implements PostRepository {
         id: postDocRef.id,
         title: title,
         howToDecide: howToDecide,
+        author: userId,
       );
       transaction.set(postDocRef, postParam);
 

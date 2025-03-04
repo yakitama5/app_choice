@@ -52,7 +52,7 @@
       "type": "dart",
       "args": [
         "--dart-define-from-file=flavor/dev.json",
-        "--web-renderer html",
+        "--wasm",
         "--dart-define=devicePreview=true"
       ]
     }
