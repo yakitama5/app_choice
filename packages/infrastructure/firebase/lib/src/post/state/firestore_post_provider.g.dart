@@ -16,19 +16,20 @@ String _$postCollectionRefHash() => r'30125390efd8972a11cc48248eab4b56ddc724e1';
 @ProviderFor(postCollectionRef)
 final postCollectionRefProvider =
     AutoDisposeProvider<CollectionReference<FirestorePostModel>>.internal(
-  postCollectionRef,
-  name: r'postCollectionRefProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$postCollectionRefHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      postCollectionRef,
+      name: r'postCollectionRefProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$postCollectionRefHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef PostCollectionRefRef
-    = AutoDisposeProviderRef<CollectionReference<FirestorePostModel>>;
+typedef PostCollectionRefRef =
+    AutoDisposeProviderRef<CollectionReference<FirestorePostModel>>;
 String _$postDocumentRefHash() => r'd26cfd9404abaf49a30bd42b545202c1e78ebeb8';
 
 /// Copied from Dart SDK
@@ -71,21 +72,15 @@ class PostDocumentRefFamily
   /// ドキュメントの参照
   ///
   /// Copied from [postDocumentRef].
-  PostDocumentRefProvider call({
-    String? postId,
-  }) {
-    return PostDocumentRefProvider(
-      postId: postId,
-    );
+  PostDocumentRefProvider call({String? postId}) {
+    return PostDocumentRefProvider(postId: postId);
   }
 
   @override
   PostDocumentRefProvider getProviderOverride(
     covariant PostDocumentRefProvider provider,
   ) {
-    return call(
-      postId: provider.postId,
-    );
+    return call(postId: provider.postId);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -111,24 +106,20 @@ class PostDocumentRefProvider
   /// ドキュメントの参照
   ///
   /// Copied from [postDocumentRef].
-  PostDocumentRefProvider({
-    String? postId,
-  }) : this._internal(
-          (ref) => postDocumentRef(
-            ref as PostDocumentRefRef,
-            postId: postId,
-          ),
-          from: postDocumentRefProvider,
-          name: r'postDocumentRefProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$postDocumentRefHash,
-          dependencies: PostDocumentRefFamily._dependencies,
-          allTransitiveDependencies:
-              PostDocumentRefFamily._allTransitiveDependencies,
-          postId: postId,
-        );
+  PostDocumentRefProvider({String? postId})
+    : this._internal(
+        (ref) => postDocumentRef(ref as PostDocumentRefRef, postId: postId),
+        from: postDocumentRefProvider,
+        name: r'postDocumentRefProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$postDocumentRefHash,
+        dependencies: PostDocumentRefFamily._dependencies,
+        allTransitiveDependencies:
+            PostDocumentRefFamily._allTransitiveDependencies,
+        postId: postId,
+      );
 
   PostDocumentRefProvider._internal(
     super._createNotifier, {
@@ -145,7 +136,7 @@ class PostDocumentRefProvider
   @override
   Override overrideWith(
     DocumentReference<FirestorePostModel> Function(PostDocumentRefRef provider)
-        create,
+    create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -163,7 +154,7 @@ class PostDocumentRefProvider
 
   @override
   AutoDisposeProviderElement<DocumentReference<FirestorePostModel>>
-      createElement() {
+  createElement() {
     return _PostDocumentRefProviderElement(this);
   }
 
@@ -197,5 +188,6 @@ class _PostDocumentRefProviderElement
   @override
   String? get postId => (origin as PostDocumentRefProvider).postId;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

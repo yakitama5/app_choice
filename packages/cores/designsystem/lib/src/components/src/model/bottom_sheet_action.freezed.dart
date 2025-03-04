@@ -12,7 +12,8 @@ part of 'bottom_sheet_action.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$BottomSheetAction<T> {
@@ -29,16 +30,20 @@ mixin _$BottomSheetAction<T> {
 
 /// @nodoc
 abstract class $BottomSheetActionCopyWith<T, $Res> {
-  factory $BottomSheetActionCopyWith(BottomSheetAction<T> value,
-          $Res Function(BottomSheetAction<T>) then) =
-      _$BottomSheetActionCopyWithImpl<T, $Res, BottomSheetAction<T>>;
+  factory $BottomSheetActionCopyWith(
+    BottomSheetAction<T> value,
+    $Res Function(BottomSheetAction<T>) then,
+  ) = _$BottomSheetActionCopyWithImpl<T, $Res, BottomSheetAction<T>>;
   @useResult
   $Res call({Widget title, Widget? icon, T value});
 }
 
 /// @nodoc
-class _$BottomSheetActionCopyWithImpl<T, $Res,
-        $Val extends BottomSheetAction<T>>
+class _$BottomSheetActionCopyWithImpl<
+  T,
+  $Res,
+  $Val extends BottomSheetAction<T>
+>
     implements $BottomSheetActionCopyWith<T, $Res> {
   _$BottomSheetActionCopyWithImpl(this._value, this._then);
 
@@ -56,29 +61,36 @@ class _$BottomSheetActionCopyWithImpl<T, $Res,
     Object? icon = freezed,
     Object? value = freezed,
   }) {
-    return _then(_value.copyWith(
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as Widget,
-      icon: freezed == icon
-          ? _value.icon
-          : icon // ignore: cast_nullable_to_non_nullable
-              as Widget?,
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as T,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            title:
+                null == title
+                    ? _value.title
+                    : title // ignore: cast_nullable_to_non_nullable
+                        as Widget,
+            icon:
+                freezed == icon
+                    ? _value.icon
+                    : icon // ignore: cast_nullable_to_non_nullable
+                        as Widget?,
+            value:
+                freezed == value
+                    ? _value.value
+                    : value // ignore: cast_nullable_to_non_nullable
+                        as T,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$BottomSheetActionImplCopyWith<T, $Res>
     implements $BottomSheetActionCopyWith<T, $Res> {
-  factory _$$BottomSheetActionImplCopyWith(_$BottomSheetActionImpl<T> value,
-          $Res Function(_$BottomSheetActionImpl<T>) then) =
-      __$$BottomSheetActionImplCopyWithImpl<T, $Res>;
+  factory _$$BottomSheetActionImplCopyWith(
+    _$BottomSheetActionImpl<T> value,
+    $Res Function(_$BottomSheetActionImpl<T>) then,
+  ) = __$$BottomSheetActionImplCopyWithImpl<T, $Res>;
   @override
   @useResult
   $Res call({Widget title, Widget? icon, T value});
@@ -88,9 +100,10 @@ abstract class _$$BottomSheetActionImplCopyWith<T, $Res>
 class __$$BottomSheetActionImplCopyWithImpl<T, $Res>
     extends _$BottomSheetActionCopyWithImpl<T, $Res, _$BottomSheetActionImpl<T>>
     implements _$$BottomSheetActionImplCopyWith<T, $Res> {
-  __$$BottomSheetActionImplCopyWithImpl(_$BottomSheetActionImpl<T> _value,
-      $Res Function(_$BottomSheetActionImpl<T>) _then)
-      : super(_value, _then);
+  __$$BottomSheetActionImplCopyWithImpl(
+    _$BottomSheetActionImpl<T> _value,
+    $Res Function(_$BottomSheetActionImpl<T>) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of BottomSheetAction
   /// with the given fields replaced by the non-null parameter values.
@@ -101,28 +114,36 @@ class __$$BottomSheetActionImplCopyWithImpl<T, $Res>
     Object? icon = freezed,
     Object? value = freezed,
   }) {
-    return _then(_$BottomSheetActionImpl<T>(
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as Widget,
-      icon: freezed == icon
-          ? _value.icon
-          : icon // ignore: cast_nullable_to_non_nullable
-              as Widget?,
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as T,
-    ));
+    return _then(
+      _$BottomSheetActionImpl<T>(
+        title:
+            null == title
+                ? _value.title
+                : title // ignore: cast_nullable_to_non_nullable
+                    as Widget,
+        icon:
+            freezed == icon
+                ? _value.icon
+                : icon // ignore: cast_nullable_to_non_nullable
+                    as Widget?,
+        value:
+            freezed == value
+                ? _value.value
+                : value // ignore: cast_nullable_to_non_nullable
+                    as T,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$BottomSheetActionImpl<T> implements _BottomSheetAction<T> {
-  const _$BottomSheetActionImpl(
-      {required this.title, this.icon, required this.value});
+  const _$BottomSheetActionImpl({
+    required this.title,
+    this.icon,
+    required this.value,
+  });
 
   @override
   final Widget title;
@@ -148,7 +169,11 @@ class _$BottomSheetActionImpl<T> implements _BottomSheetAction<T> {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, title, icon, const DeepCollectionEquality().hash(value));
+    runtimeType,
+    title,
+    icon,
+    const DeepCollectionEquality().hash(value),
+  );
 
   /// Create a copy of BottomSheetAction
   /// with the given fields replaced by the non-null parameter values.
@@ -156,16 +181,19 @@ class _$BottomSheetActionImpl<T> implements _BottomSheetAction<T> {
   @override
   @pragma('vm:prefer-inline')
   _$$BottomSheetActionImplCopyWith<T, _$BottomSheetActionImpl<T>>
-      get copyWith =>
-          __$$BottomSheetActionImplCopyWithImpl<T, _$BottomSheetActionImpl<T>>(
-              this, _$identity);
+  get copyWith =>
+      __$$BottomSheetActionImplCopyWithImpl<T, _$BottomSheetActionImpl<T>>(
+        this,
+        _$identity,
+      );
 }
 
 abstract class _BottomSheetAction<T> implements BottomSheetAction<T> {
-  const factory _BottomSheetAction(
-      {required final Widget title,
-      final Widget? icon,
-      required final T value}) = _$BottomSheetActionImpl<T>;
+  const factory _BottomSheetAction({
+    required final Widget title,
+    final Widget? icon,
+    required final T value,
+  }) = _$BottomSheetActionImpl<T>;
 
   @override
   Widget get title;
@@ -179,5 +207,5 @@ abstract class _BottomSheetAction<T> implements BottomSheetAction<T> {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$BottomSheetActionImplCopyWith<T, _$BottomSheetActionImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

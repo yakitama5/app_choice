@@ -55,20 +55,14 @@ class MyChoicesCollectionRefFamily
     required String userId,
     required String postId,
   }) {
-    return MyChoicesCollectionRefProvider(
-      userId: userId,
-      postId: postId,
-    );
+    return MyChoicesCollectionRefProvider(userId: userId, postId: postId);
   }
 
   @override
   MyChoicesCollectionRefProvider getProviderOverride(
     covariant MyChoicesCollectionRefProvider provider,
   ) {
-    return call(
-      userId: provider.userId,
-      postId: provider.postId,
-    );
+    return call(userId: provider.userId, postId: provider.postId);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -98,23 +92,23 @@ class MyChoicesCollectionRefProvider
     required String userId,
     required String postId,
   }) : this._internal(
-          (ref) => myChoicesCollectionRef(
-            ref as MyChoicesCollectionRefRef,
-            userId: userId,
-            postId: postId,
-          ),
-          from: myChoicesCollectionRefProvider,
-          name: r'myChoicesCollectionRefProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$myChoicesCollectionRefHash,
-          dependencies: MyChoicesCollectionRefFamily._dependencies,
-          allTransitiveDependencies:
-              MyChoicesCollectionRefFamily._allTransitiveDependencies,
-          userId: userId,
-          postId: postId,
-        );
+         (ref) => myChoicesCollectionRef(
+           ref as MyChoicesCollectionRefRef,
+           userId: userId,
+           postId: postId,
+         ),
+         from: myChoicesCollectionRefProvider,
+         name: r'myChoicesCollectionRefProvider',
+         debugGetCreateSourceHash:
+             const bool.fromEnvironment('dart.vm.product')
+                 ? null
+                 : _$myChoicesCollectionRefHash,
+         dependencies: MyChoicesCollectionRefFamily._dependencies,
+         allTransitiveDependencies:
+             MyChoicesCollectionRefFamily._allTransitiveDependencies,
+         userId: userId,
+         postId: postId,
+       );
 
   MyChoicesCollectionRefProvider._internal(
     super._createNotifier, {
@@ -133,8 +127,9 @@ class MyChoicesCollectionRefProvider
   @override
   Override overrideWith(
     CollectionReference<FirestoreChoicesModel> Function(
-            MyChoicesCollectionRefRef provider)
-        create,
+      MyChoicesCollectionRefRef provider,
+    )
+    create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -153,7 +148,7 @@ class MyChoicesCollectionRefProvider
 
   @override
   AutoDisposeProviderElement<CollectionReference<FirestoreChoicesModel>>
-      createElement() {
+  createElement() {
     return _MyChoicesCollectionRefProviderElement(this);
   }
 
@@ -185,8 +180,10 @@ mixin MyChoicesCollectionRefRef
   String get postId;
 }
 
-class _MyChoicesCollectionRefProviderElement extends AutoDisposeProviderElement<
-    CollectionReference<FirestoreChoicesModel>> with MyChoicesCollectionRefRef {
+class _MyChoicesCollectionRefProviderElement
+    extends
+        AutoDisposeProviderElement<CollectionReference<FirestoreChoicesModel>>
+    with MyChoicesCollectionRefRef {
   _MyChoicesCollectionRefProviderElement(super.provider);
 
   @override
@@ -268,25 +265,25 @@ class MyChoicesDocumentRefProvider
     required String postId,
     String? choicesId,
   }) : this._internal(
-          (ref) => myChoicesDocumentRef(
-            ref as MyChoicesDocumentRefRef,
-            userId: userId,
-            postId: postId,
-            choicesId: choicesId,
-          ),
-          from: myChoicesDocumentRefProvider,
-          name: r'myChoicesDocumentRefProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$myChoicesDocumentRefHash,
-          dependencies: MyChoicesDocumentRefFamily._dependencies,
-          allTransitiveDependencies:
-              MyChoicesDocumentRefFamily._allTransitiveDependencies,
-          userId: userId,
-          postId: postId,
-          choicesId: choicesId,
-        );
+         (ref) => myChoicesDocumentRef(
+           ref as MyChoicesDocumentRefRef,
+           userId: userId,
+           postId: postId,
+           choicesId: choicesId,
+         ),
+         from: myChoicesDocumentRefProvider,
+         name: r'myChoicesDocumentRefProvider',
+         debugGetCreateSourceHash:
+             const bool.fromEnvironment('dart.vm.product')
+                 ? null
+                 : _$myChoicesDocumentRefHash,
+         dependencies: MyChoicesDocumentRefFamily._dependencies,
+         allTransitiveDependencies:
+             MyChoicesDocumentRefFamily._allTransitiveDependencies,
+         userId: userId,
+         postId: postId,
+         choicesId: choicesId,
+       );
 
   MyChoicesDocumentRefProvider._internal(
     super._createNotifier, {
@@ -307,8 +304,9 @@ class MyChoicesDocumentRefProvider
   @override
   Override overrideWith(
     DocumentReference<FirestoreChoicesModel> Function(
-            MyChoicesDocumentRefRef provider)
-        create,
+      MyChoicesDocumentRefRef provider,
+    )
+    create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -328,7 +326,7 @@ class MyChoicesDocumentRefProvider
 
   @override
   AutoDisposeProviderElement<DocumentReference<FirestoreChoicesModel>>
-      createElement() {
+  createElement() {
     return _MyChoicesDocumentRefProviderElement(this);
   }
 
@@ -377,5 +375,6 @@ class _MyChoicesDocumentRefProviderElement
   @override
   String? get choicesId => (origin as MyChoicesDocumentRefProvider).choicesId;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

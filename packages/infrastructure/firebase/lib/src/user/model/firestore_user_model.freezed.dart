@@ -12,7 +12,8 @@ part of 'firestore_user_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 FirestoreUserModel _$FirestoreUserModelFromJson(Map<String, dynamic> json) {
   return _FirestoreUserModel.fromJson(json);
@@ -39,13 +40,15 @@ mixin _$FirestoreUserModel {
 /// @nodoc
 abstract class $FirestoreUserModelCopyWith<$Res> {
   factory $FirestoreUserModelCopyWith(
-          FirestoreUserModel value, $Res Function(FirestoreUserModel) then) =
-      _$FirestoreUserModelCopyWithImpl<$Res, FirestoreUserModel>;
+    FirestoreUserModel value,
+    $Res Function(FirestoreUserModel) then,
+  ) = _$FirestoreUserModelCopyWithImpl<$Res, FirestoreUserModel>;
   @useResult
-  $Res call(
-      {String id,
-      @timestampKey DateTime? createdAt,
-      @timestampKey DateTime? updatedAt});
+  $Res call({
+    String id,
+    @timestampKey DateTime? createdAt,
+    @timestampKey DateTime? updatedAt,
+  });
 }
 
 /// @nodoc
@@ -67,44 +70,53 @@ class _$FirestoreUserModelCopyWithImpl<$Res, $Val extends FirestoreUserModel>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: freezed == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      updatedAt: freezed == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as String,
+            createdAt:
+                freezed == createdAt
+                    ? _value.createdAt
+                    : createdAt // ignore: cast_nullable_to_non_nullable
+                        as DateTime?,
+            updatedAt:
+                freezed == updatedAt
+                    ? _value.updatedAt
+                    : updatedAt // ignore: cast_nullable_to_non_nullable
+                        as DateTime?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$FirestoreUserModelImplCopyWith<$Res>
     implements $FirestoreUserModelCopyWith<$Res> {
-  factory _$$FirestoreUserModelImplCopyWith(_$FirestoreUserModelImpl value,
-          $Res Function(_$FirestoreUserModelImpl) then) =
-      __$$FirestoreUserModelImplCopyWithImpl<$Res>;
+  factory _$$FirestoreUserModelImplCopyWith(
+    _$FirestoreUserModelImpl value,
+    $Res Function(_$FirestoreUserModelImpl) then,
+  ) = __$$FirestoreUserModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String id,
-      @timestampKey DateTime? createdAt,
-      @timestampKey DateTime? updatedAt});
+  $Res call({
+    String id,
+    @timestampKey DateTime? createdAt,
+    @timestampKey DateTime? updatedAt,
+  });
 }
 
 /// @nodoc
 class __$$FirestoreUserModelImplCopyWithImpl<$Res>
     extends _$FirestoreUserModelCopyWithImpl<$Res, _$FirestoreUserModelImpl>
     implements _$$FirestoreUserModelImplCopyWith<$Res> {
-  __$$FirestoreUserModelImplCopyWithImpl(_$FirestoreUserModelImpl _value,
-      $Res Function(_$FirestoreUserModelImpl) _then)
-      : super(_value, _then);
+  __$$FirestoreUserModelImplCopyWithImpl(
+    _$FirestoreUserModelImpl _value,
+    $Res Function(_$FirestoreUserModelImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of FirestoreUserModel
   /// with the given fields replaced by the non-null parameter values.
@@ -115,30 +127,36 @@ class __$$FirestoreUserModelImplCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_$FirestoreUserModelImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: freezed == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      updatedAt: freezed == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ));
+    return _then(
+      _$FirestoreUserModelImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as String,
+        createdAt:
+            freezed == createdAt
+                ? _value.createdAt
+                : createdAt // ignore: cast_nullable_to_non_nullable
+                    as DateTime?,
+        updatedAt:
+            freezed == updatedAt
+                ? _value.updatedAt
+                : updatedAt // ignore: cast_nullable_to_non_nullable
+                    as DateTime?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$FirestoreUserModelImpl implements _FirestoreUserModel {
-  const _$FirestoreUserModelImpl(
-      {required this.id,
-      @timestampKey this.createdAt,
-      @timestampKey this.updatedAt});
+  const _$FirestoreUserModelImpl({
+    required this.id,
+    @timestampKey this.createdAt,
+    @timestampKey this.updatedAt,
+  });
 
   factory _$FirestoreUserModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$FirestoreUserModelImplFromJson(json);
@@ -180,21 +198,22 @@ class _$FirestoreUserModelImpl implements _FirestoreUserModel {
   @pragma('vm:prefer-inline')
   _$$FirestoreUserModelImplCopyWith<_$FirestoreUserModelImpl> get copyWith =>
       __$$FirestoreUserModelImplCopyWithImpl<_$FirestoreUserModelImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FirestoreUserModelImplToJson(
-      this,
-    );
+    return _$$FirestoreUserModelImplToJson(this);
   }
 }
 
 abstract class _FirestoreUserModel implements FirestoreUserModel {
-  const factory _FirestoreUserModel(
-      {required final String id,
-      @timestampKey final DateTime? createdAt,
-      @timestampKey final DateTime? updatedAt}) = _$FirestoreUserModelImpl;
+  const factory _FirestoreUserModel({
+    required final String id,
+    @timestampKey final DateTime? createdAt,
+    @timestampKey final DateTime? updatedAt,
+  }) = _$FirestoreUserModelImpl;
 
   factory _FirestoreUserModel.fromJson(Map<String, dynamic> json) =
       _$FirestoreUserModelImpl.fromJson;

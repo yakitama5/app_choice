@@ -51,21 +51,15 @@ class MyPostCollectionRefFamily
   /// コレクションの参照
   ///
   /// Copied from [myPostCollectionRef].
-  MyPostCollectionRefProvider call({
-    required String userId,
-  }) {
-    return MyPostCollectionRefProvider(
-      userId: userId,
-    );
+  MyPostCollectionRefProvider call({required String userId}) {
+    return MyPostCollectionRefProvider(userId: userId);
   }
 
   @override
   MyPostCollectionRefProvider getProviderOverride(
     covariant MyPostCollectionRefProvider provider,
   ) {
-    return call(
-      userId: provider.userId,
-    );
+    return call(userId: provider.userId);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -91,24 +85,21 @@ class MyPostCollectionRefProvider
   /// コレクションの参照
   ///
   /// Copied from [myPostCollectionRef].
-  MyPostCollectionRefProvider({
-    required String userId,
-  }) : this._internal(
-          (ref) => myPostCollectionRef(
-            ref as MyPostCollectionRefRef,
-            userId: userId,
-          ),
-          from: myPostCollectionRefProvider,
-          name: r'myPostCollectionRefProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$myPostCollectionRefHash,
-          dependencies: MyPostCollectionRefFamily._dependencies,
-          allTransitiveDependencies:
-              MyPostCollectionRefFamily._allTransitiveDependencies,
-          userId: userId,
-        );
+  MyPostCollectionRefProvider({required String userId})
+    : this._internal(
+        (ref) =>
+            myPostCollectionRef(ref as MyPostCollectionRefRef, userId: userId),
+        from: myPostCollectionRefProvider,
+        name: r'myPostCollectionRefProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$myPostCollectionRefHash,
+        dependencies: MyPostCollectionRefFamily._dependencies,
+        allTransitiveDependencies:
+            MyPostCollectionRefFamily._allTransitiveDependencies,
+        userId: userId,
+      );
 
   MyPostCollectionRefProvider._internal(
     super._createNotifier, {
@@ -125,8 +116,9 @@ class MyPostCollectionRefProvider
   @override
   Override overrideWith(
     CollectionReference<FirestorePostModel> Function(
-            MyPostCollectionRefRef provider)
-        create,
+      MyPostCollectionRefRef provider,
+    )
+    create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -144,7 +136,7 @@ class MyPostCollectionRefProvider
 
   @override
   AutoDisposeProviderElement<CollectionReference<FirestorePostModel>>
-      createElement() {
+  createElement() {
     return _MyPostCollectionRefProviderElement(this);
   }
 
@@ -200,24 +192,15 @@ class MyPostDocumentRefFamily
   /// ドキュメントの参照
   ///
   /// Copied from [myPostDocumentRef].
-  MyPostDocumentRefProvider call({
-    required String userId,
-    String? postId,
-  }) {
-    return MyPostDocumentRefProvider(
-      userId: userId,
-      postId: postId,
-    );
+  MyPostDocumentRefProvider call({required String userId, String? postId}) {
+    return MyPostDocumentRefProvider(userId: userId, postId: postId);
   }
 
   @override
   MyPostDocumentRefProvider getProviderOverride(
     covariant MyPostDocumentRefProvider provider,
   ) {
-    return call(
-      userId: provider.userId,
-      postId: provider.postId,
-    );
+    return call(userId: provider.userId, postId: provider.postId);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -243,27 +226,25 @@ class MyPostDocumentRefProvider
   /// ドキュメントの参照
   ///
   /// Copied from [myPostDocumentRef].
-  MyPostDocumentRefProvider({
-    required String userId,
-    String? postId,
-  }) : this._internal(
-          (ref) => myPostDocumentRef(
-            ref as MyPostDocumentRefRef,
-            userId: userId,
-            postId: postId,
-          ),
-          from: myPostDocumentRefProvider,
-          name: r'myPostDocumentRefProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$myPostDocumentRefHash,
-          dependencies: MyPostDocumentRefFamily._dependencies,
-          allTransitiveDependencies:
-              MyPostDocumentRefFamily._allTransitiveDependencies,
+  MyPostDocumentRefProvider({required String userId, String? postId})
+    : this._internal(
+        (ref) => myPostDocumentRef(
+          ref as MyPostDocumentRefRef,
           userId: userId,
           postId: postId,
-        );
+        ),
+        from: myPostDocumentRefProvider,
+        name: r'myPostDocumentRefProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$myPostDocumentRefHash,
+        dependencies: MyPostDocumentRefFamily._dependencies,
+        allTransitiveDependencies:
+            MyPostDocumentRefFamily._allTransitiveDependencies,
+        userId: userId,
+        postId: postId,
+      );
 
   MyPostDocumentRefProvider._internal(
     super._createNotifier, {
@@ -282,8 +263,9 @@ class MyPostDocumentRefProvider
   @override
   Override overrideWith(
     DocumentReference<FirestorePostModel> Function(
-            MyPostDocumentRefRef provider)
-        create,
+      MyPostDocumentRefRef provider,
+    )
+    create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -302,7 +284,7 @@ class MyPostDocumentRefProvider
 
   @override
   AutoDisposeProviderElement<DocumentReference<FirestorePostModel>>
-      createElement() {
+  createElement() {
     return _MyPostDocumentRefProviderElement(this);
   }
 
@@ -344,5 +326,6 @@ class _MyPostDocumentRefProviderElement
   @override
   String? get postId => (origin as MyPostDocumentRefProvider).postId;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

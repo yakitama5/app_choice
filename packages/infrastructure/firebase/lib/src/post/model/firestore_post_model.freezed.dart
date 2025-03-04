@@ -12,7 +12,8 @@ part of 'firestore_post_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 FirestorePostModel _$FirestorePostModelFromJson(Map<String, dynamic> json) {
   return _FirestorePostModel.fromJson(json);
@@ -40,14 +41,16 @@ mixin _$FirestorePostModel {
 /// @nodoc
 abstract class $FirestorePostModelCopyWith<$Res> {
   factory $FirestorePostModelCopyWith(
-          FirestorePostModel value, $Res Function(FirestorePostModel) then) =
-      _$FirestorePostModelCopyWithImpl<$Res, FirestorePostModel>;
+    FirestorePostModel value,
+    $Res Function(FirestorePostModel) then,
+  ) = _$FirestorePostModelCopyWithImpl<$Res, FirestorePostModel>;
   @useResult
-  $Res call(
-      {String id,
-      String title,
-      @timestampKey DateTime? createdAt,
-      @timestampKey DateTime? updatedAt});
+  $Res call({
+    String id,
+    String title,
+    @timestampKey DateTime? createdAt,
+    @timestampKey DateTime? updatedAt,
+  });
 }
 
 /// @nodoc
@@ -70,49 +73,59 @@ class _$FirestorePostModelCopyWithImpl<$Res, $Val extends FirestorePostModel>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: freezed == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      updatedAt: freezed == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as String,
+            title:
+                null == title
+                    ? _value.title
+                    : title // ignore: cast_nullable_to_non_nullable
+                        as String,
+            createdAt:
+                freezed == createdAt
+                    ? _value.createdAt
+                    : createdAt // ignore: cast_nullable_to_non_nullable
+                        as DateTime?,
+            updatedAt:
+                freezed == updatedAt
+                    ? _value.updatedAt
+                    : updatedAt // ignore: cast_nullable_to_non_nullable
+                        as DateTime?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$FirestorePostModelImplCopyWith<$Res>
     implements $FirestorePostModelCopyWith<$Res> {
-  factory _$$FirestorePostModelImplCopyWith(_$FirestorePostModelImpl value,
-          $Res Function(_$FirestorePostModelImpl) then) =
-      __$$FirestorePostModelImplCopyWithImpl<$Res>;
+  factory _$$FirestorePostModelImplCopyWith(
+    _$FirestorePostModelImpl value,
+    $Res Function(_$FirestorePostModelImpl) then,
+  ) = __$$FirestorePostModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String id,
-      String title,
-      @timestampKey DateTime? createdAt,
-      @timestampKey DateTime? updatedAt});
+  $Res call({
+    String id,
+    String title,
+    @timestampKey DateTime? createdAt,
+    @timestampKey DateTime? updatedAt,
+  });
 }
 
 /// @nodoc
 class __$$FirestorePostModelImplCopyWithImpl<$Res>
     extends _$FirestorePostModelCopyWithImpl<$Res, _$FirestorePostModelImpl>
     implements _$$FirestorePostModelImplCopyWith<$Res> {
-  __$$FirestorePostModelImplCopyWithImpl(_$FirestorePostModelImpl _value,
-      $Res Function(_$FirestorePostModelImpl) _then)
-      : super(_value, _then);
+  __$$FirestorePostModelImplCopyWithImpl(
+    _$FirestorePostModelImpl _value,
+    $Res Function(_$FirestorePostModelImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of FirestorePostModel
   /// with the given fields replaced by the non-null parameter values.
@@ -124,35 +137,42 @@ class __$$FirestorePostModelImplCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_$FirestorePostModelImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: freezed == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      updatedAt: freezed == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ));
+    return _then(
+      _$FirestorePostModelImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as String,
+        title:
+            null == title
+                ? _value.title
+                : title // ignore: cast_nullable_to_non_nullable
+                    as String,
+        createdAt:
+            freezed == createdAt
+                ? _value.createdAt
+                : createdAt // ignore: cast_nullable_to_non_nullable
+                    as DateTime?,
+        updatedAt:
+            freezed == updatedAt
+                ? _value.updatedAt
+                : updatedAt // ignore: cast_nullable_to_non_nullable
+                    as DateTime?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$FirestorePostModelImpl implements _FirestorePostModel {
-  const _$FirestorePostModelImpl(
-      {required this.id,
-      required this.title,
-      @timestampKey this.createdAt,
-      @timestampKey this.updatedAt});
+  const _$FirestorePostModelImpl({
+    required this.id,
+    required this.title,
+    @timestampKey this.createdAt,
+    @timestampKey this.updatedAt,
+  });
 
   factory _$FirestorePostModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$FirestorePostModelImplFromJson(json);
@@ -197,22 +217,23 @@ class _$FirestorePostModelImpl implements _FirestorePostModel {
   @pragma('vm:prefer-inline')
   _$$FirestorePostModelImplCopyWith<_$FirestorePostModelImpl> get copyWith =>
       __$$FirestorePostModelImplCopyWithImpl<_$FirestorePostModelImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FirestorePostModelImplToJson(
-      this,
-    );
+    return _$$FirestorePostModelImplToJson(this);
   }
 }
 
 abstract class _FirestorePostModel implements FirestorePostModel {
-  const factory _FirestorePostModel(
-      {required final String id,
-      required final String title,
-      @timestampKey final DateTime? createdAt,
-      @timestampKey final DateTime? updatedAt}) = _$FirestorePostModelImpl;
+  const factory _FirestorePostModel({
+    required final String id,
+    required final String title,
+    @timestampKey final DateTime? createdAt,
+    @timestampKey final DateTime? updatedAt,
+  }) = _$FirestorePostModelImpl;
 
   factory _FirestorePostModel.fromJson(Map<String, dynamic> json) =
       _$FirestorePostModelImpl.fromJson;

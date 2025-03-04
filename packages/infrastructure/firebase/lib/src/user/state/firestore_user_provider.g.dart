@@ -16,19 +16,20 @@ String _$userCollectionRefHash() => r'1a0a25e375965d7d6d7afd4fe5d5e5207486865f';
 @ProviderFor(userCollectionRef)
 final userCollectionRefProvider =
     AutoDisposeProvider<CollectionReference<FirestoreUserModel>>.internal(
-  userCollectionRef,
-  name: r'userCollectionRefProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$userCollectionRefHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      userCollectionRef,
+      name: r'userCollectionRefProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$userCollectionRefHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef UserCollectionRefRef
-    = AutoDisposeProviderRef<CollectionReference<FirestoreUserModel>>;
+typedef UserCollectionRefRef =
+    AutoDisposeProviderRef<CollectionReference<FirestoreUserModel>>;
 String _$userDocumentRefHash() => r'7b43f3c7454b7d1e9ab09dc23d4ec344b1bd31bc';
 
 /// Copied from Dart SDK
@@ -71,21 +72,15 @@ class UserDocumentRefFamily
   /// ユーザードキュメントの参照
   ///
   /// Copied from [userDocumentRef].
-  UserDocumentRefProvider call({
-    String? userId,
-  }) {
-    return UserDocumentRefProvider(
-      userId: userId,
-    );
+  UserDocumentRefProvider call({String? userId}) {
+    return UserDocumentRefProvider(userId: userId);
   }
 
   @override
   UserDocumentRefProvider getProviderOverride(
     covariant UserDocumentRefProvider provider,
   ) {
-    return call(
-      userId: provider.userId,
-    );
+    return call(userId: provider.userId);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -111,24 +106,20 @@ class UserDocumentRefProvider
   /// ユーザードキュメントの参照
   ///
   /// Copied from [userDocumentRef].
-  UserDocumentRefProvider({
-    String? userId,
-  }) : this._internal(
-          (ref) => userDocumentRef(
-            ref as UserDocumentRefRef,
-            userId: userId,
-          ),
-          from: userDocumentRefProvider,
-          name: r'userDocumentRefProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$userDocumentRefHash,
-          dependencies: UserDocumentRefFamily._dependencies,
-          allTransitiveDependencies:
-              UserDocumentRefFamily._allTransitiveDependencies,
-          userId: userId,
-        );
+  UserDocumentRefProvider({String? userId})
+    : this._internal(
+        (ref) => userDocumentRef(ref as UserDocumentRefRef, userId: userId),
+        from: userDocumentRefProvider,
+        name: r'userDocumentRefProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$userDocumentRefHash,
+        dependencies: UserDocumentRefFamily._dependencies,
+        allTransitiveDependencies:
+            UserDocumentRefFamily._allTransitiveDependencies,
+        userId: userId,
+      );
 
   UserDocumentRefProvider._internal(
     super._createNotifier, {
@@ -145,7 +136,7 @@ class UserDocumentRefProvider
   @override
   Override overrideWith(
     DocumentReference<FirestoreUserModel> Function(UserDocumentRefRef provider)
-        create,
+    create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -163,7 +154,7 @@ class UserDocumentRefProvider
 
   @override
   AutoDisposeProviderElement<DocumentReference<FirestoreUserModel>>
-      createElement() {
+  createElement() {
     return _UserDocumentRefProviderElement(this);
   }
 
@@ -197,5 +188,6 @@ class _UserDocumentRefProviderElement
   @override
   String? get userId => (origin as UserDocumentRefProvider).userId;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

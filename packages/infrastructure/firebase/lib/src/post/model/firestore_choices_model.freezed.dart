@@ -12,10 +12,12 @@ part of 'firestore_choices_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 FirestoreChoicesModel _$FirestoreChoicesModelFromJson(
-    Map<String, dynamic> json) {
+  Map<String, dynamic> json,
+) {
   return _FirestoreChoicesModel.fromJson(json);
 }
 
@@ -43,23 +45,27 @@ mixin _$FirestoreChoicesModel {
 
 /// @nodoc
 abstract class $FirestoreChoicesModelCopyWith<$Res> {
-  factory $FirestoreChoicesModelCopyWith(FirestoreChoicesModel value,
-          $Res Function(FirestoreChoicesModel) then) =
-      _$FirestoreChoicesModelCopyWithImpl<$Res, FirestoreChoicesModel>;
+  factory $FirestoreChoicesModelCopyWith(
+    FirestoreChoicesModel value,
+    $Res Function(FirestoreChoicesModel) then,
+  ) = _$FirestoreChoicesModelCopyWithImpl<$Res, FirestoreChoicesModel>;
   @useResult
-  $Res call(
-      {String id,
-      String title,
-      int voteCount,
-      bool selected,
-      int sortOrder,
-      @timestampKey DateTime? createdAt,
-      @timestampKey DateTime? updatedAt});
+  $Res call({
+    String id,
+    String title,
+    int voteCount,
+    bool selected,
+    int sortOrder,
+    @timestampKey DateTime? createdAt,
+    @timestampKey DateTime? updatedAt,
+  });
 }
 
 /// @nodoc
-class _$FirestoreChoicesModelCopyWithImpl<$Res,
-        $Val extends FirestoreChoicesModel>
+class _$FirestoreChoicesModelCopyWithImpl<
+  $Res,
+  $Val extends FirestoreChoicesModel
+>
     implements $FirestoreChoicesModelCopyWith<$Res> {
   _$FirestoreChoicesModelCopyWithImpl(this._value, this._then);
 
@@ -81,36 +87,46 @@ class _$FirestoreChoicesModelCopyWithImpl<$Res,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      voteCount: null == voteCount
-          ? _value.voteCount
-          : voteCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      selected: null == selected
-          ? _value.selected
-          : selected // ignore: cast_nullable_to_non_nullable
-              as bool,
-      sortOrder: null == sortOrder
-          ? _value.sortOrder
-          : sortOrder // ignore: cast_nullable_to_non_nullable
-              as int,
-      createdAt: freezed == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      updatedAt: freezed == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as String,
+            title:
+                null == title
+                    ? _value.title
+                    : title // ignore: cast_nullable_to_non_nullable
+                        as String,
+            voteCount:
+                null == voteCount
+                    ? _value.voteCount
+                    : voteCount // ignore: cast_nullable_to_non_nullable
+                        as int,
+            selected:
+                null == selected
+                    ? _value.selected
+                    : selected // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            sortOrder:
+                null == sortOrder
+                    ? _value.sortOrder
+                    : sortOrder // ignore: cast_nullable_to_non_nullable
+                        as int,
+            createdAt:
+                freezed == createdAt
+                    ? _value.createdAt
+                    : createdAt // ignore: cast_nullable_to_non_nullable
+                        as DateTime?,
+            updatedAt:
+                freezed == updatedAt
+                    ? _value.updatedAt
+                    : updatedAt // ignore: cast_nullable_to_non_nullable
+                        as DateTime?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -118,29 +134,31 @@ class _$FirestoreChoicesModelCopyWithImpl<$Res,
 abstract class _$$FirestoreChoicesModelImplCopyWith<$Res>
     implements $FirestoreChoicesModelCopyWith<$Res> {
   factory _$$FirestoreChoicesModelImplCopyWith(
-          _$FirestoreChoicesModelImpl value,
-          $Res Function(_$FirestoreChoicesModelImpl) then) =
-      __$$FirestoreChoicesModelImplCopyWithImpl<$Res>;
+    _$FirestoreChoicesModelImpl value,
+    $Res Function(_$FirestoreChoicesModelImpl) then,
+  ) = __$$FirestoreChoicesModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String id,
-      String title,
-      int voteCount,
-      bool selected,
-      int sortOrder,
-      @timestampKey DateTime? createdAt,
-      @timestampKey DateTime? updatedAt});
+  $Res call({
+    String id,
+    String title,
+    int voteCount,
+    bool selected,
+    int sortOrder,
+    @timestampKey DateTime? createdAt,
+    @timestampKey DateTime? updatedAt,
+  });
 }
 
 /// @nodoc
 class __$$FirestoreChoicesModelImplCopyWithImpl<$Res>
-    extends _$FirestoreChoicesModelCopyWithImpl<$Res,
-        _$FirestoreChoicesModelImpl>
+    extends
+        _$FirestoreChoicesModelCopyWithImpl<$Res, _$FirestoreChoicesModelImpl>
     implements _$$FirestoreChoicesModelImplCopyWith<$Res> {
-  __$$FirestoreChoicesModelImplCopyWithImpl(_$FirestoreChoicesModelImpl _value,
-      $Res Function(_$FirestoreChoicesModelImpl) _then)
-      : super(_value, _then);
+  __$$FirestoreChoicesModelImplCopyWithImpl(
+    _$FirestoreChoicesModelImpl _value,
+    $Res Function(_$FirestoreChoicesModelImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of FirestoreChoicesModel
   /// with the given fields replaced by the non-null parameter values.
@@ -155,50 +173,60 @@ class __$$FirestoreChoicesModelImplCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_$FirestoreChoicesModelImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      voteCount: null == voteCount
-          ? _value.voteCount
-          : voteCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      selected: null == selected
-          ? _value.selected
-          : selected // ignore: cast_nullable_to_non_nullable
-              as bool,
-      sortOrder: null == sortOrder
-          ? _value.sortOrder
-          : sortOrder // ignore: cast_nullable_to_non_nullable
-              as int,
-      createdAt: freezed == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      updatedAt: freezed == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ));
+    return _then(
+      _$FirestoreChoicesModelImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as String,
+        title:
+            null == title
+                ? _value.title
+                : title // ignore: cast_nullable_to_non_nullable
+                    as String,
+        voteCount:
+            null == voteCount
+                ? _value.voteCount
+                : voteCount // ignore: cast_nullable_to_non_nullable
+                    as int,
+        selected:
+            null == selected
+                ? _value.selected
+                : selected // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        sortOrder:
+            null == sortOrder
+                ? _value.sortOrder
+                : sortOrder // ignore: cast_nullable_to_non_nullable
+                    as int,
+        createdAt:
+            freezed == createdAt
+                ? _value.createdAt
+                : createdAt // ignore: cast_nullable_to_non_nullable
+                    as DateTime?,
+        updatedAt:
+            freezed == updatedAt
+                ? _value.updatedAt
+                : updatedAt // ignore: cast_nullable_to_non_nullable
+                    as DateTime?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$FirestoreChoicesModelImpl implements _FirestoreChoicesModel {
-  const _$FirestoreChoicesModelImpl(
-      {required this.id,
-      required this.title,
-      required this.voteCount,
-      required this.selected,
-      required this.sortOrder,
-      @timestampKey this.createdAt,
-      @timestampKey this.updatedAt});
+  const _$FirestoreChoicesModelImpl({
+    required this.id,
+    required this.title,
+    required this.voteCount,
+    required this.selected,
+    required this.sortOrder,
+    @timestampKey this.createdAt,
+    @timestampKey this.updatedAt,
+  });
 
   factory _$FirestoreChoicesModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$FirestoreChoicesModelImplFromJson(json);
@@ -246,8 +274,16 @@ class _$FirestoreChoicesModelImpl implements _FirestoreChoicesModel {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, voteCount, selected,
-      sortOrder, createdAt, updatedAt);
+  int get hashCode => Object.hash(
+    runtimeType,
+    id,
+    title,
+    voteCount,
+    selected,
+    sortOrder,
+    createdAt,
+    updatedAt,
+  );
 
   /// Create a copy of FirestoreChoicesModel
   /// with the given fields replaced by the non-null parameter values.
@@ -255,26 +291,28 @@ class _$FirestoreChoicesModelImpl implements _FirestoreChoicesModel {
   @override
   @pragma('vm:prefer-inline')
   _$$FirestoreChoicesModelImplCopyWith<_$FirestoreChoicesModelImpl>
-      get copyWith => __$$FirestoreChoicesModelImplCopyWithImpl<
-          _$FirestoreChoicesModelImpl>(this, _$identity);
+  get copyWith =>
+      __$$FirestoreChoicesModelImplCopyWithImpl<_$FirestoreChoicesModelImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FirestoreChoicesModelImplToJson(
-      this,
-    );
+    return _$$FirestoreChoicesModelImplToJson(this);
   }
 }
 
 abstract class _FirestoreChoicesModel implements FirestoreChoicesModel {
-  const factory _FirestoreChoicesModel(
-      {required final String id,
-      required final String title,
-      required final int voteCount,
-      required final bool selected,
-      required final int sortOrder,
-      @timestampKey final DateTime? createdAt,
-      @timestampKey final DateTime? updatedAt}) = _$FirestoreChoicesModelImpl;
+  const factory _FirestoreChoicesModel({
+    required final String id,
+    required final String title,
+    required final int voteCount,
+    required final bool selected,
+    required final int sortOrder,
+    @timestampKey final DateTime? createdAt,
+    @timestampKey final DateTime? updatedAt,
+  }) = _$FirestoreChoicesModelImpl;
 
   factory _FirestoreChoicesModel.fromJson(Map<String, dynamic> json) =
       _$FirestoreChoicesModelImpl.fromJson;
@@ -301,5 +339,5 @@ abstract class _FirestoreChoicesModel implements FirestoreChoicesModel {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirestoreChoicesModelImplCopyWith<_$FirestoreChoicesModelImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

@@ -19,6 +19,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Post {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
+  HowToDecide get howToDecide => throw _privateConstructorUsedError;
   List<Choices> get choicesList => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
@@ -37,6 +38,7 @@ abstract class $PostCopyWith<$Res> {
   $Res call({
     String id,
     String title,
+    HowToDecide howToDecide,
     List<Choices> choicesList,
     DateTime createdAt,
     DateTime updatedAt,
@@ -60,6 +62,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
   $Res call({
     Object? id = null,
     Object? title = null,
+    Object? howToDecide = null,
     Object? choicesList = null,
     Object? createdAt = null,
     Object? updatedAt = null,
@@ -76,6 +79,11 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
                     ? _value.title
                     : title // ignore: cast_nullable_to_non_nullable
                         as String,
+            howToDecide:
+                null == howToDecide
+                    ? _value.howToDecide
+                    : howToDecide // ignore: cast_nullable_to_non_nullable
+                        as HowToDecide,
             choicesList:
                 null == choicesList
                     ? _value.choicesList
@@ -108,6 +116,7 @@ abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
   $Res call({
     String id,
     String title,
+    HowToDecide howToDecide,
     List<Choices> choicesList,
     DateTime createdAt,
     DateTime updatedAt,
@@ -128,6 +137,7 @@ class __$$PostImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? title = null,
+    Object? howToDecide = null,
     Object? choicesList = null,
     Object? createdAt = null,
     Object? updatedAt = null,
@@ -144,6 +154,11 @@ class __$$PostImplCopyWithImpl<$Res>
                 ? _value.title
                 : title // ignore: cast_nullable_to_non_nullable
                     as String,
+        howToDecide:
+            null == howToDecide
+                ? _value.howToDecide
+                : howToDecide // ignore: cast_nullable_to_non_nullable
+                    as HowToDecide,
         choicesList:
             null == choicesList
                 ? _value._choicesList
@@ -170,6 +185,7 @@ class _$PostImpl implements _Post {
   const _$PostImpl({
     required this.id,
     required this.title,
+    required this.howToDecide,
     required final List<Choices> choicesList,
     required this.createdAt,
     required this.updatedAt,
@@ -179,6 +195,8 @@ class _$PostImpl implements _Post {
   final String id;
   @override
   final String title;
+  @override
+  final HowToDecide howToDecide;
   final List<Choices> _choicesList;
   @override
   List<Choices> get choicesList {
@@ -194,7 +212,7 @@ class _$PostImpl implements _Post {
 
   @override
   String toString() {
-    return 'Post(id: $id, title: $title, choicesList: $choicesList, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Post(id: $id, title: $title, howToDecide: $howToDecide, choicesList: $choicesList, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -204,6 +222,8 @@ class _$PostImpl implements _Post {
             other is _$PostImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
+            (identical(other.howToDecide, howToDecide) ||
+                other.howToDecide == howToDecide) &&
             const DeepCollectionEquality().equals(
               other._choicesList,
               _choicesList,
@@ -219,6 +239,7 @@ class _$PostImpl implements _Post {
     runtimeType,
     id,
     title,
+    howToDecide,
     const DeepCollectionEquality().hash(_choicesList),
     createdAt,
     updatedAt,
@@ -237,6 +258,7 @@ abstract class _Post implements Post {
   const factory _Post({
     required final String id,
     required final String title,
+    required final HowToDecide howToDecide,
     required final List<Choices> choicesList,
     required final DateTime createdAt,
     required final DateTime updatedAt,
@@ -246,6 +268,8 @@ abstract class _Post implements Post {
   String get id;
   @override
   String get title;
+  @override
+  HowToDecide get howToDecide;
   @override
   List<Choices> get choicesList;
   @override

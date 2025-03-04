@@ -49,21 +49,15 @@ class AppColorSchemeFamily extends Family<ColorScheme> {
   /// アプリ内のカラースキーマを管理
   ///
   /// Copied from [appColorScheme].
-  AppColorSchemeProvider call({
-    required Brightness brightness,
-  }) {
-    return AppColorSchemeProvider(
-      brightness: brightness,
-    );
+  AppColorSchemeProvider call({required Brightness brightness}) {
+    return AppColorSchemeProvider(brightness: brightness);
   }
 
   @override
   AppColorSchemeProvider getProviderOverride(
     covariant AppColorSchemeProvider provider,
   ) {
-    return call(
-      brightness: provider.brightness,
-    );
+    return call(brightness: provider.brightness);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -88,24 +82,21 @@ class AppColorSchemeProvider extends AutoDisposeProvider<ColorScheme> {
   /// アプリ内のカラースキーマを管理
   ///
   /// Copied from [appColorScheme].
-  AppColorSchemeProvider({
-    required Brightness brightness,
-  }) : this._internal(
-          (ref) => appColorScheme(
-            ref as AppColorSchemeRef,
-            brightness: brightness,
-          ),
-          from: appColorSchemeProvider,
-          name: r'appColorSchemeProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$appColorSchemeHash,
-          dependencies: AppColorSchemeFamily._dependencies,
-          allTransitiveDependencies:
-              AppColorSchemeFamily._allTransitiveDependencies,
-          brightness: brightness,
-        );
+  AppColorSchemeProvider({required Brightness brightness})
+    : this._internal(
+        (ref) =>
+            appColorScheme(ref as AppColorSchemeRef, brightness: brightness),
+        from: appColorSchemeProvider,
+        name: r'appColorSchemeProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$appColorSchemeHash,
+        dependencies: AppColorSchemeFamily._dependencies,
+        allTransitiveDependencies:
+            AppColorSchemeFamily._allTransitiveDependencies,
+        brightness: brightness,
+      );
 
   AppColorSchemeProvider._internal(
     super._createNotifier, {
@@ -164,11 +155,13 @@ mixin AppColorSchemeRef on AutoDisposeProviderRef<ColorScheme> {
 }
 
 class _AppColorSchemeProviderElement
-    extends AutoDisposeProviderElement<ColorScheme> with AppColorSchemeRef {
+    extends AutoDisposeProviderElement<ColorScheme>
+    with AppColorSchemeRef {
   _AppColorSchemeProviderElement(super.provider);
 
   @override
   Brightness get brightness => (origin as AppColorSchemeProvider).brightness;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

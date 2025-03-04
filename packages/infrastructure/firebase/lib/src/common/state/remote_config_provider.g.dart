@@ -60,21 +60,15 @@ class StringConfigFamily extends Family<AsyncValue<String>> {
   const StringConfigFamily();
 
   /// See also [stringConfig].
-  StringConfigProvider call({
-    required RemoteConfigs<String> config,
-  }) {
-    return StringConfigProvider(
-      config: config,
-    );
+  StringConfigProvider call({required RemoteConfigs<String> config}) {
+    return StringConfigProvider(config: config);
   }
 
   @override
   StringConfigProvider getProviderOverride(
     covariant StringConfigProvider provider,
   ) {
-    return call(
-      config: provider.config,
-    );
+    return call(config: provider.config);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -95,24 +89,20 @@ class StringConfigFamily extends Family<AsyncValue<String>> {
 /// See also [stringConfig].
 class StringConfigProvider extends AutoDisposeFutureProvider<String> {
   /// See also [stringConfig].
-  StringConfigProvider({
-    required RemoteConfigs<String> config,
-  }) : this._internal(
-          (ref) => stringConfig(
-            ref as StringConfigRef,
-            config: config,
-          ),
-          from: stringConfigProvider,
-          name: r'stringConfigProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$stringConfigHash,
-          dependencies: StringConfigFamily._dependencies,
-          allTransitiveDependencies:
-              StringConfigFamily._allTransitiveDependencies,
-          config: config,
-        );
+  StringConfigProvider({required RemoteConfigs<String> config})
+    : this._internal(
+        (ref) => stringConfig(ref as StringConfigRef, config: config),
+        from: stringConfigProvider,
+        name: r'stringConfigProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$stringConfigHash,
+        dependencies: StringConfigFamily._dependencies,
+        allTransitiveDependencies:
+            StringConfigFamily._allTransitiveDependencies,
+        config: config,
+      );
 
   StringConfigProvider._internal(
     super._createNotifier, {
@@ -171,7 +161,8 @@ mixin StringConfigRef on AutoDisposeFutureProviderRef<String> {
 }
 
 class _StringConfigProviderElement
-    extends AutoDisposeFutureProviderElement<String> with StringConfigRef {
+    extends AutoDisposeFutureProviderElement<String>
+    with StringConfigRef {
   _StringConfigProviderElement(super.provider);
 
   @override
@@ -190,21 +181,15 @@ class BoolConfigFamily extends Family<AsyncValue<bool>> {
   const BoolConfigFamily();
 
   /// See also [boolConfig].
-  BoolConfigProvider call({
-    required RemoteConfigs<bool> config,
-  }) {
-    return BoolConfigProvider(
-      config: config,
-    );
+  BoolConfigProvider call({required RemoteConfigs<bool> config}) {
+    return BoolConfigProvider(config: config);
   }
 
   @override
   BoolConfigProvider getProviderOverride(
     covariant BoolConfigProvider provider,
   ) {
-    return call(
-      config: provider.config,
-    );
+    return call(config: provider.config);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -225,24 +210,19 @@ class BoolConfigFamily extends Family<AsyncValue<bool>> {
 /// See also [boolConfig].
 class BoolConfigProvider extends AutoDisposeFutureProvider<bool> {
   /// See also [boolConfig].
-  BoolConfigProvider({
-    required RemoteConfigs<bool> config,
-  }) : this._internal(
-          (ref) => boolConfig(
-            ref as BoolConfigRef,
-            config: config,
-          ),
-          from: boolConfigProvider,
-          name: r'boolConfigProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$boolConfigHash,
-          dependencies: BoolConfigFamily._dependencies,
-          allTransitiveDependencies:
-              BoolConfigFamily._allTransitiveDependencies,
-          config: config,
-        );
+  BoolConfigProvider({required RemoteConfigs<bool> config})
+    : this._internal(
+        (ref) => boolConfig(ref as BoolConfigRef, config: config),
+        from: boolConfigProvider,
+        name: r'boolConfigProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$boolConfigHash,
+        dependencies: BoolConfigFamily._dependencies,
+        allTransitiveDependencies: BoolConfigFamily._allTransitiveDependencies,
+        config: config,
+      );
 
   BoolConfigProvider._internal(
     super._createNotifier, {
@@ -321,21 +301,15 @@ class StringStreamConfigFamily extends Family<AsyncValue<String>> {
   const StringStreamConfigFamily();
 
   /// See also [stringStreamConfig].
-  StringStreamConfigProvider call({
-    required RemoteConfigs<String> config,
-  }) {
-    return StringStreamConfigProvider(
-      config: config,
-    );
+  StringStreamConfigProvider call({required RemoteConfigs<String> config}) {
+    return StringStreamConfigProvider(config: config);
   }
 
   @override
   StringStreamConfigProvider getProviderOverride(
     covariant StringStreamConfigProvider provider,
   ) {
-    return call(
-      config: provider.config,
-    );
+    return call(config: provider.config);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -356,24 +330,21 @@ class StringStreamConfigFamily extends Family<AsyncValue<String>> {
 /// See also [stringStreamConfig].
 class StringStreamConfigProvider extends AutoDisposeStreamProvider<String> {
   /// See also [stringStreamConfig].
-  StringStreamConfigProvider({
-    required RemoteConfigs<String> config,
-  }) : this._internal(
-          (ref) => stringStreamConfig(
-            ref as StringStreamConfigRef,
-            config: config,
-          ),
-          from: stringStreamConfigProvider,
-          name: r'stringStreamConfigProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$stringStreamConfigHash,
-          dependencies: StringStreamConfigFamily._dependencies,
-          allTransitiveDependencies:
-              StringStreamConfigFamily._allTransitiveDependencies,
-          config: config,
-        );
+  StringStreamConfigProvider({required RemoteConfigs<String> config})
+    : this._internal(
+        (ref) =>
+            stringStreamConfig(ref as StringStreamConfigRef, config: config),
+        from: stringStreamConfigProvider,
+        name: r'stringStreamConfigProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$stringStreamConfigHash,
+        dependencies: StringStreamConfigFamily._dependencies,
+        allTransitiveDependencies:
+            StringStreamConfigFamily._allTransitiveDependencies,
+        config: config,
+      );
 
   StringStreamConfigProvider._internal(
     super._createNotifier, {
@@ -453,21 +424,15 @@ class BoolStreamConfigFamily extends Family<AsyncValue<bool>> {
   const BoolStreamConfigFamily();
 
   /// See also [boolStreamConfig].
-  BoolStreamConfigProvider call({
-    required RemoteConfigs<bool> config,
-  }) {
-    return BoolStreamConfigProvider(
-      config: config,
-    );
+  BoolStreamConfigProvider call({required RemoteConfigs<bool> config}) {
+    return BoolStreamConfigProvider(config: config);
   }
 
   @override
   BoolStreamConfigProvider getProviderOverride(
     covariant BoolStreamConfigProvider provider,
   ) {
-    return call(
-      config: provider.config,
-    );
+    return call(config: provider.config);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -488,24 +453,20 @@ class BoolStreamConfigFamily extends Family<AsyncValue<bool>> {
 /// See also [boolStreamConfig].
 class BoolStreamConfigProvider extends AutoDisposeStreamProvider<bool> {
   /// See also [boolStreamConfig].
-  BoolStreamConfigProvider({
-    required RemoteConfigs<bool> config,
-  }) : this._internal(
-          (ref) => boolStreamConfig(
-            ref as BoolStreamConfigRef,
-            config: config,
-          ),
-          from: boolStreamConfigProvider,
-          name: r'boolStreamConfigProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$boolStreamConfigHash,
-          dependencies: BoolStreamConfigFamily._dependencies,
-          allTransitiveDependencies:
-              BoolStreamConfigFamily._allTransitiveDependencies,
-          config: config,
-        );
+  BoolStreamConfigProvider({required RemoteConfigs<bool> config})
+    : this._internal(
+        (ref) => boolStreamConfig(ref as BoolStreamConfigRef, config: config),
+        from: boolStreamConfigProvider,
+        name: r'boolStreamConfigProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$boolStreamConfigHash,
+        dependencies: BoolStreamConfigFamily._dependencies,
+        allTransitiveDependencies:
+            BoolStreamConfigFamily._allTransitiveDependencies,
+        config: config,
+      );
 
   BoolStreamConfigProvider._internal(
     super._createNotifier, {
@@ -564,11 +525,13 @@ mixin BoolStreamConfigRef on AutoDisposeStreamProviderRef<bool> {
 }
 
 class _BoolStreamConfigProviderElement
-    extends AutoDisposeStreamProviderElement<bool> with BoolStreamConfigRef {
+    extends AutoDisposeStreamProviderElement<bool>
+    with BoolStreamConfigRef {
   _BoolStreamConfigProviderElement(super.provider);
 
   @override
   RemoteConfigs<bool> get config => (origin as BoolStreamConfigProvider).config;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

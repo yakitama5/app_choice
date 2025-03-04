@@ -9,7 +9,7 @@ part of 'theme_color_notifier_provider.dart';
 // **************************************************************************
 
 String _$themeColorNotifierHash() =>
-    r'a2fecca7060c780184a101cc65a415aee6826203';
+    r'613177150e7eb509267044427fb3aa17acb8948c';
 
 /// テーマカラーを管理するProvider
 /// SharedPreferencesの同期を待たずにUIに反映するため、Notifierを利用している
@@ -18,14 +18,15 @@ String _$themeColorNotifierHash() =>
 @ProviderFor(ThemeColorNotifier)
 final themeColorNotifierProvider =
     AutoDisposeNotifierProvider<ThemeColorNotifier, ThemeColor>.internal(
-  ThemeColorNotifier.new,
-  name: r'themeColorNotifierProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$themeColorNotifierHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      ThemeColorNotifier.new,
+      name: r'themeColorNotifierProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$themeColorNotifierHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$ThemeColorNotifier = AutoDisposeNotifier<ThemeColor>;
 // ignore_for_file: type=lint

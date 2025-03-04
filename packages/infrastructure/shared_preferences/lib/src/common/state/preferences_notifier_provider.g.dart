@@ -34,9 +34,7 @@ class _SystemHash {
 abstract class _$StringPreference extends BuildlessAutoDisposeNotifier<String> {
   late final Preferences<String> pref;
 
-  String build(
-    Preferences<String> pref,
-  );
+  String build(Preferences<String> pref);
 }
 
 ///
@@ -69,21 +67,15 @@ class StringPreferenceFamily extends Family<String> {
   ///
   ///
   /// Copied from [StringPreference].
-  StringPreferenceProvider call(
-    Preferences<String> pref,
-  ) {
-    return StringPreferenceProvider(
-      pref,
-    );
+  StringPreferenceProvider call(Preferences<String> pref) {
+    return StringPreferenceProvider(pref);
   }
 
   @override
   StringPreferenceProvider getProviderOverride(
     covariant StringPreferenceProvider provider,
   ) {
-    return call(
-      provider.pref,
-    );
+    return call(provider.pref);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -115,21 +107,20 @@ class StringPreferenceProvider
   ///
   ///
   /// Copied from [StringPreference].
-  StringPreferenceProvider(
-    Preferences<String> pref,
-  ) : this._internal(
-          () => StringPreference()..pref = pref,
-          from: stringPreferenceProvider,
-          name: r'stringPreferenceProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$stringPreferenceHash,
-          dependencies: StringPreferenceFamily._dependencies,
-          allTransitiveDependencies:
-              StringPreferenceFamily._allTransitiveDependencies,
-          pref: pref,
-        );
+  StringPreferenceProvider(Preferences<String> pref)
+    : this._internal(
+        () => StringPreference()..pref = pref,
+        from: stringPreferenceProvider,
+        name: r'stringPreferenceProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$stringPreferenceHash,
+        dependencies: StringPreferenceFamily._dependencies,
+        allTransitiveDependencies:
+            StringPreferenceFamily._allTransitiveDependencies,
+        pref: pref,
+      );
 
   StringPreferenceProvider._internal(
     super._createNotifier, {
@@ -144,12 +135,8 @@ class StringPreferenceProvider
   final Preferences<String> pref;
 
   @override
-  String runNotifierBuild(
-    covariant StringPreference notifier,
-  ) {
-    return notifier.build(
-      pref,
-    );
+  String runNotifierBuild(covariant StringPreference notifier) {
+    return notifier.build(pref);
   }
 
   @override
@@ -208,9 +195,7 @@ String _$boolPreferenceHash() => r'1645984b3471a9801c471b1803d35d078c38b074';
 abstract class _$BoolPreference extends BuildlessAutoDisposeNotifier<bool> {
   late final Preferences<bool> pref;
 
-  bool build(
-    Preferences<bool> pref,
-  );
+  bool build(Preferences<bool> pref);
 }
 
 ///
@@ -243,21 +228,15 @@ class BoolPreferenceFamily extends Family<bool> {
   ///
   ///
   /// Copied from [BoolPreference].
-  BoolPreferenceProvider call(
-    Preferences<bool> pref,
-  ) {
-    return BoolPreferenceProvider(
-      pref,
-    );
+  BoolPreferenceProvider call(Preferences<bool> pref) {
+    return BoolPreferenceProvider(pref);
   }
 
   @override
   BoolPreferenceProvider getProviderOverride(
     covariant BoolPreferenceProvider provider,
   ) {
-    return call(
-      provider.pref,
-    );
+    return call(provider.pref);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -289,21 +268,20 @@ class BoolPreferenceProvider
   ///
   ///
   /// Copied from [BoolPreference].
-  BoolPreferenceProvider(
-    Preferences<bool> pref,
-  ) : this._internal(
-          () => BoolPreference()..pref = pref,
-          from: boolPreferenceProvider,
-          name: r'boolPreferenceProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$boolPreferenceHash,
-          dependencies: BoolPreferenceFamily._dependencies,
-          allTransitiveDependencies:
-              BoolPreferenceFamily._allTransitiveDependencies,
-          pref: pref,
-        );
+  BoolPreferenceProvider(Preferences<bool> pref)
+    : this._internal(
+        () => BoolPreference()..pref = pref,
+        from: boolPreferenceProvider,
+        name: r'boolPreferenceProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$boolPreferenceHash,
+        dependencies: BoolPreferenceFamily._dependencies,
+        allTransitiveDependencies:
+            BoolPreferenceFamily._allTransitiveDependencies,
+        pref: pref,
+      );
 
   BoolPreferenceProvider._internal(
     super._createNotifier, {
@@ -318,12 +296,8 @@ class BoolPreferenceProvider
   final Preferences<bool> pref;
 
   @override
-  bool runNotifierBuild(
-    covariant BoolPreference notifier,
-  ) {
-    return notifier.build(
-      pref,
-    );
+  bool runNotifierBuild(covariant BoolPreference notifier) {
+    return notifier.build(pref);
   }
 
   @override
@@ -382,9 +356,7 @@ String _$intPreferenceHash() => r'ff1eb7bca50d959f32b13d584a657b5facf24585';
 abstract class _$IntPreference extends BuildlessAutoDisposeNotifier<int> {
   late final Preferences<int> pref;
 
-  int build(
-    Preferences<int> pref,
-  );
+  int build(Preferences<int> pref);
 }
 
 ///
@@ -417,21 +389,15 @@ class IntPreferenceFamily extends Family<int> {
   ///
   ///
   /// Copied from [IntPreference].
-  IntPreferenceProvider call(
-    Preferences<int> pref,
-  ) {
-    return IntPreferenceProvider(
-      pref,
-    );
+  IntPreferenceProvider call(Preferences<int> pref) {
+    return IntPreferenceProvider(pref);
   }
 
   @override
   IntPreferenceProvider getProviderOverride(
     covariant IntPreferenceProvider provider,
   ) {
-    return call(
-      provider.pref,
-    );
+    return call(provider.pref);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -463,21 +429,20 @@ class IntPreferenceProvider
   ///
   ///
   /// Copied from [IntPreference].
-  IntPreferenceProvider(
-    Preferences<int> pref,
-  ) : this._internal(
-          () => IntPreference()..pref = pref,
-          from: intPreferenceProvider,
-          name: r'intPreferenceProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$intPreferenceHash,
-          dependencies: IntPreferenceFamily._dependencies,
-          allTransitiveDependencies:
-              IntPreferenceFamily._allTransitiveDependencies,
-          pref: pref,
-        );
+  IntPreferenceProvider(Preferences<int> pref)
+    : this._internal(
+        () => IntPreference()..pref = pref,
+        from: intPreferenceProvider,
+        name: r'intPreferenceProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$intPreferenceHash,
+        dependencies: IntPreferenceFamily._dependencies,
+        allTransitiveDependencies:
+            IntPreferenceFamily._allTransitiveDependencies,
+        pref: pref,
+      );
 
   IntPreferenceProvider._internal(
     super._createNotifier, {
@@ -492,12 +457,8 @@ class IntPreferenceProvider
   final Preferences<int> pref;
 
   @override
-  int runNotifierBuild(
-    covariant IntPreference notifier,
-  ) {
-    return notifier.build(
-      pref,
-    );
+  int runNotifierBuild(covariant IntPreference notifier) {
+    return notifier.build(pref);
   }
 
   @override
@@ -550,5 +511,6 @@ class _IntPreferenceProviderElement
   @override
   Preferences<int> get pref => (origin as IntPreferenceProvider).pref;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

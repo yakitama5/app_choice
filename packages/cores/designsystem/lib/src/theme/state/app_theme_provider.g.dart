@@ -8,7 +8,7 @@ part of 'app_theme_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$appThemeHash() => r'486f64b97635eb4e94d7e2cb03a0ade499042f89';
+String _$appThemeHash() => r'a027b8e826d0c1306853db34344070bccb18b326';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -49,21 +49,13 @@ class AppThemeFamily extends Family<ThemeData> {
   /// アプリ内のテーマを管理
   ///
   /// Copied from [appTheme].
-  AppThemeProvider call({
-    required Brightness brightness,
-  }) {
-    return AppThemeProvider(
-      brightness: brightness,
-    );
+  AppThemeProvider call({required Brightness brightness}) {
+    return AppThemeProvider(brightness: brightness);
   }
 
   @override
-  AppThemeProvider getProviderOverride(
-    covariant AppThemeProvider provider,
-  ) {
-    return call(
-      brightness: provider.brightness,
-    );
+  AppThemeProvider getProviderOverride(covariant AppThemeProvider provider) {
+    return call(brightness: provider.brightness);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -88,23 +80,19 @@ class AppThemeProvider extends AutoDisposeProvider<ThemeData> {
   /// アプリ内のテーマを管理
   ///
   /// Copied from [appTheme].
-  AppThemeProvider({
-    required Brightness brightness,
-  }) : this._internal(
-          (ref) => appTheme(
-            ref as AppThemeRef,
-            brightness: brightness,
-          ),
-          from: appThemeProvider,
-          name: r'appThemeProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$appThemeHash,
-          dependencies: AppThemeFamily._dependencies,
-          allTransitiveDependencies: AppThemeFamily._allTransitiveDependencies,
-          brightness: brightness,
-        );
+  AppThemeProvider({required Brightness brightness})
+    : this._internal(
+        (ref) => appTheme(ref as AppThemeRef, brightness: brightness),
+        from: appThemeProvider,
+        name: r'appThemeProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$appThemeHash,
+        dependencies: AppThemeFamily._dependencies,
+        allTransitiveDependencies: AppThemeFamily._allTransitiveDependencies,
+        brightness: brightness,
+      );
 
   AppThemeProvider._internal(
     super._createNotifier, {
@@ -119,9 +107,7 @@ class AppThemeProvider extends AutoDisposeProvider<ThemeData> {
   final Brightness brightness;
 
   @override
-  Override overrideWith(
-    ThemeData Function(AppThemeRef provider) create,
-  ) {
+  Override overrideWith(ThemeData Function(AppThemeRef provider) create) {
     return ProviderOverride(
       origin: this,
       override: AppThemeProvider._internal(
@@ -169,5 +155,6 @@ class _AppThemeProviderElement extends AutoDisposeProviderElement<ThemeData>
   @override
   Brightness get brightness => (origin as AppThemeProvider).brightness;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

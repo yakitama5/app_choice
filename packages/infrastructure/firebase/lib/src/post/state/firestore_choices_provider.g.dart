@@ -51,21 +51,15 @@ class ChoicesCollectionRefFamily
   /// コレクションの参照
   ///
   /// Copied from [choicesCollectionRef].
-  ChoicesCollectionRefProvider call({
-    required String postId,
-  }) {
-    return ChoicesCollectionRefProvider(
-      postId: postId,
-    );
+  ChoicesCollectionRefProvider call({required String postId}) {
+    return ChoicesCollectionRefProvider(postId: postId);
   }
 
   @override
   ChoicesCollectionRefProvider getProviderOverride(
     covariant ChoicesCollectionRefProvider provider,
   ) {
-    return call(
-      postId: provider.postId,
-    );
+    return call(postId: provider.postId);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -91,24 +85,23 @@ class ChoicesCollectionRefProvider
   /// コレクションの参照
   ///
   /// Copied from [choicesCollectionRef].
-  ChoicesCollectionRefProvider({
-    required String postId,
-  }) : this._internal(
-          (ref) => choicesCollectionRef(
-            ref as ChoicesCollectionRefRef,
-            postId: postId,
-          ),
-          from: choicesCollectionRefProvider,
-          name: r'choicesCollectionRefProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$choicesCollectionRefHash,
-          dependencies: ChoicesCollectionRefFamily._dependencies,
-          allTransitiveDependencies:
-              ChoicesCollectionRefFamily._allTransitiveDependencies,
+  ChoicesCollectionRefProvider({required String postId})
+    : this._internal(
+        (ref) => choicesCollectionRef(
+          ref as ChoicesCollectionRefRef,
           postId: postId,
-        );
+        ),
+        from: choicesCollectionRefProvider,
+        name: r'choicesCollectionRefProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$choicesCollectionRefHash,
+        dependencies: ChoicesCollectionRefFamily._dependencies,
+        allTransitiveDependencies:
+            ChoicesCollectionRefFamily._allTransitiveDependencies,
+        postId: postId,
+      );
 
   ChoicesCollectionRefProvider._internal(
     super._createNotifier, {
@@ -125,8 +118,9 @@ class ChoicesCollectionRefProvider
   @override
   Override overrideWith(
     CollectionReference<FirestoreChoicesModel> Function(
-            ChoicesCollectionRefRef provider)
-        create,
+      ChoicesCollectionRefRef provider,
+    )
+    create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -144,7 +138,7 @@ class ChoicesCollectionRefProvider
 
   @override
   AutoDisposeProviderElement<CollectionReference<FirestoreChoicesModel>>
-      createElement() {
+  createElement() {
     return _ChoicesCollectionRefProviderElement(this);
   }
 
@@ -170,8 +164,10 @@ mixin ChoicesCollectionRefRef
   String get postId;
 }
 
-class _ChoicesCollectionRefProviderElement extends AutoDisposeProviderElement<
-    CollectionReference<FirestoreChoicesModel>> with ChoicesCollectionRefRef {
+class _ChoicesCollectionRefProviderElement
+    extends
+        AutoDisposeProviderElement<CollectionReference<FirestoreChoicesModel>>
+    with ChoicesCollectionRefRef {
   _ChoicesCollectionRefProviderElement(super.provider);
 
   @override
@@ -200,24 +196,15 @@ class ChoicesDocumentRefFamily
   /// ドキュメントの参照
   ///
   /// Copied from [choicesDocumentRef].
-  ChoicesDocumentRefProvider call({
-    required String postId,
-    String? choicesId,
-  }) {
-    return ChoicesDocumentRefProvider(
-      postId: postId,
-      choicesId: choicesId,
-    );
+  ChoicesDocumentRefProvider call({required String postId, String? choicesId}) {
+    return ChoicesDocumentRefProvider(postId: postId, choicesId: choicesId);
   }
 
   @override
   ChoicesDocumentRefProvider getProviderOverride(
     covariant ChoicesDocumentRefProvider provider,
   ) {
-    return call(
-      postId: provider.postId,
-      choicesId: provider.choicesId,
-    );
+    return call(postId: provider.postId, choicesId: provider.choicesId);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -243,27 +230,25 @@ class ChoicesDocumentRefProvider
   /// ドキュメントの参照
   ///
   /// Copied from [choicesDocumentRef].
-  ChoicesDocumentRefProvider({
-    required String postId,
-    String? choicesId,
-  }) : this._internal(
-          (ref) => choicesDocumentRef(
-            ref as ChoicesDocumentRefRef,
-            postId: postId,
-            choicesId: choicesId,
-          ),
-          from: choicesDocumentRefProvider,
-          name: r'choicesDocumentRefProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$choicesDocumentRefHash,
-          dependencies: ChoicesDocumentRefFamily._dependencies,
-          allTransitiveDependencies:
-              ChoicesDocumentRefFamily._allTransitiveDependencies,
+  ChoicesDocumentRefProvider({required String postId, String? choicesId})
+    : this._internal(
+        (ref) => choicesDocumentRef(
+          ref as ChoicesDocumentRefRef,
           postId: postId,
           choicesId: choicesId,
-        );
+        ),
+        from: choicesDocumentRefProvider,
+        name: r'choicesDocumentRefProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$choicesDocumentRefHash,
+        dependencies: ChoicesDocumentRefFamily._dependencies,
+        allTransitiveDependencies:
+            ChoicesDocumentRefFamily._allTransitiveDependencies,
+        postId: postId,
+        choicesId: choicesId,
+      );
 
   ChoicesDocumentRefProvider._internal(
     super._createNotifier, {
@@ -282,8 +267,9 @@ class ChoicesDocumentRefProvider
   @override
   Override overrideWith(
     DocumentReference<FirestoreChoicesModel> Function(
-            ChoicesDocumentRefRef provider)
-        create,
+      ChoicesDocumentRefRef provider,
+    )
+    create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -302,7 +288,7 @@ class ChoicesDocumentRefProvider
 
   @override
   AutoDisposeProviderElement<DocumentReference<FirestoreChoicesModel>>
-      createElement() {
+  createElement() {
     return _ChoicesDocumentRefProviderElement(this);
   }
 
@@ -344,5 +330,6 @@ class _ChoicesDocumentRefProviderElement
   @override
   String? get choicesId => (origin as ChoicesDocumentRefProvider).choicesId;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

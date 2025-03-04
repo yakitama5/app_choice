@@ -12,7 +12,8 @@ part of 'svg_replace_colors.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$SvgReplaceColors {
@@ -29,8 +30,9 @@ mixin _$SvgReplaceColors {
 /// @nodoc
 abstract class $SvgReplaceColorsCopyWith<$Res> {
   factory $SvgReplaceColorsCopyWith(
-          SvgReplaceColors value, $Res Function(SvgReplaceColors) then) =
-      _$SvgReplaceColorsCopyWithImpl<$Res, SvgReplaceColors>;
+    SvgReplaceColors value,
+    $Res Function(SvgReplaceColors) then,
+  ) = _$SvgReplaceColorsCopyWithImpl<$Res, SvgReplaceColors>;
   @useResult
   $Res call({Color rawColor, Color color});
 }
@@ -49,29 +51,32 @@ class _$SvgReplaceColorsCopyWithImpl<$Res, $Val extends SvgReplaceColors>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? rawColor = null,
-    Object? color = null,
-  }) {
-    return _then(_value.copyWith(
-      rawColor: null == rawColor
-          ? _value.rawColor
-          : rawColor // ignore: cast_nullable_to_non_nullable
-              as Color,
-      color: null == color
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
-              as Color,
-    ) as $Val);
+  $Res call({Object? rawColor = null, Object? color = null}) {
+    return _then(
+      _value.copyWith(
+            rawColor:
+                null == rawColor
+                    ? _value.rawColor
+                    : rawColor // ignore: cast_nullable_to_non_nullable
+                        as Color,
+            color:
+                null == color
+                    ? _value.color
+                    : color // ignore: cast_nullable_to_non_nullable
+                        as Color,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$SvgReplaceColorsImplCopyWith<$Res>
     implements $SvgReplaceColorsCopyWith<$Res> {
-  factory _$$SvgReplaceColorsImplCopyWith(_$SvgReplaceColorsImpl value,
-          $Res Function(_$SvgReplaceColorsImpl) then) =
-      __$$SvgReplaceColorsImplCopyWithImpl<$Res>;
+  factory _$$SvgReplaceColorsImplCopyWith(
+    _$SvgReplaceColorsImpl value,
+    $Res Function(_$SvgReplaceColorsImpl) then,
+  ) = __$$SvgReplaceColorsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Color rawColor, Color color});
@@ -81,28 +86,30 @@ abstract class _$$SvgReplaceColorsImplCopyWith<$Res>
 class __$$SvgReplaceColorsImplCopyWithImpl<$Res>
     extends _$SvgReplaceColorsCopyWithImpl<$Res, _$SvgReplaceColorsImpl>
     implements _$$SvgReplaceColorsImplCopyWith<$Res> {
-  __$$SvgReplaceColorsImplCopyWithImpl(_$SvgReplaceColorsImpl _value,
-      $Res Function(_$SvgReplaceColorsImpl) _then)
-      : super(_value, _then);
+  __$$SvgReplaceColorsImplCopyWithImpl(
+    _$SvgReplaceColorsImpl _value,
+    $Res Function(_$SvgReplaceColorsImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SvgReplaceColors
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? rawColor = null,
-    Object? color = null,
-  }) {
-    return _then(_$SvgReplaceColorsImpl(
-      rawColor: null == rawColor
-          ? _value.rawColor
-          : rawColor // ignore: cast_nullable_to_non_nullable
-              as Color,
-      color: null == color
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
-              as Color,
-    ));
+  $Res call({Object? rawColor = null, Object? color = null}) {
+    return _then(
+      _$SvgReplaceColorsImpl(
+        rawColor:
+            null == rawColor
+                ? _value.rawColor
+                : rawColor // ignore: cast_nullable_to_non_nullable
+                    as Color,
+        color:
+            null == color
+                ? _value.color
+                : color // ignore: cast_nullable_to_non_nullable
+                    as Color,
+      ),
+    );
   }
 }
 
@@ -141,13 +148,16 @@ class _$SvgReplaceColorsImpl implements _SvgReplaceColors {
   @pragma('vm:prefer-inline')
   _$$SvgReplaceColorsImplCopyWith<_$SvgReplaceColorsImpl> get copyWith =>
       __$$SvgReplaceColorsImplCopyWithImpl<_$SvgReplaceColorsImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _SvgReplaceColors implements SvgReplaceColors {
-  const factory _SvgReplaceColors(
-      {required final Color rawColor,
-      required final Color color}) = _$SvgReplaceColorsImpl;
+  const factory _SvgReplaceColors({
+    required final Color rawColor,
+    required final Color color,
+  }) = _$SvgReplaceColorsImpl;
 
   @override
   Color get rawColor;
