@@ -24,6 +24,8 @@ mixin _$FirestorePostModel {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   HowToDecide get howToDecide => throw _privateConstructorUsedError;
+  int get viewCount => throw _privateConstructorUsedError;
+  int get voteCount => throw _privateConstructorUsedError;
   @timestampKey
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @timestampKey
@@ -50,6 +52,8 @@ abstract class $FirestorePostModelCopyWith<$Res> {
     String id,
     String title,
     HowToDecide howToDecide,
+    int viewCount,
+    int voteCount,
     @timestampKey DateTime? createdAt,
     @timestampKey DateTime? updatedAt,
   });
@@ -73,6 +77,8 @@ class _$FirestorePostModelCopyWithImpl<$Res, $Val extends FirestorePostModel>
     Object? id = null,
     Object? title = null,
     Object? howToDecide = null,
+    Object? viewCount = null,
+    Object? voteCount = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -93,6 +99,16 @@ class _$FirestorePostModelCopyWithImpl<$Res, $Val extends FirestorePostModel>
                     ? _value.howToDecide
                     : howToDecide // ignore: cast_nullable_to_non_nullable
                         as HowToDecide,
+            viewCount:
+                null == viewCount
+                    ? _value.viewCount
+                    : viewCount // ignore: cast_nullable_to_non_nullable
+                        as int,
+            voteCount:
+                null == voteCount
+                    ? _value.voteCount
+                    : voteCount // ignore: cast_nullable_to_non_nullable
+                        as int,
             createdAt:
                 freezed == createdAt
                     ? _value.createdAt
@@ -122,6 +138,8 @@ abstract class _$$FirestorePostModelImplCopyWith<$Res>
     String id,
     String title,
     HowToDecide howToDecide,
+    int viewCount,
+    int voteCount,
     @timestampKey DateTime? createdAt,
     @timestampKey DateTime? updatedAt,
   });
@@ -144,6 +162,8 @@ class __$$FirestorePostModelImplCopyWithImpl<$Res>
     Object? id = null,
     Object? title = null,
     Object? howToDecide = null,
+    Object? viewCount = null,
+    Object? voteCount = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -164,6 +184,16 @@ class __$$FirestorePostModelImplCopyWithImpl<$Res>
                 ? _value.howToDecide
                 : howToDecide // ignore: cast_nullable_to_non_nullable
                     as HowToDecide,
+        viewCount:
+            null == viewCount
+                ? _value.viewCount
+                : viewCount // ignore: cast_nullable_to_non_nullable
+                    as int,
+        voteCount:
+            null == voteCount
+                ? _value.voteCount
+                : voteCount // ignore: cast_nullable_to_non_nullable
+                    as int,
         createdAt:
             freezed == createdAt
                 ? _value.createdAt
@@ -186,6 +216,8 @@ class _$FirestorePostModelImpl implements _FirestorePostModel {
     required this.id,
     required this.title,
     required this.howToDecide,
+    this.viewCount = 0,
+    this.voteCount = 0,
     @timestampKey this.createdAt,
     @timestampKey this.updatedAt,
   });
@@ -200,6 +232,12 @@ class _$FirestorePostModelImpl implements _FirestorePostModel {
   @override
   final HowToDecide howToDecide;
   @override
+  @JsonKey()
+  final int viewCount;
+  @override
+  @JsonKey()
+  final int voteCount;
+  @override
   @timestampKey
   final DateTime? createdAt;
   @override
@@ -208,7 +246,7 @@ class _$FirestorePostModelImpl implements _FirestorePostModel {
 
   @override
   String toString() {
-    return 'FirestorePostModel(id: $id, title: $title, howToDecide: $howToDecide, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'FirestorePostModel(id: $id, title: $title, howToDecide: $howToDecide, viewCount: $viewCount, voteCount: $voteCount, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -220,6 +258,10 @@ class _$FirestorePostModelImpl implements _FirestorePostModel {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.howToDecide, howToDecide) ||
                 other.howToDecide == howToDecide) &&
+            (identical(other.viewCount, viewCount) ||
+                other.viewCount == viewCount) &&
+            (identical(other.voteCount, voteCount) ||
+                other.voteCount == voteCount) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -228,8 +270,16 @@ class _$FirestorePostModelImpl implements _FirestorePostModel {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, title, howToDecide, createdAt, updatedAt);
+  int get hashCode => Object.hash(
+    runtimeType,
+    id,
+    title,
+    howToDecide,
+    viewCount,
+    voteCount,
+    createdAt,
+    updatedAt,
+  );
 
   /// Create a copy of FirestorePostModel
   /// with the given fields replaced by the non-null parameter values.
@@ -253,6 +303,8 @@ abstract class _FirestorePostModel implements FirestorePostModel {
     required final String id,
     required final String title,
     required final HowToDecide howToDecide,
+    final int viewCount,
+    final int voteCount,
     @timestampKey final DateTime? createdAt,
     @timestampKey final DateTime? updatedAt,
   }) = _$FirestorePostModelImpl;
@@ -266,6 +318,10 @@ abstract class _FirestorePostModel implements FirestorePostModel {
   String get title;
   @override
   HowToDecide get howToDecide;
+  @override
+  int get viewCount;
+  @override
+  int get voteCount;
   @override
   @timestampKey
   DateTime? get createdAt;

@@ -20,6 +20,8 @@ mixin _$Post {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   HowToDecide get howToDecide => throw _privateConstructorUsedError;
+  int get viewCount => throw _privateConstructorUsedError;
+  int get voteCount => throw _privateConstructorUsedError;
   List<Choices> get choicesList => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
@@ -39,6 +41,8 @@ abstract class $PostCopyWith<$Res> {
     String id,
     String title,
     HowToDecide howToDecide,
+    int viewCount,
+    int voteCount,
     List<Choices> choicesList,
     DateTime createdAt,
     DateTime updatedAt,
@@ -63,6 +67,8 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? id = null,
     Object? title = null,
     Object? howToDecide = null,
+    Object? viewCount = null,
+    Object? voteCount = null,
     Object? choicesList = null,
     Object? createdAt = null,
     Object? updatedAt = null,
@@ -84,6 +90,16 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
                     ? _value.howToDecide
                     : howToDecide // ignore: cast_nullable_to_non_nullable
                         as HowToDecide,
+            viewCount:
+                null == viewCount
+                    ? _value.viewCount
+                    : viewCount // ignore: cast_nullable_to_non_nullable
+                        as int,
+            voteCount:
+                null == voteCount
+                    ? _value.voteCount
+                    : voteCount // ignore: cast_nullable_to_non_nullable
+                        as int,
             choicesList:
                 null == choicesList
                     ? _value.choicesList
@@ -117,6 +133,8 @@ abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
     String id,
     String title,
     HowToDecide howToDecide,
+    int viewCount,
+    int voteCount,
     List<Choices> choicesList,
     DateTime createdAt,
     DateTime updatedAt,
@@ -138,6 +156,8 @@ class __$$PostImplCopyWithImpl<$Res>
     Object? id = null,
     Object? title = null,
     Object? howToDecide = null,
+    Object? viewCount = null,
+    Object? voteCount = null,
     Object? choicesList = null,
     Object? createdAt = null,
     Object? updatedAt = null,
@@ -159,6 +179,16 @@ class __$$PostImplCopyWithImpl<$Res>
                 ? _value.howToDecide
                 : howToDecide // ignore: cast_nullable_to_non_nullable
                     as HowToDecide,
+        viewCount:
+            null == viewCount
+                ? _value.viewCount
+                : viewCount // ignore: cast_nullable_to_non_nullable
+                    as int,
+        voteCount:
+            null == voteCount
+                ? _value.voteCount
+                : voteCount // ignore: cast_nullable_to_non_nullable
+                    as int,
         choicesList:
             null == choicesList
                 ? _value._choicesList
@@ -186,6 +216,8 @@ class _$PostImpl implements _Post {
     required this.id,
     required this.title,
     required this.howToDecide,
+    required this.viewCount,
+    required this.voteCount,
     required final List<Choices> choicesList,
     required this.createdAt,
     required this.updatedAt,
@@ -197,6 +229,10 @@ class _$PostImpl implements _Post {
   final String title;
   @override
   final HowToDecide howToDecide;
+  @override
+  final int viewCount;
+  @override
+  final int voteCount;
   final List<Choices> _choicesList;
   @override
   List<Choices> get choicesList {
@@ -212,7 +248,7 @@ class _$PostImpl implements _Post {
 
   @override
   String toString() {
-    return 'Post(id: $id, title: $title, howToDecide: $howToDecide, choicesList: $choicesList, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Post(id: $id, title: $title, howToDecide: $howToDecide, viewCount: $viewCount, voteCount: $voteCount, choicesList: $choicesList, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -224,6 +260,10 @@ class _$PostImpl implements _Post {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.howToDecide, howToDecide) ||
                 other.howToDecide == howToDecide) &&
+            (identical(other.viewCount, viewCount) ||
+                other.viewCount == viewCount) &&
+            (identical(other.voteCount, voteCount) ||
+                other.voteCount == voteCount) &&
             const DeepCollectionEquality().equals(
               other._choicesList,
               _choicesList,
@@ -240,6 +280,8 @@ class _$PostImpl implements _Post {
     id,
     title,
     howToDecide,
+    viewCount,
+    voteCount,
     const DeepCollectionEquality().hash(_choicesList),
     createdAt,
     updatedAt,
@@ -259,6 +301,8 @@ abstract class _Post implements Post {
     required final String id,
     required final String title,
     required final HowToDecide howToDecide,
+    required final int viewCount,
+    required final int voteCount,
     required final List<Choices> choicesList,
     required final DateTime createdAt,
     required final DateTime updatedAt,
@@ -270,6 +314,10 @@ abstract class _Post implements Post {
   String get title;
   @override
   HowToDecide get howToDecide;
+  @override
+  int get viewCount;
+  @override
+  int get voteCount;
   @override
   List<Choices> get choicesList;
   @override

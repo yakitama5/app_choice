@@ -18,17 +18,18 @@ class ErrorListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return indexInPage == 0
         ? ListTile(
-            leading: const Icon(Icons.warning_rounded),
-            title: Text(error),
-            trailing: onRetry != null
-                ? FilledButton.icon(
+          leading: const Icon(Icons.warning_rounded),
+          title: SelectableText(error),
+          trailing:
+              onRetry != null
+                  ? FilledButton.icon(
                     onPressed: isLoading ? null : onRetry,
                     // TODO(yakitama5): 多言語化対応
                     label: const Text('Retry'),
                     icon: const Icon(Icons.refresh_rounded),
                   )
-                : const SizedBox.shrink(),
-          )
+                  : const SizedBox.shrink(),
+        )
         : const SizedBox.shrink();
   }
 }

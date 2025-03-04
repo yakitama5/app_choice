@@ -21,6 +21,14 @@ _$FirestorePostModelImpl _$$FirestorePostModelImplFromJson(
         'how_to_decide',
         (v) => $enumDecode(_$HowToDecideEnumMap, v),
       ),
+      viewCount: $checkedConvert(
+        'view_count',
+        (v) => (v as num?)?.toInt() ?? 0,
+      ),
+      voteCount: $checkedConvert(
+        'vote_count',
+        (v) => (v as num?)?.toInt() ?? 0,
+      ),
       createdAt: $checkedConvert(
         'created_at',
         (v) => dateFromTimestampValue(v),
@@ -34,6 +42,8 @@ _$FirestorePostModelImpl _$$FirestorePostModelImplFromJson(
   },
   fieldKeyMap: const {
     'howToDecide': 'how_to_decide',
+    'viewCount': 'view_count',
+    'voteCount': 'vote_count',
     'createdAt': 'created_at',
     'updatedAt': 'updated_at',
   },
@@ -45,6 +55,8 @@ Map<String, dynamic> _$$FirestorePostModelImplToJson(
   'id': instance.id,
   'title': instance.title,
   'how_to_decide': _$HowToDecideEnumMap[instance.howToDecide]!,
+  'view_count': instance.viewCount,
+  'vote_count': instance.voteCount,
   'created_at': timestampFromDateValue(instance.createdAt),
   'updated_at': timestampFromDateValue(instance.updatedAt),
 };

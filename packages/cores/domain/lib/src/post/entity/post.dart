@@ -11,6 +11,8 @@ class Post with _$Post {
     required String id,
     required String title,
     required HowToDecide howToDecide,
+    required int viewCount,
+    required int voteCount,
     required List<Choices> choicesList,
     required DateTime createdAt,
     required DateTime updatedAt,

@@ -12,6 +12,8 @@ class FirestorePostModel with _$FirestorePostModel {
     required String id,
     required String title,
     required HowToDecide howToDecide,
+    @Default(0) int viewCount,
+    @Default(0) int voteCount,
     @timestampKey DateTime? createdAt,
     @timestampKey DateTime? updatedAt,
   }) = _FirestorePostModel;
@@ -26,6 +28,8 @@ extension FirestorePostModelX on FirestorePostModel {
     id: id,
     title: title,
     howToDecide: howToDecide,
+    viewCount: viewCount,
+    voteCount: voteCount,
     choicesList: choicesList,
     createdAt: createdAt!,
     updatedAt: updatedAt!,

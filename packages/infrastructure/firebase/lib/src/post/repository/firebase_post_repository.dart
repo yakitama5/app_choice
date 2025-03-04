@@ -13,6 +13,7 @@ class FirebasePostRepository implements PostRepository {
 
   final Ref ref;
 
+  /// ユーザーの一意投稿を取得する
   Future<Post> findMyPost({
     required String userId,
     required String postId,
@@ -48,15 +49,11 @@ class FirebasePostRepository implements PostRepository {
     );
 
     // TODO(yakitama5): 検索条件やOrderByはここで指定
-    final postsQuery = collectionRef.orderBy('createdAt');
+    final postsQuery = collectionRef.orderBy('id');
 
     final pageFrom = (page - 1) * pageSize;
     final postsSnapshot =
-        await postsQuery
-            .startAt([pageFrom])
-            .limit(postPageSize)
-            .snapshots()
-            .first;
+        await postsQuery.startAt([pageFrom]).limit(postPageSize).get();
     final postIds = postsSnapshot.docs.map((d) => d.data().id);
     final choicesSnapshots = postIds.map((postId) async {
       final choicesSnapshot =
@@ -64,8 +61,7 @@ class FirebasePostRepository implements PostRepository {
               .watch(
                 myChoicesCollectionRefProvider(userId: userId, postId: postId),
               )
-              .snapshots()
-              .first;
+              .get();
 
       // 後から集約させるため、投稿IDも各Entityと合わせて保持しておく
       return choicesSnapshot.docs.map(
