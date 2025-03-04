@@ -23,6 +23,7 @@ FirestorePostModel _$FirestorePostModelFromJson(Map<String, dynamic> json) {
 mixin _$FirestorePostModel {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
+  HowToDecide get howToDecide => throw _privateConstructorUsedError;
   @timestampKey
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @timestampKey
@@ -48,6 +49,7 @@ abstract class $FirestorePostModelCopyWith<$Res> {
   $Res call({
     String id,
     String title,
+    HowToDecide howToDecide,
     @timestampKey DateTime? createdAt,
     @timestampKey DateTime? updatedAt,
   });
@@ -70,6 +72,7 @@ class _$FirestorePostModelCopyWithImpl<$Res, $Val extends FirestorePostModel>
   $Res call({
     Object? id = null,
     Object? title = null,
+    Object? howToDecide = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -85,6 +88,11 @@ class _$FirestorePostModelCopyWithImpl<$Res, $Val extends FirestorePostModel>
                     ? _value.title
                     : title // ignore: cast_nullable_to_non_nullable
                         as String,
+            howToDecide:
+                null == howToDecide
+                    ? _value.howToDecide
+                    : howToDecide // ignore: cast_nullable_to_non_nullable
+                        as HowToDecide,
             createdAt:
                 freezed == createdAt
                     ? _value.createdAt
@@ -113,6 +121,7 @@ abstract class _$$FirestorePostModelImplCopyWith<$Res>
   $Res call({
     String id,
     String title,
+    HowToDecide howToDecide,
     @timestampKey DateTime? createdAt,
     @timestampKey DateTime? updatedAt,
   });
@@ -134,6 +143,7 @@ class __$$FirestorePostModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? title = null,
+    Object? howToDecide = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -149,6 +159,11 @@ class __$$FirestorePostModelImplCopyWithImpl<$Res>
                 ? _value.title
                 : title // ignore: cast_nullable_to_non_nullable
                     as String,
+        howToDecide:
+            null == howToDecide
+                ? _value.howToDecide
+                : howToDecide // ignore: cast_nullable_to_non_nullable
+                    as HowToDecide,
         createdAt:
             freezed == createdAt
                 ? _value.createdAt
@@ -170,6 +185,7 @@ class _$FirestorePostModelImpl implements _FirestorePostModel {
   const _$FirestorePostModelImpl({
     required this.id,
     required this.title,
+    required this.howToDecide,
     @timestampKey this.createdAt,
     @timestampKey this.updatedAt,
   });
@@ -182,6 +198,8 @@ class _$FirestorePostModelImpl implements _FirestorePostModel {
   @override
   final String title;
   @override
+  final HowToDecide howToDecide;
+  @override
   @timestampKey
   final DateTime? createdAt;
   @override
@@ -190,7 +208,7 @@ class _$FirestorePostModelImpl implements _FirestorePostModel {
 
   @override
   String toString() {
-    return 'FirestorePostModel(id: $id, title: $title, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'FirestorePostModel(id: $id, title: $title, howToDecide: $howToDecide, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -200,6 +218,8 @@ class _$FirestorePostModelImpl implements _FirestorePostModel {
             other is _$FirestorePostModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
+            (identical(other.howToDecide, howToDecide) ||
+                other.howToDecide == howToDecide) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -208,7 +228,8 @@ class _$FirestorePostModelImpl implements _FirestorePostModel {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, createdAt, updatedAt);
+  int get hashCode =>
+      Object.hash(runtimeType, id, title, howToDecide, createdAt, updatedAt);
 
   /// Create a copy of FirestorePostModel
   /// with the given fields replaced by the non-null parameter values.
@@ -231,6 +252,7 @@ abstract class _FirestorePostModel implements FirestorePostModel {
   const factory _FirestorePostModel({
     required final String id,
     required final String title,
+    required final HowToDecide howToDecide,
     @timestampKey final DateTime? createdAt,
     @timestampKey final DateTime? updatedAt,
   }) = _$FirestorePostModelImpl;
@@ -242,6 +264,8 @@ abstract class _FirestorePostModel implements FirestorePostModel {
   String get id;
   @override
   String get title;
+  @override
+  HowToDecide get howToDecide;
   @override
   @timestampKey
   DateTime? get createdAt;

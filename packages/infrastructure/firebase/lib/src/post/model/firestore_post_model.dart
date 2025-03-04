@@ -11,6 +11,7 @@ class FirestorePostModel with _$FirestorePostModel {
   const factory FirestorePostModel({
     required String id,
     required String title,
+    required HowToDecide howToDecide,
     @timestampKey DateTime? createdAt,
     @timestampKey DateTime? updatedAt,
   }) = _FirestorePostModel;
@@ -24,6 +25,7 @@ extension FirestorePostModelX on FirestorePostModel {
   Post toDomainModel({required List<Choices> choicesList}) => Post(
     id: id,
     title: title,
+    howToDecide: howToDecide,
     choicesList: choicesList,
     createdAt: createdAt!,
     updatedAt: updatedAt!,

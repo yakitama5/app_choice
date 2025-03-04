@@ -1,4 +1,6 @@
+import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:cores_designsystem/widgets.dart';
+import 'package:cores_domain/post.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/i18n/strings.g.dart';
 import 'package:flutter_app/src/post/components/choices_add_bottom_sheet.dart';
@@ -11,7 +13,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mono_kit/widgets/widgets.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-class PostEditPage extends HookConsumerWidget {
+class PostEditPage extends HookConsumerWidget with PresentationMixin {
   const PostEditPage({super.key});
 
   @override
@@ -35,11 +37,7 @@ class PostEditPage extends HookConsumerWidget {
                             return FilledButton(
                               // バリデーションNGの場合はボタンを非活性化
                               onPressed:
-                                  disabled
-                                      ? null
-                                      : () {
-                                        // TODO(yakitama5): 登録処理
-                                      },
+                                  disabled ? null : () => _submit(context, ref),
                               child: Text(i18n.app.postEditPage.submit),
                             );
                           },
@@ -62,6 +60,44 @@ class PostEditPage extends HookConsumerWidget {
             ),
       ),
     );
+  }
+
+  Future<void> _submit(BuildContext context, WidgetRef ref) async {
+    final navigator = Navigator.of(context);
+
+    // フォーム値の取得
+    final formModel = ReactivePostFormModelForm.of(context)!;
+
+    // ダイアログを表示して、決定方法を選択する
+    final howToDecide = await showModalActionSheet<HowToDecide>(
+      context: context,
+      title: 'HowToDecide',
+      message: 'Message',
+      actions:
+          HowToDecide.values
+              .map((t) => SheetAction<HowToDecide>(label: t.name, key: t))
+              .toList(),
+    );
+
+    if (howToDecide == null) {
+      // キャンセルされた場合は何もしない
+      return;
+    }
+
+    // 登録処理を実行する
+    await execute(
+      action:
+          () => ref
+              .read(postUsecaseProvider)
+              .createPost(
+                title: formModel.titleControl.value!,
+                howToDecide: howToDecide,
+                choicesList:
+                    formModel.choicesListControl.value!.nonNulls.toList(),
+              ),
+    );
+
+    navigator.pop();
   }
 }
 

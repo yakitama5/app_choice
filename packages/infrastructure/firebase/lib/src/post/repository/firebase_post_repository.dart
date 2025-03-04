@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:cores_domain/core.dart';
 import 'package:cores_domain/post.dart';
+import 'package:infrastructure_firebase/src/common/state/firestore_provider.dart';
 import 'package:infrastructure_firebase/src/post/model/firestore_choices_model.dart';
 import 'package:infrastructure_firebase/src/post/model/firestore_post_model.dart';
 import 'package:infrastructure_firebase/src/post/state/firestore_my_choices_provider.dart';
@@ -11,6 +12,30 @@ class FirebasePostRepository implements PostRepository {
   const FirebasePostRepository(this.ref);
 
   final Ref ref;
+
+  Future<Post> findMyPost({
+    required String userId,
+    required String postId,
+  }) async {
+    final postSnapshot =
+        await ref
+            .watch(myPostDocumentRefProvider(userId: userId, postId: postId))
+            .get();
+    final post = postSnapshot.data();
+    if (post == null) {
+      throw Exception('post not found');
+    }
+    final choicesSnapshot =
+        await ref
+            .watch(
+              myChoicesCollectionRefProvider(userId: userId, postId: postId),
+            )
+            .get();
+    final choicesList =
+        choicesSnapshot.docs.map((d) => d.data().toDomainModel()).toList();
+
+    return post.toDomainModel(choicesList: choicesList);
+  }
 
   @override
   Future<PageInfo<Post>> selectMyPosts({
@@ -83,5 +108,49 @@ class FirebasePostRepository implements PostRepository {
   }) {
     // TODO: implement selectTrendPosts
     throw UnimplementedError();
+  }
+
+  @override
+  Future<Post> createPost({
+    required String userId,
+    required String title,
+    required HowToDecide howToDecide,
+    required List<String> choicesList,
+  }) async {
+    // 投稿のドキュメントコレクション取得
+    final postDocRef =
+        ref.watch(myPostCollectionRefProvider(userId: userId)).doc();
+
+    // トランザクション管理
+    await ref.watch(firestoreProvider).runTransaction((transaction) async {
+      final postParam = FirestorePostModel(
+        id: postDocRef.id,
+        title: title,
+        howToDecide: howToDecide,
+      );
+      transaction.set(postDocRef, postParam);
+
+      // 選択肢の登録
+      choicesList.forEachIndexed((index, choices) {
+        final choicesDocRef =
+            ref
+                .watch(
+                  myChoicesCollectionRefProvider(
+                    userId: userId,
+                    postId: postDocRef.id,
+                  ),
+                )
+                .doc();
+        final choicesParam = FirestoreChoicesModel(
+          id: choicesDocRef.id,
+          title: choices,
+          sortOrder: index,
+        );
+        transaction.set(choicesDocRef, choicesParam);
+      });
+    });
+
+    // 作成した投稿を取得する
+    return findMyPost(userId: userId, postId: postDocRef.id);
   }
 }

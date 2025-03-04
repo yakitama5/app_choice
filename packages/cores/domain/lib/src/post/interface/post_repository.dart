@@ -1,6 +1,5 @@
 import 'package:cores_domain/core.dart';
-import 'package:cores_domain/src/post/constants/post_constants.dart';
-import 'package:cores_domain/src/post/entity/post.dart';
+import 'package:cores_domain/post.dart';
 import 'package:riverpod/riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -30,5 +29,13 @@ abstract class PostRepository {
   Future<PageInfo<Post>> selectNewestPosts({
     int page = 1,
     int pageSize = postPageSize,
+  });
+
+  /// 投稿を作成する
+  Future<Post> createPost({
+    required String userId,
+    required String title,
+    required HowToDecide howToDecide,
+    required List<String> choicesList,
   });
 }

@@ -11,8 +11,8 @@ class FirestoreChoicesModel with _$FirestoreChoicesModel {
   const factory FirestoreChoicesModel({
     required String id,
     required String title,
-    required int voteCount,
-    required bool selected,
+    @Default(0) int voteCount,
+    @Default(false) bool selected,
     required int sortOrder,
     @timestampKey DateTime? createdAt,
     @timestampKey DateTime? updatedAt,

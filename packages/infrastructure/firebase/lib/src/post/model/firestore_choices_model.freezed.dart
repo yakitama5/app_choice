@@ -221,8 +221,8 @@ class _$FirestoreChoicesModelImpl implements _FirestoreChoicesModel {
   const _$FirestoreChoicesModelImpl({
     required this.id,
     required this.title,
-    required this.voteCount,
-    required this.selected,
+    this.voteCount = 0,
+    this.selected = false,
     required this.sortOrder,
     @timestampKey this.createdAt,
     @timestampKey this.updatedAt,
@@ -236,8 +236,10 @@ class _$FirestoreChoicesModelImpl implements _FirestoreChoicesModel {
   @override
   final String title;
   @override
+  @JsonKey()
   final int voteCount;
   @override
+  @JsonKey()
   final bool selected;
   @override
   final int sortOrder;
@@ -307,8 +309,8 @@ abstract class _FirestoreChoicesModel implements FirestoreChoicesModel {
   const factory _FirestoreChoicesModel({
     required final String id,
     required final String title,
-    required final int voteCount,
-    required final bool selected,
+    final int voteCount,
+    final bool selected,
     required final int sortOrder,
     @timestampKey final DateTime? createdAt,
     @timestampKey final DateTime? updatedAt,

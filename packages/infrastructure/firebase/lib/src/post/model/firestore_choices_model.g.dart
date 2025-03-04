@@ -17,8 +17,11 @@ _$FirestoreChoicesModelImpl _$$FirestoreChoicesModelImplFromJson(
     final val = _$FirestoreChoicesModelImpl(
       id: $checkedConvert('id', (v) => v as String),
       title: $checkedConvert('title', (v) => v as String),
-      voteCount: $checkedConvert('vote_count', (v) => (v as num).toInt()),
-      selected: $checkedConvert('selected', (v) => v as bool),
+      voteCount: $checkedConvert(
+        'vote_count',
+        (v) => (v as num?)?.toInt() ?? 0,
+      ),
+      selected: $checkedConvert('selected', (v) => v as bool? ?? false),
       sortOrder: $checkedConvert('sort_order', (v) => (v as num).toInt()),
       createdAt: $checkedConvert(
         'created_at',
