@@ -1,8 +1,8 @@
 import 'package:cores_designsystem/widgets.dart';
 import 'package:cores_domain/post.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/src/home/components/post_card.dart';
-import 'package:flutter_app/src/home/components/shimmer_card.dart';
+import 'package:flutter_app/src/post/components/post_card.dart';
+import 'package:flutter_app/src/post/components/shimmer_card.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class MyPostTabView extends ConsumerWidget {

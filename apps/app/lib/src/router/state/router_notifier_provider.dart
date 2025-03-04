@@ -37,7 +37,7 @@ class RouterNotifier extends _$RouterNotifier implements Listenable {
     if (authUser == null && (isSplash || !isNotAuthLocations)) {
       return const OnboardRoute().location;
     } else if (authUser != null && (isSplash || isNotAuthLocations)) {
-      return const HomePageRoute().location;
+      return const PostsPageRoute().location;
     }
 
     // メンテナンスモード
@@ -50,7 +50,7 @@ class RouterNotifier extends _$RouterNotifier implements Listenable {
       case null:
         // メンテナンスページにいる場合は元に戻してやる
         if (location == MaintenancePageRoute.path) {
-          return HomePageRoute.path;
+          return PostsPageRoute.path;
         }
     }
 

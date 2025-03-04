@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HomeBottomAppBar extends StatelessWidget {
-  const HomeBottomAppBar({
+class AppBottomAppBar extends StatelessWidget {
+  const AppBottomAppBar({
     super.key,
     required this.onSettingsPressed,
     required this.onSearchPressed,

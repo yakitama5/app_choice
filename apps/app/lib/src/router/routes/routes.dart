@@ -2,9 +2,9 @@ import 'package:cores_designsystem/common_assets.dart';
 import 'package:cores_designsystem/keys.dart';
 import 'package:cores_designsystem/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/src/home/pages/home_page.dart';
 import 'package:flutter_app/src/onboard/pages/onboard_page.dart';
 import 'package:flutter_app/src/post/pages/post_edit_page.dart';
+import 'package:flutter_app/src/post/pages/posts_page.dart';
 import 'package:flutter_app/src/settings/pages/settings_account_page.dart';
 import 'package:flutter_app/src/settings/pages/settings_page.dart';
 import 'package:flutter_app/src/settings/pages/settings_theme_color_page.dart';
@@ -19,8 +19,8 @@ part 'routes.g.dart';
     TypedGoRoute<RootRoute>(path: RootRoute.path),
     TypedGoRoute<OnboardRoute>(path: OnboardRoute.path),
     TypedGoRoute<MaintenancePageRoute>(path: MaintenancePageRoute.path),
-    TypedGoRoute<HomePageRoute>(
-      path: HomePageRoute.path,
+    TypedGoRoute<PostsPageRoute>(
+      path: PostsPageRoute.path,
       routes: [
         TypedGoRoute<PostCreatePageRoute>(path: PostCreatePageRoute.path),
         TypedGoRoute<SettingPageRoute>(
@@ -75,13 +75,13 @@ class OnboardRoute extends GoRouteData {
       const OnboardPage();
 }
 
-class HomePageRoute extends GoRouteData {
-  const HomePageRoute();
+class PostsPageRoute extends GoRouteData {
+  const PostsPageRoute();
 
-  static const path = '/home';
+  static const path = '/posts';
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => const HomePage();
+  Widget build(BuildContext context, GoRouterState state) => const PostsPage();
 }
 
 class PostCreatePageRoute extends GoRouteData {

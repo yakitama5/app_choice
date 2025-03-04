@@ -26,9 +26,9 @@ RouteBase get $baseShellSroute => ShellRouteData.$route(
       factory: $MaintenancePageRouteExtension._fromState,
     ),
     GoRouteData.$route(
-      path: '/home',
+      path: '/posts',
 
-      factory: $HomePageRouteExtension._fromState,
+      factory: $PostsPageRouteExtension._fromState,
       routes: [
         GoRouteData.$route(
           path: 'create',
@@ -122,10 +122,11 @@ extension $MaintenancePageRouteExtension on MaintenancePageRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $HomePageRouteExtension on HomePageRoute {
-  static HomePageRoute _fromState(GoRouterState state) => const HomePageRoute();
+extension $PostsPageRouteExtension on PostsPageRoute {
+  static PostsPageRoute _fromState(GoRouterState state) =>
+      const PostsPageRoute();
 
-  String get location => GoRouteData.$location('/home');
+  String get location => GoRouteData.$location('/posts');
 
   void go(BuildContext context) => context.go(location);
 
@@ -141,7 +142,7 @@ extension $PostCreatePageRouteExtension on PostCreatePageRoute {
   static PostCreatePageRoute _fromState(GoRouterState state) =>
       const PostCreatePageRoute();
 
-  String get location => GoRouteData.$location('/home/create');
+  String get location => GoRouteData.$location('/posts/create');
 
   void go(BuildContext context) => context.go(location);
 
@@ -157,7 +158,7 @@ extension $SettingPageRouteExtension on SettingPageRoute {
   static SettingPageRoute _fromState(GoRouterState state) =>
       const SettingPageRoute();
 
-  String get location => GoRouteData.$location('/home/setting');
+  String get location => GoRouteData.$location('/posts/setting');
 
   void go(BuildContext context) => context.go(location);
 
@@ -173,7 +174,7 @@ extension $SettingsAccountPageRouteExtension on SettingsAccountPageRoute {
   static SettingsAccountPageRoute _fromState(GoRouterState state) =>
       const SettingsAccountPageRoute();
 
-  String get location => GoRouteData.$location('/home/setting/account');
+  String get location => GoRouteData.$location('/posts/setting/account');
 
   void go(BuildContext context) => context.go(location);
 
@@ -189,7 +190,7 @@ extension $SettingsUiStylePageRouteExtension on SettingsUiStylePageRoute {
   static SettingsUiStylePageRoute _fromState(GoRouterState state) =>
       const SettingsUiStylePageRoute();
 
-  String get location => GoRouteData.$location('/home/setting/ui_style');
+  String get location => GoRouteData.$location('/posts/setting/ui_style');
 
   void go(BuildContext context) => context.go(location);
 
@@ -205,7 +206,7 @@ extension $SettingsThemeColorPageRouteExtension on SettingsThemeColorPageRoute {
   static SettingsThemeColorPageRoute _fromState(GoRouterState state) =>
       const SettingsThemeColorPageRoute();
 
-  String get location => GoRouteData.$location('/home/setting/color_style');
+  String get location => GoRouteData.$location('/posts/setting/color_style');
 
   void go(BuildContext context) => context.go(location);
 
@@ -221,7 +222,7 @@ extension $SettingsThemeModePageRouteExtension on SettingsThemeModePageRoute {
   static SettingsThemeModePageRoute _fromState(GoRouterState state) =>
       const SettingsThemeModePageRoute();
 
-  String get location => GoRouteData.$location('/home/setting/theme_mode');
+  String get location => GoRouteData.$location('/posts/setting/theme_mode');
 
   void go(BuildContext context) => context.go(location);
 
@@ -237,7 +238,7 @@ extension $LicensePageRouteExtension on LicensePageRoute {
   static LicensePageRoute _fromState(GoRouterState state) =>
       const LicensePageRoute();
 
-  String get location => GoRouteData.$location('/home/setting/license');
+  String get location => GoRouteData.$location('/posts/setting/license');
 
   void go(BuildContext context) => context.go(location);
 
