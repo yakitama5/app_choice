@@ -36,6 +36,18 @@ class _Header extends StatelessWidget {
   }
 }
 
+class _HeaderStatus extends StatelessWidget {
+  const _HeaderStatus({required this.post});
+
+  final Post post;
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO(yakitama5): 回答状況を取得できるEntityにする
+    return const Row(children: [Icon(Icons.check_circle_outline), Text('回答済')]);
+  }
+}
+
 class _Body extends StatelessWidget {
   const _Body({required this.post});
 

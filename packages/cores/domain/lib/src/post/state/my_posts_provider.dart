@@ -20,5 +20,5 @@ Future<PageInfo<Post>> myPosts(Ref ref, {required int page}) async {
   ref.cacheFor(const Duration(seconds: 30));
 
   final repository = ref.watch(postRepositoryProvider);
-  return repository.selectMyPosts(userId: userId, page: page);
+  return repository.searchMyPosts(userId: userId, page: page);
 }

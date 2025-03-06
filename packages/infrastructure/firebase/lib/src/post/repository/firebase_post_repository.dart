@@ -13,7 +13,7 @@ class FirebasePostRepository implements PostRepository {
 
   final Ref ref;
 
-  /// ユーザーの一意投稿を取得する
+  @override
   Future<Post> findMyPost({
     required String userId,
     required String postId,
@@ -26,20 +26,14 @@ class FirebasePostRepository implements PostRepository {
     if (post == null) {
       throw Exception('post not found');
     }
-    final choicesSnapshot =
-        await ref
-            .watch(
-              myChoicesCollectionRefProvider(userId: userId, postId: postId),
-            )
-            .get();
-    final choicesList =
-        choicesSnapshot.docs.map((d) => d.data().toDomainModel()).toList();
+
+    final choicesList = await _searchMyChoices(userId: userId, postId: postId);
 
     return post.toDomainModel(choicesList: choicesList);
   }
 
   @override
-  Future<PageInfo<Post>> selectMyPosts({
+  Future<PageInfo<Post>> searchMyPosts({
     int page = 1,
     int pageSize = postPageSize,
     required String userId,
@@ -55,6 +49,8 @@ class FirebasePostRepository implements PostRepository {
     final postsSnapshot =
         await postsQuery.startAt([pageFrom]).limit(postPageSize).get();
     final postIds = postsSnapshot.docs.map((d) => d.data().id);
+
+    // TODO(yakitama5): ここで選択肢と投票一覧も取得する
     final choicesSnapshots = postIds.map((postId) async {
       final choicesSnapshot =
           await ref
@@ -89,7 +85,7 @@ class FirebasePostRepository implements PostRepository {
   }
 
   @override
-  Future<PageInfo<Post>> selectNewestPosts({
+  Future<PageInfo<Post>> searchNewestPosts({
     int page = 1,
     int pageSize = postPageSize,
   }) {
@@ -98,7 +94,7 @@ class FirebasePostRepository implements PostRepository {
   }
 
   @override
-  Future<PageInfo<Post>> selectTrendPosts({
+  Future<PageInfo<Post>> searchTrendPosts({
     int page = 1,
     int pageSize = postPageSize,
   }) {
@@ -149,5 +145,19 @@ class FirebasePostRepository implements PostRepository {
 
     // 作成した投稿を取得する
     return findMyPost(userId: userId, postId: postDocRef.id);
+  }
+
+  /// 自身の投稿配下の選択肢を取得する
+  Future<List<Choices>> _searchMyChoices({
+    required String userId,
+    required String postId,
+  }) async {
+    final snapshot =
+        await ref
+            .watch(
+              myChoicesCollectionRefProvider(userId: userId, postId: postId),
+            )
+            .get();
+    return snapshot.docs.map((d) => d.data().toDomainModel()).toList();
   }
 }

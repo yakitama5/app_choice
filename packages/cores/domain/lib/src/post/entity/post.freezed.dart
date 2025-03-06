@@ -23,6 +23,7 @@ mixin _$Post {
   int get viewCount => throw _privateConstructorUsedError;
   int get voteCount => throw _privateConstructorUsedError;
   List<Choices> get choicesList => throw _privateConstructorUsedError;
+  List<Vote>? get voteList => throw _privateConstructorUsedError;
   String get author => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
@@ -45,6 +46,7 @@ abstract class $PostCopyWith<$Res> {
     int viewCount,
     int voteCount,
     List<Choices> choicesList,
+    List<Vote>? voteList,
     String author,
     DateTime createdAt,
     DateTime updatedAt,
@@ -72,6 +74,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? viewCount = null,
     Object? voteCount = null,
     Object? choicesList = null,
+    Object? voteList = freezed,
     Object? author = null,
     Object? createdAt = null,
     Object? updatedAt = null,
@@ -108,6 +111,11 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
                     ? _value.choicesList
                     : choicesList // ignore: cast_nullable_to_non_nullable
                         as List<Choices>,
+            voteList:
+                freezed == voteList
+                    ? _value.voteList
+                    : voteList // ignore: cast_nullable_to_non_nullable
+                        as List<Vote>?,
             author:
                 null == author
                     ? _value.author
@@ -144,6 +152,7 @@ abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
     int viewCount,
     int voteCount,
     List<Choices> choicesList,
+    List<Vote>? voteList,
     String author,
     DateTime createdAt,
     DateTime updatedAt,
@@ -168,6 +177,7 @@ class __$$PostImplCopyWithImpl<$Res>
     Object? viewCount = null,
     Object? voteCount = null,
     Object? choicesList = null,
+    Object? voteList = freezed,
     Object? author = null,
     Object? createdAt = null,
     Object? updatedAt = null,
@@ -204,6 +214,11 @@ class __$$PostImplCopyWithImpl<$Res>
                 ? _value._choicesList
                 : choicesList // ignore: cast_nullable_to_non_nullable
                     as List<Choices>,
+        voteList:
+            freezed == voteList
+                ? _value._voteList
+                : voteList // ignore: cast_nullable_to_non_nullable
+                    as List<Vote>?,
         author:
             null == author
                 ? _value.author
@@ -234,10 +249,12 @@ class _$PostImpl implements _Post {
     required this.viewCount,
     required this.voteCount,
     required final List<Choices> choicesList,
+    final List<Vote>? voteList,
     required this.author,
     required this.createdAt,
     required this.updatedAt,
-  }) : _choicesList = choicesList;
+  }) : _choicesList = choicesList,
+       _voteList = voteList;
 
   @override
   final String id;
@@ -257,6 +274,16 @@ class _$PostImpl implements _Post {
     return EqualUnmodifiableListView(_choicesList);
   }
 
+  final List<Vote>? _voteList;
+  @override
+  List<Vote>? get voteList {
+    final value = _voteList;
+    if (value == null) return null;
+    if (_voteList is EqualUnmodifiableListView) return _voteList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final String author;
   @override
@@ -266,7 +293,7 @@ class _$PostImpl implements _Post {
 
   @override
   String toString() {
-    return 'Post(id: $id, title: $title, howToDecide: $howToDecide, viewCount: $viewCount, voteCount: $voteCount, choicesList: $choicesList, author: $author, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Post(id: $id, title: $title, howToDecide: $howToDecide, viewCount: $viewCount, voteCount: $voteCount, choicesList: $choicesList, voteList: $voteList, author: $author, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -286,6 +313,7 @@ class _$PostImpl implements _Post {
               other._choicesList,
               _choicesList,
             ) &&
+            const DeepCollectionEquality().equals(other._voteList, _voteList) &&
             (identical(other.author, author) || other.author == author) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -302,6 +330,7 @@ class _$PostImpl implements _Post {
     viewCount,
     voteCount,
     const DeepCollectionEquality().hash(_choicesList),
+    const DeepCollectionEquality().hash(_voteList),
     author,
     createdAt,
     updatedAt,
@@ -324,6 +353,7 @@ abstract class _Post implements Post {
     required final int viewCount,
     required final int voteCount,
     required final List<Choices> choicesList,
+    final List<Vote>? voteList,
     required final String author,
     required final DateTime createdAt,
     required final DateTime updatedAt,
@@ -341,6 +371,8 @@ abstract class _Post implements Post {
   int get voteCount;
   @override
   List<Choices> get choicesList;
+  @override
+  List<Vote>? get voteList;
   @override
   String get author;
   @override

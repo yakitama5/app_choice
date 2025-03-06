@@ -28,4 +28,10 @@ extension FirebaseFirestoreX on FirebaseFirestore {
     required String userId,
     required String postId,
   }) => myDpostsRef(userId: userId).doc(postId).collection('_dchoices');
+
+  /// 投票コレクションの参照を取得する
+  CollectionReference votesRef({required String postId}) =>
+      postsRef().doc(postId).collection('votes');
+  CollectionReference dvotesRef({required String postId}) =>
+      dpostsRef().doc(postId).collection('_dvotes');
 }
