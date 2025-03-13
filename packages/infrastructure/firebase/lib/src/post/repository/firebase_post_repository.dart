@@ -4,8 +4,10 @@ import 'package:cores_domain/post.dart';
 import 'package:infrastructure_firebase/src/common/state/firestore_provider.dart';
 import 'package:infrastructure_firebase/src/post/model/firestore_choices_model.dart';
 import 'package:infrastructure_firebase/src/post/model/firestore_post_model.dart';
+import 'package:infrastructure_firebase/src/post/model/firestore_vote_model.dart';
 import 'package:infrastructure_firebase/src/post/state/firestore_my_choices_provider.dart';
 import 'package:infrastructure_firebase/src/post/state/firestore_my_post_provider.dart';
+import 'package:infrastructure_firebase/src/post/state/firestore_vote_provider.dart';
 import 'package:riverpod/riverpod.dart';
 
 class FirebasePostRepository implements PostRepository {
@@ -29,6 +31,7 @@ class FirebasePostRepository implements PostRepository {
 
     final choicesList = await _searchMyChoices(userId: userId, postId: postId);
 
+    // TODO(yakitama5): 投票の一覧も取得すること
     return post.toDomainModel(choicesList: choicesList);
   }
 
@@ -42,39 +45,30 @@ class FirebasePostRepository implements PostRepository {
       myPostCollectionRefProvider(userId: userId),
     );
 
+    // 投票の一覧を取得する
     // TODO(yakitama5): 検索条件やOrderByはここで指定
     final postsQuery = collectionRef.orderBy('id');
 
     final pageFrom = (page - 1) * pageSize;
     final postsSnapshot =
         await postsQuery.startAt([pageFrom]).limit(postPageSize).get();
-    final postIds = postsSnapshot.docs.map((d) => d.data().id);
-
-    // TODO(yakitama5): ここで選択肢と投票一覧も取得する
-    final choicesSnapshots = postIds.map((postId) async {
-      final choicesSnapshot =
-          await ref
-              .watch(
-                myChoicesCollectionRefProvider(userId: userId, postId: postId),
-              )
-              .get();
-
-      // 後から集約させるため、投稿IDも各Entityと合わせて保持しておく
-      return choicesSnapshot.docs.map(
-        (d) => (postId: postId, data: d.data().toDomainModel()),
-      );
-    });
-
-    final choicesDocs = await Future.wait(choicesSnapshots);
-    final choicesMap = choicesDocs
-        .expand((list) => list)
-        .groupListsBy((c) => c.postId);
 
     final posts =
-        postsSnapshot.docs.map((d) {
+        postsSnapshot.docs.map((d) async {
           final postId = d.id;
-          final choicesList = choicesMap[postId]?.map((r) => r.data).toList();
-          return d.data().toDomainModel(choicesList: choicesList ?? []);
+
+          // 投稿に紐づく選択肢一覧を取得する
+          final choicesList = await _searchMyChoices(
+            userId: userId,
+            postId: postId,
+          );
+          // 投稿に紐づく投票一覧を取得する
+          final votesList = await _searchVotes(postId: postId);
+
+          return d.data().toDomainModel(
+            choicesList: choicesList,
+            voteList: votesList,
+          );
         }).toList();
 
     // 以降のデータが存在するかを確認するため、全件数を取得する
@@ -159,5 +153,18 @@ class FirebasePostRepository implements PostRepository {
             )
             .get();
     return snapshot.docs.map((d) => d.data().toDomainModel()).toList();
+  }
+
+  /// 投稿配下の投票を取得する
+  Future<List<Vote>> _searchVotes({required String postId}) async {
+    final snapshot =
+        await ref.watch(voteCollectionRefProvider(postId: postId)).get();
+    return snapshot.docs.map((d) => d.data().toDomainModel()).toList();
+  }
+
+  @override
+  Future<Post> findPost({required String postId}) {
+    // TODO: implement findPost
+    throw UnimplementedError();
   }
 }

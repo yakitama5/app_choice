@@ -25,7 +25,10 @@ class FirestorePostModel with _$FirestorePostModel {
 
 extension FirestorePostModelX on FirestorePostModel {
   /// ドメイン層への変換
-  Post toDomainModel({required List<Choices> choicesList}) => Post(
+  Post toDomainModel({
+    required List<Choices> choicesList,
+    List<Vote>? voteList,
+  }) => Post(
     id: id,
     title: title,
     howToDecide: howToDecide,
@@ -33,6 +36,7 @@ extension FirestorePostModelX on FirestorePostModel {
     voteCount: voteCount,
     choicesList: choicesList,
     author: author,
+    voteList: voteList,
     createdAt: createdAt!,
     updatedAt: updatedAt!,
   );
