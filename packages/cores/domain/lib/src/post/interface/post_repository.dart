@@ -13,10 +13,10 @@ PostRepository postRepository(Ref ref) => throw UnimplementedError();
 /// 投稿Repository
 abstract class PostRepository {
   /// 投稿を取得する
-  Future<Post> findPost({required String postId});
+  Future<Post?> findPost({required String postId});
 
   /// ユーザーの投稿を取得する
-  Future<Post> findMyPost({required String userId, required String postId});
+  Future<Post?> findMyPost({required String userId, required String postId});
 
   /// 自身の投稿一覧を検索する
   Future<PageInfo<Post>> searchMyPosts({
