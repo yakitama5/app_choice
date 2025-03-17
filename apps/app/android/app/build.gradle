@@ -52,9 +52,13 @@ task copySources(type: Copy) {
 
 // `google-services.json`の環境毎の読み替え
 // Firebase Crashlyticsも対応されたら削除すること
-task selectGoogleServicesJson(type: Copy) {
-    from "src/${dartDefines.flavor}/google-services.json"
-    into './'
+task selectGoogleServicesJson {
+    doFirst {
+        copy {
+            from "src/${dartDefines.flavor}/google-services.json"
+            into './'
+        }
+    }
 }
 
 tasks.whenTaskAdded { task ->
