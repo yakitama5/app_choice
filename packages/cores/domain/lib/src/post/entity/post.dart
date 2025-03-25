@@ -19,5 +19,7 @@ class Post with _$Post {
     required String author,
     required DateTime createdAt,
     required DateTime updatedAt,
+
+    @Default(false) bool voted,
   }) = _Post;
 }

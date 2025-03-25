@@ -48,7 +48,7 @@ void main() async {
   );
 }
 
-class _AppTranslationProvider extends SingleChildStatelessWidget {
+final class _AppTranslationProvider extends SingleChildStatelessWidget {
   const _AppTranslationProvider();
 
   @override
@@ -56,7 +56,7 @@ class _AppTranslationProvider extends SingleChildStatelessWidget {
       TranslationProvider(child: child ?? const SizedBox.shrink());
 }
 
-class _DevicePreviewWrapper extends SingleChildStatelessWidget {
+final class _DevicePreviewWrapper extends SingleChildStatelessWidget {
   const _DevicePreviewWrapper();
   @override
   Widget buildWithChild(BuildContext context, Widget? child) {

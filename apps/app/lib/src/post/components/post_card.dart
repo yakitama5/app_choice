@@ -26,11 +26,11 @@ class _Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text('回答済'),
-        Row(children: [Text('21件')]),
+        _HeaderStatus(post: post),
+        const Row(children: [Text('21件')]),
       ],
     );
   }
@@ -43,8 +43,18 @@ class _HeaderStatus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO(yakitama5): 回答状況を取得できるEntityにする
-    return const Row(children: [Icon(Icons.check_circle_outline), Text('回答済')]);
+    // TODO(yakitama5): アイコンを作成してから表示する
+    return switch (post.howToDecide) {
+      HowToDecide.audience =>
+        // 投票者が投票したかどうかで表示を変更する
+        post.voted
+            ? const Icon(Icons.check_circle_outline)
+            : const SizedBox.shrink(),
+      HowToDecide.ai => const Icon(Icons.check_circle_outline),
+      HowToDecide.roulette => const Row(
+        children: [Icon(Icons.check_circle_outline), Text('回答済')],
+      ),
+    };
   }
 }
 

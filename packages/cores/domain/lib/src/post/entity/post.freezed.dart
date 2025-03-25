@@ -27,6 +27,7 @@ mixin _$Post {
   String get author => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
+  bool get voted => throw _privateConstructorUsedError;
 
   /// Create a copy of Post
   /// with the given fields replaced by the non-null parameter values.
@@ -50,6 +51,7 @@ abstract class $PostCopyWith<$Res> {
     String author,
     DateTime createdAt,
     DateTime updatedAt,
+    bool voted,
   });
 }
 
@@ -78,6 +80,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? author = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? voted = null,
   }) {
     return _then(
       _value.copyWith(
@@ -131,6 +134,11 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
                     ? _value.updatedAt
                     : updatedAt // ignore: cast_nullable_to_non_nullable
                         as DateTime,
+            voted:
+                null == voted
+                    ? _value.voted
+                    : voted // ignore: cast_nullable_to_non_nullable
+                        as bool,
           )
           as $Val,
     );
@@ -156,6 +164,7 @@ abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
     String author,
     DateTime createdAt,
     DateTime updatedAt,
+    bool voted,
   });
 }
 
@@ -181,6 +190,7 @@ class __$$PostImplCopyWithImpl<$Res>
     Object? author = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? voted = null,
   }) {
     return _then(
       _$PostImpl(
@@ -234,6 +244,11 @@ class __$$PostImplCopyWithImpl<$Res>
                 ? _value.updatedAt
                 : updatedAt // ignore: cast_nullable_to_non_nullable
                     as DateTime,
+        voted:
+            null == voted
+                ? _value.voted
+                : voted // ignore: cast_nullable_to_non_nullable
+                    as bool,
       ),
     );
   }
@@ -253,6 +268,7 @@ class _$PostImpl implements _Post {
     required this.author,
     required this.createdAt,
     required this.updatedAt,
+    this.voted = false,
   }) : _choicesList = choicesList,
        _voteList = voteList;
 
@@ -290,10 +306,13 @@ class _$PostImpl implements _Post {
   final DateTime createdAt;
   @override
   final DateTime updatedAt;
+  @override
+  @JsonKey()
+  final bool voted;
 
   @override
   String toString() {
-    return 'Post(id: $id, title: $title, howToDecide: $howToDecide, viewCount: $viewCount, voteCount: $voteCount, choicesList: $choicesList, voteList: $voteList, author: $author, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Post(id: $id, title: $title, howToDecide: $howToDecide, viewCount: $viewCount, voteCount: $voteCount, choicesList: $choicesList, voteList: $voteList, author: $author, createdAt: $createdAt, updatedAt: $updatedAt, voted: $voted)';
   }
 
   @override
@@ -318,7 +337,8 @@ class _$PostImpl implements _Post {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            (identical(other.voted, voted) || other.voted == voted));
   }
 
   @override
@@ -334,6 +354,7 @@ class _$PostImpl implements _Post {
     author,
     createdAt,
     updatedAt,
+    voted,
   );
 
   /// Create a copy of Post
@@ -357,6 +378,7 @@ abstract class _Post implements Post {
     required final String author,
     required final DateTime createdAt,
     required final DateTime updatedAt,
+    final bool voted,
   }) = _$PostImpl;
 
   @override
@@ -379,6 +401,8 @@ abstract class _Post implements Post {
   DateTime get createdAt;
   @override
   DateTime get updatedAt;
+  @override
+  bool get voted;
 
   /// Create a copy of Post
   /// with the given fields replaced by the non-null parameter values.

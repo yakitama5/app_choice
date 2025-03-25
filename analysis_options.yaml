@@ -20,3 +20,8 @@ analyzer:
     invalid_annotation_target: ignore
     todo: ignore
     hack: ignore
+
+custom_lint:
+  rules:
+    - open_type_hierarchy: false
+    - unsafe_null_assertion: false
