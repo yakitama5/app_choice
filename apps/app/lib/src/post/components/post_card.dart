@@ -51,8 +51,7 @@ class _HeaderStatus extends StatelessWidget {
             ? const Icon(Icons.check_circle_outline)
             : const SizedBox.shrink(),
       HowToDecide.ai => const Icon(Icons.check_circle_outline),
-      HowToDecide.roulette => const Row(
-        children: [Icon(Icons.check_circle_outline), Text('回答済')],
+      HowToDecide.roulette => const Icon(Icons.check_circle_outline),
       ),
     };
   }
