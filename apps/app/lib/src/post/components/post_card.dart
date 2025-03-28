@@ -52,7 +52,6 @@ class _HeaderStatus extends StatelessWidget {
             : const SizedBox.shrink(),
       HowToDecide.ai => const Icon(Icons.check_circle_outline),
       HowToDecide.roulette => const Icon(Icons.check_circle_outline),
-      ),
     };
   }
 }
