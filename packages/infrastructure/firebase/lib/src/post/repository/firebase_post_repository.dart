@@ -132,11 +132,12 @@ class FirebasePostRepository implements PostRepository {
     // 投稿のドキュメントコレクション取得
     final postDocRef =
         ref.watch(myPostCollectionRefProvider(userId: userId)).doc();
+    final postId = postDocRef.id;
 
     // トランザクション管理
     await ref.watch(firestoreProvider).runTransaction((transaction) async {
       final postParam = FirestorePostModel(
-        id: postDocRef.id,
+        id: postId,
         title: title,
         howToDecide: howToDecide,
         author: userId,
@@ -144,13 +145,13 @@ class FirebasePostRepository implements PostRepository {
       transaction.set(postDocRef, postParam);
 
       // 選択肢の登録
-      choicesList.forEachIndexed((index, choices) {
+      final choicesParamList = choicesList.mapIndexed((index, choices) {
         final choicesDocRef =
             ref
                 .watch(
                   myChoicesCollectionRefProvider(
                     userId: userId,
-                    postId: postDocRef.id,
+                    postId: postId,
                   ),
                 )
                 .doc();
@@ -160,7 +161,25 @@ class FirebasePostRepository implements PostRepository {
           sortOrder: index,
         );
         transaction.set(choicesDocRef, choicesParam);
+
+        return choicesParam;
       });
+
+      // 公開情報の場合、公開コレクションにも登録する
+      if (howToDecide == HowToDecide.audience) {
+        final publicPostDocRef = ref.watch(
+          postDocumentRefProvider(postId: postId),
+        );
+        transaction.set(publicPostDocRef, postParam);
+
+        // 選択肢の登録
+        choicesParamList.forEachIndexed((index, param) {
+          final docRef = ref.watch(
+            choicesDocumentRefProvider(postId: postId, choicesId: param.id),
+          );
+          transaction.set(docRef, param);
+        });
+      }
     });
 
     // 作成した投稿を取得する
