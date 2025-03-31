@@ -1,3 +1,4 @@
+import 'package:cores_designsystem/theme.dart';
 import 'package:cores_designsystem/widgets.dart';
 import 'package:cores_domain/post.dart';
 import 'package:flutter/material.dart';
@@ -50,8 +51,8 @@ class _HeaderStatus extends StatelessWidget {
         post.voted
             ? const Icon(Icons.check_circle_outline)
             : const SizedBox.shrink(),
-      HowToDecide.ai => const Icon(Icons.check_circle_outline),
-      HowToDecide.roulette => const Icon(Icons.check_circle_outline),
+      HowToDecide.ai => const Icon(CustomIcons.robot),
+      HowToDecide.roulete => const Icon(CustomIcons.roulet),
     };
   }
 }
