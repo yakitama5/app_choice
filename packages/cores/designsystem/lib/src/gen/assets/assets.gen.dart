@@ -12,6 +12,17 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart' as _svg;
 import 'package:vector_graphics/vector_graphics.dart' as _vg;
 
+class $AssetsIconsGen {
+  const $AssetsIconsGen();
+
+  /// File path: assets/icons/CustomIcons.ttf
+  String get customIcons =>
+      'packages/cores_designsystem/assets/icons/CustomIcons.ttf';
+
+  /// List of all assets
+  List<String> get values => [customIcons];
+}
+
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
@@ -34,6 +45,7 @@ class Assets {
 
   static const String package = 'cores_designsystem';
 
+  static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 

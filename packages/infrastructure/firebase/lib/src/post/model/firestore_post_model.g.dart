@@ -66,5 +66,5 @@ Map<String, dynamic> _$$FirestorePostModelImplToJson(
 const _$HowToDecideEnumMap = {
   HowToDecide.audience: 'audience',
   HowToDecide.ai: 'ai',
-  HowToDecide.roulette: 'roulette',
+  HowToDecide.roulete: 'roulete',
 };
